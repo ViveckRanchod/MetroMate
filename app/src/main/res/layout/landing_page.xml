@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     android:background="#FFFFFF">
 
-<<<<<<< HEAD
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
@@ -19,8 +18,7 @@
         app:layout_constraintVertical_bias="0.254"
         tools:text="Welcome to MetroMate" />
 
-=======
->>>>>>> 653b5117d32953665ab1db67f7a05c6dc7a9dfa6
+
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"
         android:layout_width="wrap_content"
@@ -39,7 +37,7 @@
         android:id="@+id/button"
         android:layout_width="143dp"
         android:layout_height="49dp"
-        android:backgroundTint="#DDA516"
+        android:backgroundTint="#242433"
         android:text="@string/button_driver"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -52,7 +50,7 @@
         android:id="@+id/button2"
         android:layout_width="146dp"
         android:layout_height="48dp"
-        android:backgroundTint="#DDA516"
+        android:backgroundTint="#242433"
 
         android:text="@string/button_commuter"
         app:layout_constraintBottom_toBottomOf="parent"
