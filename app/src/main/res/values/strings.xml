@@ -11,11 +11,15 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+<<<<<<< HEAD
     <string name="button_commuter">Commuter</string>
     <string name="button_driver">Bus Driver</string>
     <string name="tagNumber">Tag number</string>
     <string name="commuterPassword">Password</string>
     <string name="commuterDOB">Date of Birth</string>
     <string name="commuterEmail">Email address</string>
+=======
+    <string name="date_of_birth_description">Date of Birth</string>
+>>>>>>> 653b5117d32953665ab1db67f7a05c6dc7a9dfa6
 
 </resources>
