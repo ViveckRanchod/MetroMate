@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:background="#FFFFFF">
 
+
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
@@ -16,6 +17,8 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.254"
         tools:text="@string/welcome_text" />
+
+
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"
@@ -35,7 +38,7 @@
         android:id="@+id/button"
         android:layout_width="143dp"
         android:layout_height="49dp"
-        android:backgroundTint="#DDA516"
+        android:backgroundTint="#242433"
         android:text="@string/button_driver"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -48,7 +51,7 @@
         android:id="@+id/button2"
         android:layout_width="146dp"
         android:layout_height="48dp"
-        android:backgroundTint="#DDA516"
+        android:backgroundTint="#242433"
 
         android:text="@string/button_commuter"
         app:layout_constraintBottom_toBottomOf="parent"
