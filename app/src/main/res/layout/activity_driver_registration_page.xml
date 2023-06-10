@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:andriod="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:andriod="http://schemas.android.com/apk/res/android"
 
     tools:context=".Driver">
 
@@ -22,8 +22,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="52dp"
-        android:text="@string/sign_up"
         andriod:background="@color/dark_golden_rod"
+        android:text="@string/sign_up"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -35,11 +35,11 @@
         android:layout_height="53dp"
         android:layout_marginBottom="44dp"
         android:background="@drawable/custom_edit_text_border"
-        andriod:textSize="16sp"
-        andriod:textColor="#6A6A6C"
-        andriod:hint="Enter driver badge ID"
         android:ems="10"
+        andriod:hint="Enter driver badge ID"
         android:inputType="text"
+        andriod:textColor="#6A6A6C"
+        andriod:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/edtEmail"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.49"
@@ -47,16 +47,16 @@
 
     <TextView
         android:id="@+id/tvEmail"
+        style="@style/Headers"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="12dp"
-        android:text="@string/email"
 
+        android:text="@string/email"
         app:layout_constraintBottom_toTopOf="@+id/edtEmail"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.067"
-        app:layout_constraintStart_toStartOf="parent"
-        style="@style/Headers"/>
+        app:layout_constraintHorizontal_bias="0.068"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/edtPassword"
@@ -64,11 +64,11 @@
         android:layout_height="53dp"
         android:layout_marginBottom="56dp"
         android:background="@drawable/custom_edit_text_border"
-        andriod:textSize="16sp"
-        andriod:textColor="#6A6A6C"
         android:ems="10"
+        andriod:hint="Enter a password"
         android:inputType="textPassword"
-        andriod:hint="********"
+        andriod:textColor="#6A6A6C"
+        andriod:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/calendarView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.54"
@@ -76,6 +76,7 @@
 
     <TextView
         android:id="@+id/tvBadgeId"
+        style="@style/Headers"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
@@ -83,27 +84,27 @@
         app:layout_constraintBottom_toTopOf="@+id/edtBadgeId"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.081"
-        app:layout_constraintStart_toStartOf="parent"
-        style="@style/Headers"/>
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/edtLastName"
         android:layout_width="165dp"
         android:layout_height="48dp"
         android:layout_marginBottom="56dp"
+        android:background="@drawable/custom_edit_text_border"
         android:ems="10"
         android:inputType="text"
         android:text="@string/last_name"
+        andriod:textColor="#6A6A6C"
+        andriod:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/edtBadgeId"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.222"
-        app:layout_constraintStart_toEndOf="@+id/edtName"
-        android:background="@drawable/custom_edit_text_border"
-        andriod:textSize="16sp"
-        andriod:textColor="#6A6A6C"/>
+        app:layout_constraintStart_toEndOf="@+id/edtName" />
 
     <TextView
         android:id="@+id/tvName"
+        style="@style/Headers"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="12dp"
@@ -111,8 +112,7 @@
         app:layout_constraintBottom_toTopOf="@+id/edtLastName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.073"
-        app:layout_constraintStart_toStartOf="parent"
-        style="@style/Headers"/>
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/edtName"
@@ -120,18 +120,18 @@
         android:layout_height="48dp"
         android:layout_marginStart="24dp"
         android:layout_marginBottom="56dp"
+        android:background="@drawable/custom_edit_text_border"
         android:ems="10"
         android:inputType="text"
         android:text="@string/first_name"
-        app:layout_constraintBottom_toTopOf="@+id/edtBadgeId"
-        app:layout_constraintStart_toStartOf="parent"
-        android:background="@drawable/custom_edit_text_border"
-        andriod:textSize="16sp"
         andriod:textColor="#6A6A6C"
-        />
+        andriod:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/edtBadgeId"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/tvDateOfBirth"
+        style="@style/Headers"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
@@ -139,8 +139,7 @@
         app:layout_constraintBottom_toTopOf="@+id/calendarView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.076"
-        app:layout_constraintStart_toStartOf="parent"
-        style="@style/Headers"/>
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/edtEmail"
@@ -148,11 +147,11 @@
         android:layout_height="53dp"
         android:layout_marginBottom="48dp"
         android:background="@drawable/custom_edit_text_border"
-        andriod:textSize="16sp"
-        andriod:textColor="#6A6A6C"
-        andriod:hint="Enter email address @"
         android:ems="10"
+        andriod:hint="Enter email address @"
         android:inputType="textEmailAddress"
+        andriod:textColor="#6A6A6C"
+        andriod:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/edtPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -162,9 +161,9 @@
         style="@style/Headers"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="288dp"
-        android:layout_marginBottom="16dp"
-        android:text="@string/password"
+        android:layout_marginEnd="84dp"
+        android:layout_marginBottom="4dp"
+        android:text="Password (minimum of 8 charcaters)"
         app:layout_constraintBottom_toTopOf="@+id/edtPassword"
         app:layout_constraintEnd_toEndOf="parent" />
 
