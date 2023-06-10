@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class driver_registration_page extends AppCompatActivity {
+public class Driver extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
