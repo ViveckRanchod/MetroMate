@@ -11,6 +11,5 @@
         android:bottomLeftRadius="15dp"
         android:topLeftRadius="15dp"
         android:topRightRadius="15dp" />
-    <!-- text style:-->
-    <item andriod:textSize="13sp" andriod:textColor="#6A6A6C"/>
+
 </shape>
