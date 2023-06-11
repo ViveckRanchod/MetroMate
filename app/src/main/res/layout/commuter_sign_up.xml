@@ -31,10 +31,11 @@
         app:layout_constraintVertical_bias="0.104" />
 
     <EditText
-        android:id="@+id/editTextTextEmailAddress"
+        android:id="@+id/commuterEmail"
         android:layout_width="333dp"
         android:layout_height="48dp"
         android:ems="10"
+        android:hint="@string/commuterEmail"
         android:inputType="textEmailAddress"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -50,7 +51,7 @@
         android:layout_marginBottom="6dp"
         android:text="Email"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextEmailAddress"
+        app:layout_constraintBottom_toTopOf="@+id/commuterEmail"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.106"
         app:layout_constraintStart_toStartOf="parent"
@@ -104,8 +105,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="456dp"
+        android:layout_marginBottom="7dp"
         android:text="Date of Birth"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:layout_constraintBottom_toTopOf="@+id/editTextDate"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.125"
         app:layout_constraintStart_toStartOf="parent"
@@ -130,6 +133,7 @@
         android:layout_width="333dp"
         android:layout_height="48dp"
         android:ems="10"
+        android:hint="@string/commuterEmail"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -157,6 +161,7 @@
         android:layout_width="333dp"
         android:layout_height="48dp"
         android:ems="10"
+        android:hint="***********"
         android:inputType="textPassword"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -176,15 +181,19 @@
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.976" />
+        app:layout_constraintVertical_bias="0.867" />
 
     <EditText
         android:id="@+id/editTextDate"
         android:layout_width="333dp"
         android:layout_height="48dp"
         android:ems="10"
+        android:hint="1990/08/15"
         android:inputType="date"
-        tools:layout_editor_absoluteX="39dp"
-        tools:layout_editor_absoluteY="494dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.713" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

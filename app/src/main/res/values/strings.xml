@@ -13,5 +13,7 @@
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="button_commuter">Commuter</string>
     <string name="button_driver">Bus Driver</string>
+    <string name="commuterEmail">Email</string>
+
 
 </resources>
