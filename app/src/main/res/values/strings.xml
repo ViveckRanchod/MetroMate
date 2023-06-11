@@ -19,4 +19,9 @@
     <string name="date_of_brith">Date of Brith</string>
     <string name="password">Password</string>
     <string name="register_your_account">Register Your Account</string>
+    <string name="_1999_05_11">1999/05/11</string>
+    <string name="stars">********</string>
+    <string name="enter_driver_badge_id">Enter driver badge ID</string>
+    <string name="enter_email_address">Enter email address @</string>
+    <string name="password_minimum_of_8_characters">Password (minimum of 8 characters)</string>
 </resources>

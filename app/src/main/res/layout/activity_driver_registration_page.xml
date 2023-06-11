@@ -8,70 +8,51 @@
 
     tools:context=".Driver">
 
-    <CalendarView
-        android:id="@+id/calendarView"
-        android:layout_width="267dp"
-        android:layout_height="190dp"
-        android:layout_marginBottom="16dp"
+    <EditText
+        andriod:id="@+id/editTextDate"
+        android:id="@+id/edtDateOfBirth"
+        style="@style/TextInBox"
+        andriod:layout_width="wrap_content"
+        android:layout_width="343dp"
+        andriod:layout_height="wrap_content"
+        android:layout_height="53dp"
+        android:layout_marginBottom="24dp"
+        android:background="@drawable/custom_edit_text_border"
+        andriod:ems="10"
+        andriod:hint="@string/_1999_05_11"
+        andriod:inputType="date"
         app:layout_constraintBottom_toTopOf="@+id/btnSignUp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/btnSignUp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="32dp"
-        andriod:background="@color/dark_golden_rod"
-        android:text="@string/sign_up"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.48"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/edtBadgeId"
-        android:layout_width="337dp"
-        android:layout_height="53dp"
-        android:layout_marginBottom="44dp"
-        android:background="@drawable/custom_edit_text_border"
-        android:ems="10"
-        andriod:hint="Enter driver badge ID"
-        android:inputType="text"
-        andriod:textColor="#6A6A6C"
-        andriod:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/edtEmail"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.49"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/tvEmail"
-        style="@style/Headers"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/edtLastName"
+        style="@style/TextInBox"
+        android:layout_width="165dp"
+        android:layout_height="48dp"
         android:layout_marginBottom="12dp"
-
-        android:text="@string/email"
-        app:layout_constraintBottom_toTopOf="@+id/edtEmail"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.068"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <EditText
-        android:id="@+id/edtPassword"
-        android:layout_width="344dp"
-        android:layout_height="53dp"
-        android:layout_marginBottom="56dp"
         android:background="@drawable/custom_edit_text_border"
         android:ems="10"
-        andriod:hint="********"
-        android:inputType="textPassword"
-        andriod:textColor="#6A6A6C"
-        andriod:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/calendarView"
+        android:inputType="text"
+        android:text="@string/last_name"
+        app:layout_constraintBottom_toTopOf="@+id/tvBadgeId"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.54"
+        app:layout_constraintHorizontal_bias="0.361"
+        app:layout_constraintStart_toEndOf="@+id/edtName" />
+
+    <EditText
+        android:id="@+id/edtName"
+        style="@style/TextInBox"
+        android:layout_width="157dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginBottom="12dp"
+        android:background="@drawable/custom_edit_text_border"
+        android:ems="10"
+        android:inputType="text"
+        android:text="@string/first_name"
+        app:layout_constraintBottom_toTopOf="@+id/tvBadgeId"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
@@ -83,24 +64,60 @@
         android:text="@string/driver_badge_id"
         app:layout_constraintBottom_toTopOf="@+id/edtBadgeId"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.081"
+        app:layout_constraintHorizontal_bias="0.094"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btnSignUp"
+        android:layout_width="107dp"
+        android:layout_height="54dp"
+        android:layout_marginBottom="36dp"
+        andriod:backgroundTint="@color/golden_rod"
+        android:text="@string/sign_up"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/edtLastName"
-        android:layout_width="165dp"
-        android:layout_height="48dp"
-        android:layout_marginBottom="56dp"
+        android:id="@+id/edtPassword"
+        style="@style/TextInBox"
+        android:layout_width="344dp"
+        android:layout_height="53dp"
+        android:layout_marginBottom="20dp"
         android:background="@drawable/custom_edit_text_border"
         android:ems="10"
-        android:inputType="text"
-        android:text="@string/last_name"
-        andriod:textColor="#6A6A6C"
-        andriod:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/edtBadgeId"
+        andriod:hint="@string/stars"
+        android:inputType="textPassword"
+        app:layout_constraintBottom_toTopOf="@+id/tvDateOfBirth"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.425"
-        app:layout_constraintStart_toEndOf="@+id/edtName" />
+        app:layout_constraintHorizontal_bias="0.53"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/tvEmail"
+        style="@style/Headers"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+
+        android:text="@string/email"
+        app:layout_constraintBottom_toTopOf="@+id/edtEmail"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.074"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/tvRegisterAcc"
+        style="@style/Header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="@string/register_your_account"
+        app:layout_constraintBottom_toTopOf="@+id/tvName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintVertical_bias="0.368" />
 
     <TextView
         android:id="@+id/tvName"
@@ -111,50 +128,37 @@
         android:text="@string/name"
         app:layout_constraintBottom_toTopOf="@+id/edtLastName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.073"
+        app:layout_constraintHorizontal_bias="0.074"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/edtName"
-        android:layout_width="157dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginBottom="56dp"
+        android:id="@+id/edtBadgeId"
+        style="@style/TextInBox"
+        android:layout_width="337dp"
+        android:layout_height="53dp"
+        android:layout_marginBottom="16dp"
         android:background="@drawable/custom_edit_text_border"
         android:ems="10"
+        andriod:hint="@string/enter_driver_badge_id"
         android:inputType="text"
-        android:text="@string/first_name"
-        andriod:textColor="#6A6A6C"
-        andriod:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/edtBadgeId"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/tvDateOfBirth"
-        style="@style/Headers"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:text="@string/date_of_brith"
-        app:layout_constraintBottom_toTopOf="@+id/calendarView"
+        app:layout_constraintBottom_toTopOf="@+id/tvEmail"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.076"
+        app:layout_constraintHorizontal_bias="0.428"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/edtEmail"
+        style="@style/TextInBox"
         android:layout_width="339dp"
         android:layout_height="53dp"
-        android:layout_marginBottom="52dp"
+        android:layout_marginBottom="72dp"
         android:background="@drawable/custom_edit_text_border"
         android:ems="10"
-        andriod:hint="Enter email address @"
+        andriod:hint="@string/enter_email_address"
         android:inputType="textEmailAddress"
-        andriod:textColor="#6A6A6C"
-        andriod:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/edtPassword"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.425"
+        app:layout_constraintHorizontal_bias="0.444"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
@@ -162,29 +166,48 @@
         style="@style/Headers"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="84dp"
-        android:layout_marginBottom="4dp"
-        android:text="Password (minimum of 8 charcaters)"
+        android:layout_marginTop="20dp"
+        android:text="@string/password_minimum_of_8_characters"
         app:layout_constraintBottom_toTopOf="@+id/edtPassword"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.236"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtEmail"
+        app:layout_constraintVertical_bias="0.413" />
 
     <TextView
-        android:id="@+id/tvRegisterAcc"
-        style="@style/Header"
+        android:id="@+id/tvDateOfBirth"
+        style="@style/Headers"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
-        android:text="@string/register_your_account"
+
+        android:layout_marginBottom="84dp"
+        android:text="@string/date_of_brith"
+        app:layout_constraintBottom_toTopOf="@+id/btnSignUp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.08"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        tools:ignore="MissingConstraints" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_begin="25dp" />
+        app:layout_constraintGuide_begin="24dp" />
+
+    <ImageView
+        andriod:id="@+id/imageView"
+        andriod:layout_width="wrap_content"
+        android:layout_width="339dp"
+        andriod:layout_height="wrap_content"
+        android:layout_height="73dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.444"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.043"
+        app:srcCompat="@drawable/logo_light_cropped" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
