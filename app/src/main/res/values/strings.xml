@@ -13,5 +13,23 @@
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="button_commuter">Commuter</string>
     <string name="button_driver">Bus Driver</string>
+    <string name="report_first_name">First Name</string>
+    <string name="report_last_name">Last Name</string>
+    <string name="name">Name</string>
+    <string name="email_name">Email</string>
+    <string name="eamil_ep_name">example@gamail.com</string>
+    <string name="trip_dets">Trip details</string>
+    <string name="bus_num_head">Bus Number</string>
+    <string name="bus_num">12</string>
+    <string name="driverName_head">Driver Name</string>
+    <string name="driverName_input">John Doe</string>
+    <string name="dateHead">Date of Trip</string>
+    <string name="date_input">2023/04/09</string>
+    <string name="issueHead">Describe issue</string>
+    <string name="issue_input">Insert Text</string>
+    <string name="reportHead">Report Trip</string>
+    <string name="report">REPORT</string>
+
+
 
 </resources>
