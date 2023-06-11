@@ -15,7 +15,6 @@
     <string name="button_driver">Bus Driver</string>
     <string name="commuterEmail">Email</string>
     <string name="eventType">Event Type</string>
-
-
+    <string name="estimatedDelay">Estimated delay</string>
 
 </resources>
