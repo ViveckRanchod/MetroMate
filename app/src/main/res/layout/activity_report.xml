@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ReportActivity">
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Name"
+        tools:layout_editor_absoluteX="34dp"
+        tools:layout_editor_absoluteY="136dp" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="Report Trip"
+        android:textAlignment="center"
+        android:textColor="#911910"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        tools:layout_editor_absoluteX="102dp" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="186dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.413"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo_light_cropped" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Email"
+        tools:layout_editor_absoluteX="33dp"
+        tools:layout_editor_absoluteY="226dp" />
+
+    <EditText
+        android:id="@+id/editTextText"
+        android:layout_width="133dp"
+        android:layout_height="38dp"
+        android:background="@drawable/txtfield_background"
+        android:ems="10"
+        android:inputType="text"
+        android:hint="First Name"
+        tools:layout_editor_absoluteX="33dp"
+        tools:layout_editor_absoluteY="172dp" />
+
+    <EditText
+        android:id="@+id/editTextText2"
+        android:layout_width="133dp"
+        android:layout_height="38dp"
+        android:background="@drawable/txtfield_background"
+        android:ems="10"
+        android:inputType="text"
+        android:text="Last Name"
+        tools:layout_editor_absoluteX="224dp"
+        tools:layout_editor_absoluteY="172dp" />
+
+    <EditText
+        android:id="@+id/editTextTextEmailAddress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/txtfield_background"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        tools:layout_editor_absoluteX="33dp"
+        tools:layout_editor_absoluteY="257dp" />
+
+    <EditText
+        android:id="@+id/editTextTextMultiLine"
+        android:layout_width="308dp"
+        android:layout_height="88dp"
+        android:ems="10"
+        android:background="@drawable/txtfield_background"
+        android:gravity="start|top"
+        android:inputType="textMultiLine"
+        tools:layout_editor_absoluteX="33dp"
+        tools:layout_editor_absoluteY="569dp" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Describe issue:"
+        tools:layout_editor_absoluteX="33dp"
+        tools:layout_editor_absoluteY="539dp" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Date of Trip"
+        tools:layout_editor_absoluteX="33dp"
+        tools:layout_editor_absoluteY="449dp" />
+
+    <EditText
+        android:id="@+id/editTextDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:background="@drawable/txtfield_background"
+        android:inputType="date"
+        tools:layout_editor_absoluteX="33dp"
+        tools:layout_editor_absoluteY="480dp" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Trip details"
+        tools:layout_editor_absoluteX="33dp"
+        tools:layout_editor_absoluteY="326dp" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Bus Number"
+        tools:layout_editor_absoluteX="34dp"
+        tools:layout_editor_absoluteY="364dp" />
+
+    <EditText
+        android:id="@+id/editTextNumber"
+        android:layout_width="110dp"
+        android:layout_height="42dp"
+        android:ems="10"
+        android:background="@drawable/txtfield_background"
+        android:inputType="number"
+        tools:layout_editor_absoluteX="34dp"
+        tools:layout_editor_absoluteY="395dp" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Driver's Name"
+        tools:layout_editor_absoluteX="226dp"
+        tools:layout_editor_absoluteY="365dp" />
+
+    <EditText
+        android:id="@+id/editTextText3"
+        android:layout_width="110dp"
+        android:layout_height="42dp"
+        android:background="@drawable/txtfield_background"
+        android:ems="10"
+        android:inputType="text"
+        tools:layout_editor_absoluteX="224dp"
+        tools:layout_editor_absoluteY="395dp" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="REPORT"
+        tools:layout_editor_absoluteX="133dp"
+        tools:layout_editor_absoluteY="674dp" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:layout_width="394dp"
+        android:layout_height="54dp"
+        tools:layout_editor_absoluteX="-1dp"
+        tools:layout_editor_absoluteY="752dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
