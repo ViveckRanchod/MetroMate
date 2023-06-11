@@ -22,6 +22,7 @@
         android:id="@+id/imageView3"
         android:layout_width="346dp"
         android:layout_height="545dp"
+        android:background="@drawable/txtfield_background"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.489"
@@ -34,6 +35,7 @@
         android:id="@+id/editTextTextPersonName5"
         android:layout_width="160dp"
         android:layout_height="48dp"
+        android:background="@drawable/txtfield_background"
         android:ems="10"
         android:hint="Q2"
         android:inputType="textPersonName"
@@ -86,6 +88,7 @@
         android:layout_width="wrap_content"
         android:layout_height="48dp"
         android:layout_marginStart="68dp"
+        android:checked="false"
         android:text="Toggle on"
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -93,7 +96,8 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/textView15"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.133" />
+        app:layout_constraintVertical_bias="0.133"
+        tools:checked="false" />
 
     <TextView
         android:id="@+id/textView15"
@@ -124,6 +128,7 @@
         android:id="@+id/eventType"
         android:layout_width="333dp"
         android:layout_height="48dp"
+        android:backgroundTint="#000000"
         android:contentDescription="@string/eventType"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -135,6 +140,7 @@
         android:id="@+id/editTextTime"
         android:layout_width="160dp"
         android:layout_height="48dp"
+        android:background="@drawable/txtfield_background"
         android:ems="10"
         android:hint="12:00"
         android:inputType="time"
@@ -149,6 +155,7 @@
         android:id="@+id/eventType2"
         android:layout_width="160dp"
         android:layout_height="48dp"
+        android:backgroundTint="#000000"
         android:contentDescription="@string/estimatedDelay"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -184,9 +191,10 @@
         app:layout_constraintVertical_bias="0.238" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName6"
+        android:id="@+id/editText"
         android:layout_width="160dp"
         android:layout_height="48dp"
+        android:background="@drawable/txtfield_background"
         android:ems="10"
         android:hint="0975AQ"
         android:inputType="textPersonName"
@@ -226,6 +234,7 @@
         android:id="@+id/editTextTextPersonName7"
         android:layout_width="333dp"
         android:layout_height="48dp"
+        android:background="@drawable/txtfield_background"
         android:ems="10"
         android:hint="Ghandi"
         android:inputType="textPersonName"
@@ -239,12 +248,11 @@
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="216dp"
         android:text="Bus number"
         android:textColor="#000000"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName6"
+        app:layout_constraintBottom_toTopOf="@+id/editText"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.094"
+        app:layout_constraintHorizontal_bias="0.097"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0" />
