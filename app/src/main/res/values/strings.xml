@@ -14,6 +14,8 @@
     <string name="button_commuter">Commuter</string>
     <string name="button_driver">Bus Driver</string>
     <string name="commuterEmail">Email</string>
+    <string name="eventType">Event Type</string>
+
 
 
 </resources>
