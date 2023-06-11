@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">MetroMate(0.1)</string>
     <string name="action_settings">Settings</string>
     <!-- Strings used for fragments for navigation -->
@@ -13,5 +13,8 @@
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
     <string name="button_commuter">Commuter</string>
     <string name="button_driver">Bus Driver</string>
+    <string name="i_am" tools:ignore="TypographyEllipsis">I am a...</string>
+    <string name="slogan">Your Perfect Mate for Hassle-Free Commutes</string>
+
 
 </resources>
