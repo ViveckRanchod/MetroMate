@@ -15,6 +15,15 @@
     <string name="button_driver">Bus Driver</string>
     <string name="i_am" tools:ignore="TypographyEllipsis">I am a...</string>
     <string name="slogan">Your Perfect Mate for Hassle-Free Commutes</string>
+    <string name="myTrip">My Trip</string>
+    <string name="depart">Departure Bus Stop</string>
+    <string name="arrival">Arrival Bus Stop</string>
 
+    <string-array name="dropdown_items">
+        <item>Item 1</item>
+        <item>Item 2</item>
+        <item>Item 3</item>
+        <!-- Add more items as needed -->
+    </string-array>
 
 </resources>
