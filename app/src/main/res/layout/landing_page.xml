@@ -88,8 +88,8 @@
 
     <ImageView
         android:id="@+id/imageView5"
-        android:layout_width="438dp"
-        android:layout_height="141dp"
+        android:layout_width="408dp"
+        android:layout_height="145dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -100,8 +100,8 @@
 
     <TextView
         android:id="@+id/textView4"
-        android:layout_width="391dp"
-        android:layout_height="182dp"
+        android:layout_width="355dp"
+        android:layout_height="184dp"
         android:text="@string/slogan"
         android:textAlignment="textStart"
         android:textColor="#242433"
@@ -109,10 +109,10 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.567"
+        app:layout_constraintHorizontal_bias="0.421"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.225"
+        app:layout_constraintVertical_bias="0.256"
         tools:ignore="TextSizeCheck,TextSizeCheck" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
