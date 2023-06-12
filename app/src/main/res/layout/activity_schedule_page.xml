@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:andriod="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:andriod="http://schemas.android.com/apk/res/android">
+    android:layout_height="match_parent">
 
     <ImageView
         android:id="@+id/imageView2"
@@ -16,15 +16,23 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/logo_light_cropped" />
 
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:entries="@string-array/items_array"
+        tools:layout_editor_absoluteX="24dp"
+        tools:layout_editor_absoluteY="158dp" />
+
     <TableLayout
         android:id="@+id/area_key_table"
         android:layout_width="353dp"
         android:layout_height="157dp"
-        android:layout_marginBottom="24dp"
+        android:layout_marginBottom="12dp"
         andriod:background="@drawable/table_border"
         app:layout_constraintBottom_toTopOf="@+id/from_table"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.452"
+        app:layout_constraintHorizontal_bias="0.475"
         app:layout_constraintStart_toStartOf="parent">
 
         <TableRow>
@@ -155,11 +163,12 @@
         android:id="@+id/from_table"
         android:layout_width="353dp"
         android:layout_height="49dp"
+        android:layout_marginBottom="12dp"
         andriod:background="@drawable/table_border"
+        app:layout_constraintBottom_toTopOf="@+id/time_table"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.4"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="366dp">
+        app:layout_constraintHorizontal_bias="0.475"
+        app:layout_constraintStart_toStartOf="parent">
 
         <TableRow
             android:layout_width="match_parent"
@@ -194,6 +203,7 @@
                 andriod:gravity="start"
                 andriod:padding="3dp"
                 andriod:text="From The Glen Centre" />
+
         </TableRow>
 
 
@@ -202,33 +212,365 @@
     <TableLayout
         android:id="@+id/time_table"
         andriod:layout_width="353dp"
-        android:layout_width="355dp"
-        andriod:layout_height="390dp"
-        android:layout_height="233dp"
-        android:layout_marginTop="8dp"
+        android:layout_height="279dp"
+        android:layout_marginBottom="140dp"
         andriod:background="@drawable/table_border"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.473"
+        app:layout_constraintHorizontal_bias="0.475"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/from_table"
-        app:layout_constraintVertical_bias="0.0">
+        android:layout_width="353dp">
 
         <TableRow
             andriod:layout_width="match_parent"
-            andriod:layout_height="match_parent" />
+            andriod:layout_height="match_parent">
 
+            <TextView
+                andriod:layout_width="wrap_content"
+                android:layout_width="367dp"
+                andriod:layout_height="wrap_content"
+                android:layout_height="match_parent"
+                andriod:layout_weight="1"
+                andriod:gravity="start"
+                andriod:padding="4dp"
+                andriod:text="08:00am A" />
+
+            <TextView
+                andriod:layout_width="wrap_content"
+                android:layout_width="367dp"
+                andriod:layout_height="wrap_content"
+                android:layout_height="match_parent"
+                andriod:layout_weight="1"
+                andriod:gravity="start"
+                andriod:padding="4dp"
+                andriod:text="09:00am" />
+
+            <TextView
+                andriod:layout_width="wrap_content"
+                android:layout_width="367dp"
+                andriod:layout_height="wrap_content"
+                android:layout_height="match_parent"
+                andriod:layout_weight="1"
+                andriod:gravity="start"
+                andriod:padding="4dp"
+                andriod:text="09:40 am" />
+        </TableRow>
+        <!--next time slots -->
         <TableRow
             andriod:layout_width="match_parent"
-            andriod:layout_height="match_parent" />
+            andriod:layout_height="match_parent">
 
+            <TextView
+                andriod:layout_width="wrap_content"
+                android:layout_width="367dp"
+                andriod:layout_height="wrap_content"
+                android:layout_height="match_parent"
+                andriod:layout_weight="1"
+                andriod:gravity="start"
+                andriod:padding="4dp"
+                andriod:text="08:00am A" />
+
+            <TextView
+                andriod:layout_width="wrap_content"
+                android:layout_width="367dp"
+                andriod:layout_height="wrap_content"
+                android:layout_height="match_parent"
+                andriod:layout_weight="1"
+                andriod:gravity="start"
+                andriod:padding="4dp"
+                andriod:text="09:00am" />
+
+            <TextView
+                andriod:layout_width="wrap_content"
+                android:layout_width="367dp"
+                andriod:layout_height="wrap_content"
+                android:layout_height="match_parent"
+                andriod:layout_weight="1"
+                andriod:gravity="start"
+                andriod:padding="4dp"
+                andriod:text="09:40 am" />
+        </TableRow>
+        <!--next time slots -->
         <TableRow
             andriod:layout_width="match_parent"
-            andriod:layout_height="match_parent" />
+            andriod:layout_height="match_parent">
 
+            <TextView
+                andriod:layout_width="wrap_content"
+                android:layout_width="367dp"
+                andriod:layout_height="wrap_content"
+                android:layout_height="match_parent"
+                andriod:layout_weight="1"
+                andriod:gravity="start"
+                andriod:padding="4dp"
+                andriod:text="08:00am A" />
+
+            <TextView
+                andriod:layout_width="wrap_content"
+                android:layout_width="367dp"
+                andriod:layout_height="wrap_content"
+                android:layout_height="match_parent"
+                andriod:layout_weight="1"
+                andriod:gravity="start"
+                andriod:padding="4dp"
+                andriod:text="09:00am" />
+
+            <TextView
+                andriod:layout_width="wrap_content"
+                android:layout_width="367dp"
+                andriod:layout_height="wrap_content"
+                android:layout_height="match_parent"
+                andriod:layout_weight="1"
+                andriod:gravity="start"
+                andriod:padding="4dp"
+                andriod:text="09:40 am" />
+        </TableRow>
+        <!--next time slots -->
         <TableRow
             andriod:layout_width="match_parent"
-            andriod:layout_height="match_parent" />
+            andriod:layout_height="match_parent">
+
+            <TextView
+                andriod:layout_width="wrap_content"
+                android:layout_width="367dp"
+                andriod:layout_height="wrap_content"
+                android:layout_height="match_parent"
+                andriod:layout_weight="1"
+                andriod:gravity="start"
+                andriod:padding="4dp"
+                andriod:text="08:00am A" />
+
+            <TextView
+                andriod:layout_width="wrap_content"
+                android:layout_width="367dp"
+                andriod:layout_height="wrap_content"
+                android:layout_height="match_parent"
+                andriod:layout_weight="1"
+                andriod:gravity="start"
+                andriod:padding="4dp"
+                andriod:text="09:00am" />
+
+            <TextView
+                andriod:layout_width="wrap_content"
+                android:layout_width="367dp"
+                andriod:layout_height="wrap_content"
+                android:layout_height="match_parent"
+                andriod:layout_weight="1"
+                andriod:gravity="start"
+                andriod:padding="4dp"
+                andriod:text="09:40 am" />
+        </TableRow>
+        <!--next time slots -->
+        <TableRow
+            andriod:layout_width="match_parent"
+            andriod:layout_height="match_parent">
+
+            <TextView
+                andriod:layout_width="wrap_content"
+                android:layout_width="367dp"
+                andriod:layout_height="wrap_content"
+                android:layout_height="match_parent"
+                andriod:layout_weight="1"
+                andriod:gravity="start"
+                andriod:padding="4dp"
+                andriod:text="08:00am A" />
+
+            <TextView
+                andriod:layout_width="wrap_content"
+                android:layout_width="367dp"
+                andriod:layout_height="wrap_content"
+                android:layout_height="match_parent"
+                andriod:layout_weight="1"
+                andriod:gravity="start"
+                andriod:padding="4dp"
+                andriod:text="09:00am" />
+
+            <TextView
+                andriod:layout_width="wrap_content"
+                android:layout_width="367dp"
+                andriod:layout_height="wrap_content"
+                android:layout_height="match_parent"
+                andriod:layout_weight="1"
+                andriod:gravity="start"
+                andriod:padding="4dp"
+                andriod:text="09:40 am" />
+        </TableRow>
+        <!--next time slots -->
+        <TableRow
+            andriod:layout_width="match_parent"
+            andriod:layout_height="match_parent">
+
+            <TextView
+                andriod:layout_width="wrap_content"
+                android:layout_width="367dp"
+                andriod:layout_height="wrap_content"
+                android:layout_height="match_parent"
+                andriod:layout_weight="1"
+                andriod:gravity="start"
+                andriod:padding="4dp"
+                andriod:text="08:00am A" />
+
+            <TextView
+                andriod:layout_width="wrap_content"
+                android:layout_width="367dp"
+                andriod:layout_height="wrap_content"
+                android:layout_height="match_parent"
+                andriod:layout_weight="1"
+                andriod:gravity="start"
+                andriod:padding="4dp"
+                andriod:text="09:00am" />
+
+            <TextView
+                andriod:layout_width="wrap_content"
+                android:layout_width="367dp"
+                andriod:layout_height="wrap_content"
+                android:layout_height="match_parent"
+                andriod:layout_weight="1"
+                andriod:gravity="start"
+                andriod:padding="4dp"
+                andriod:text="09:40 am" />
+        </TableRow>
+        <!--next time slots -->
+        <TableRow
+            andriod:layout_width="match_parent"
+            andriod:layout_height="match_parent">
+
+            <TextView
+                andriod:layout_width="wrap_content"
+                android:layout_width="367dp"
+                andriod:layout_height="wrap_content"
+                android:layout_height="match_parent"
+                andriod:layout_weight="1"
+                andriod:gravity="start"
+                andriod:padding="4dp"
+                andriod:text="08:00am A" />
+
+            <TextView
+                andriod:layout_width="wrap_content"
+                android:layout_width="367dp"
+                andriod:layout_height="wrap_content"
+                android:layout_height="match_parent"
+                andriod:layout_weight="1"
+                andriod:gravity="start"
+                andriod:padding="4dp"
+                andriod:text="09:00am" />
+
+            <TextView
+                andriod:layout_width="wrap_content"
+                android:layout_width="367dp"
+                andriod:layout_height="wrap_content"
+                android:layout_height="match_parent"
+                andriod:layout_weight="1"
+                andriod:gravity="start"
+                andriod:padding="4dp"
+                andriod:text="09:40 am" />
+        </TableRow>
+        <!--next time slots -->
+        <TableRow
+            andriod:layout_width="match_parent"
+            andriod:layout_height="match_parent">
+
+            <TextView
+                andriod:layout_width="wrap_content"
+                android:layout_width="367dp"
+                andriod:layout_height="wrap_content"
+                android:layout_height="match_parent"
+                andriod:layout_weight="1"
+                andriod:gravity="start"
+                andriod:padding="4dp"
+                andriod:text="08:00am A" />
+
+            <TextView
+                andriod:layout_width="wrap_content"
+                android:layout_width="367dp"
+                andriod:layout_height="wrap_content"
+                android:layout_height="match_parent"
+                andriod:layout_weight="1"
+                andriod:gravity="start"
+                andriod:padding="4dp"
+                andriod:text="09:00am" />
+
+            <TextView
+                andriod:layout_width="wrap_content"
+                android:layout_width="367dp"
+                andriod:layout_height="wrap_content"
+                android:layout_height="match_parent"
+                andriod:layout_weight="1"
+                andriod:gravity="start"
+                andriod:padding="4dp"
+                andriod:text="09:40 am" />
+        </TableRow>
+        <!--next time slots -->
+        <TableRow
+            andriod:layout_width="match_parent"
+            andriod:layout_height="match_parent">
+
+            <TextView
+                andriod:layout_width="wrap_content"
+                android:layout_width="367dp"
+                andriod:layout_height="wrap_content"
+                android:layout_height="match_parent"
+                andriod:layout_weight="1"
+                andriod:gravity="start"
+                andriod:padding="4dp"
+                andriod:text="08:00am A" />
+
+            <TextView
+                andriod:layout_width="wrap_content"
+                android:layout_width="367dp"
+                andriod:layout_height="wrap_content"
+                android:layout_height="match_parent"
+                andriod:layout_weight="1"
+                andriod:gravity="start"
+                andriod:padding="4dp"
+                andriod:text="09:00am" />
+
+            <TextView
+                andriod:layout_width="wrap_content"
+                android:layout_width="367dp"
+                andriod:layout_height="wrap_content"
+                android:layout_height="match_parent"
+                andriod:layout_weight="1"
+                andriod:gravity="start"
+                andriod:padding="4dp"
+                andriod:text="09:40 am" />
+        </TableRow>
+        <!--next time slots -->
+        <TableRow
+            andriod:layout_width="match_parent"
+            andriod:layout_height="match_parent">
+
+            <TextView
+                andriod:layout_width="wrap_content"
+                android:layout_width="367dp"
+                andriod:layout_height="wrap_content"
+                android:layout_height="match_parent"
+                andriod:layout_weight="1"
+                andriod:gravity="start"
+                andriod:padding="4dp"
+                andriod:text="08:00am A" />
+
+            <TextView
+                andriod:layout_width="wrap_content"
+                android:layout_width="110dp"
+                andriod:layout_height="wrap_content"
+                android:layout_height="match_parent"
+                andriod:layout_weight="1"
+                andriod:gravity="start"
+                andriod:padding="4dp"
+                andriod:text="09:00am" />
+
+            <TextView
+                andriod:layout_width="wrap_content"
+                android:layout_width="367dp"
+                andriod:layout_height="wrap_content"
+                android:layout_height="match_parent"
+                andriod:layout_weight="1"
+                andriod:gravity="start"
+                andriod:padding="4dp"
+                andriod:text="09:40 am" />
+        </TableRow>
+
     </TableLayout>
 
 
