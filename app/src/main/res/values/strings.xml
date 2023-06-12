@@ -32,7 +32,7 @@
 
     <string name="report_first_name">First Name</string>
     <string name="report_last_name">Last Name</string>
-    <string name="name">Name</string>
+
     <string name="email_name">Email</string>
     <string name="eamil_ep_name">example@gamail.com</string>
     <string name="trip_dets">Trip details</string>
