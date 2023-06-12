@@ -32,7 +32,6 @@
 
     <string name="report_first_name">First Name</string>
     <string name="report_last_name">Last Name</string>
-
     <string name="email_name">Email</string>
     <string name="eamil_ep_name">example@gamail.com</string>
     <string name="trip_dets">Trip details</string>
@@ -46,6 +45,17 @@
     <string name="issue_input">Insert Text</string>
     <string name="reportHead">Report Trip</string>
     <string name="report">REPORT</string>
+
+
+    <string name="tag_header">myTag</string>
+    <string name = "tag_balance">Balance:</string>
+    <string name = "trips_left">Trips remaining:</string>
+    <string name = "tag_type">Tag Type</string>
+    <string name = "tag_zone">Zone</string>
+    <string name = "tag_number">Tag number</string>
+    <string name = "btn_reload">Reload Tag</string>
+    <string name = "btn_cancel">Cancel Tag</string>
+
 
     <string name="commuterEmail">Email</string>
     <string name="eventType">Event Type</string>
