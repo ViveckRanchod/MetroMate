@@ -32,5 +32,17 @@
     <string name="commuterEmail">Email</string>
     <string name="eventType">Event Type</string>
     <string name="estimatedDelay">Estimated delay</string>
+    <string name="area_key_label">Area key label</string>
+    <string name="e">E=</string>
+    <string name="a">A=</string>
+    <string name="area_key_label2">Area key label</string>
+    <string name="b">B=</string>
+    <string name="area_key_label3">Area key label</string>
+    <string name="c">C=</string>
+    <string name="area_key_label4">Area key label</string>
+    <string name="d">D=</string>
+    <string name="area_key_label5">Area key label</string>
+    <string name="f">F=</string>
+    <string name="area_key_label6">Area key label</string>
 
 </resources>
