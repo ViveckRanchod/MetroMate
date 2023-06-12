@@ -3,18 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="391dp"
-        android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+    android:layout_height="match_parent"
+    xmlns:andriod="http://schemas.android.com/apk/res/android">
 
     <ImageView
         android:id="@+id/imageView2"
@@ -25,4 +15,135 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/logo_light_cropped" />
+
+    <TableLayout
+        android:id="@+id/area_key_table"
+        android:layout_width="345dp"
+        android:layout_height="147dp"
+        android:layout_marginBottom="24dp"
+        app:layout_constraintBottom_toTopOf="@+id/schedule_table"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.452"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TableRow>
+            <TextView
+                andriod:layout_width="wrap_content"
+                andriod:layout_height="wrap_content"
+                andriod:layout_weight="0.5"
+                andriod:gravity="start"
+                andriod:text="A=" />
+            <TextView
+                andriod:layout_width="wrap_content"
+                andriod:layout_height="wrap_content"
+                andriod:layout_weight="1"
+                andriod:gravity="start"
+                andriod:text="Area key label=" />
+
+        </TableRow>
+        <TableRow>
+            <TextView
+                andriod:layout_width="wrap_content"
+                andriod:layout_height="wrap_content"
+                andriod:layout_weight="0.5"
+                andriod:gravity="start"
+                andriod:text="B=" />
+            <TextView
+                andriod:layout_width="wrap_content"
+                andriod:layout_height="wrap_content"
+                andriod:layout_weight="1"
+                andriod:gravity="start"
+                andriod:text="Area key label=" />
+
+        </TableRow>
+        <TableRow>
+            <TextView
+                andriod:layout_width="wrap_content"
+                andriod:layout_height="wrap_content"
+                andriod:layout_weight="0.5"
+                andriod:gravity="start"
+                andriod:text="C=" />
+            <TextView
+                andriod:layout_width="wrap_content"
+                andriod:layout_height="wrap_content"
+                andriod:layout_weight="1"
+                andriod:gravity="start"
+                andriod:text="Area key label=" />
+
+        </TableRow>
+        <TableRow>
+            <TextView
+                andriod:layout_width="wrap_content"
+                andriod:layout_height="wrap_content"
+                andriod:layout_weight="0.5"
+                andriod:gravity="start"
+                andriod:text="D=" />
+            <TextView
+                andriod:layout_width="wrap_content"
+                andriod:layout_height="wrap_content"
+                andriod:layout_weight="1"
+                andriod:gravity="start"
+                andriod:text="Area key label=" />
+
+        </TableRow>
+        <TableRow>
+            <TextView
+                andriod:layout_width="wrap_content"
+                andriod:layout_height="wrap_content"
+                andriod:layout_weight="0.5"
+                andriod:gravity="start"
+                andriod:text="E=" />
+            <TextView
+                andriod:layout_width="wrap_content"
+                andriod:layout_height="wrap_content"
+                andriod:layout_weight="1"
+                andriod:gravity="start"
+                andriod:text="Area key label=" />
+
+        </TableRow>
+        <TableRow>
+            <TextView
+                andriod:layout_width="wrap_content"
+                andriod:layout_height="wrap_content"
+                andriod:layout_weight="0.5"
+                andriod:gravity="start"
+                andriod:text="F=" />
+            <TextView
+                andriod:layout_width="wrap_content"
+                andriod:layout_height="wrap_content"
+                andriod:layout_weight="1"
+                andriod:gravity="start"
+                andriod:text="Area key label=" />
+
+        </TableRow>
+
+
+    </TableLayout>
+
+    <TableLayout
+        android:id="@+id/schedule_table"
+        android:layout_width="346dp"
+        android:layout_height="283dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.51"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="374dp">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </TableLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
