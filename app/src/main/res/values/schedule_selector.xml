@@ -2,9 +2,9 @@
 <resources>
     <resources>
         <string-array name="items_array">
-            <item>Item 1</item>
-            <item>Item 2</item>
-            <item>Item 3</item>
+            <item>[47A] Oakdene/The Glen Centre</item>
+            <item>[47B] Bassonia</item>
+            <item>[32] Bedfordview/ East Gate</item>
         </string-array>
     </resources>
 </resources>

@@ -17,12 +17,15 @@
         app:srcCompat="@drawable/logo_light_cropped" />
 
     <Spinner
-        android:id="@+id/spinner"
+        android:id="@+id/schedule_droplist"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
         android:entries="@string-array/items_array"
-        tools:layout_editor_absoluteX="24dp"
-        tools:layout_editor_absoluteY="158dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
     <TableLayout
         android:id="@+id/area_key_table"
@@ -212,14 +215,14 @@
     <TableLayout
         android:id="@+id/time_table"
         andriod:layout_width="353dp"
+        android:layout_width="353dp"
         android:layout_height="279dp"
-        android:layout_marginBottom="140dp"
+        android:layout_marginBottom="108dp"
         andriod:background="@drawable/table_border"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.475"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_width="353dp">
+        app:layout_constraintStart_toStartOf="parent">
 
         <TableRow
             andriod:layout_width="match_parent"
