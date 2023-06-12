@@ -206,18 +206,17 @@
 
     <Button
         android:id="@+id/button3"
-        android:layout_width="121dp"
-        android:layout_height="53dp"
+        android:layout_width="140dp"
+        android:layout_height="55dp"
         android:layout_marginBottom="56dp"
+        android:background="@drawable/custom_button"
         android:text="@string/report"
-        app:iconTint="#731515"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        app:backgroundTint="#731515"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:textSize="20sp"
-        android:background="@drawable/custom_button"
-        android:textColor="#FFFFFF"
-        />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textView3"
