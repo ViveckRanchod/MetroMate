@@ -29,8 +29,7 @@ public class Driver extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_driver_registration_page);
 
-    String tagNumber =null; //to verify user condition for adding data to db
-                        // refer to getDatabase: signUpToDatabase method
+
     //assign variables to xml elements and convert to string:
         signUp = findViewById(R.id.btnSignUp);
 
@@ -68,6 +67,7 @@ public class Driver extends AppCompatActivity {
                 Database db = new Database();
                 db.setPath(path);
                 //set refValues in the same order of the parameters set in signUpToDatabase in getDatabase:
+                //refer to Database to see purpose of tagNumber null
                 db.signUpToDatabase(st_name, st_lastname, st_email, st_password, date_dob, st_badgeID,
                         null, path);
             }
