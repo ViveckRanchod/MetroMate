@@ -44,5 +44,12 @@
     <string name="area_key_label5">Area key label</string>
     <string name="f">F=</string>
     <string name="area_key_label6">Area key label</string>
+    <string name="from_oakdene">From Oakdene</string>
+    <string name="from_bassonia">From Bassonia</string>
+    <string name="from_the_glen_centre">From The Glen Centre</string>
+    <string name="_08_00am_a">08:00am A</string>
+    <string name="_09_00am">09:00am</string>
+    <string name="_09_40_am">09:40 am</string>
+    <string name="spinner_prompt">Select an an area schedule:</string>
 
 </resources>

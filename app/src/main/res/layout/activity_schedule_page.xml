@@ -11,6 +11,7 @@
         android:layout_width="345dp"
         android:layout_height="78dp"
         android:layout_marginTop="36dp"
+        andriod:contentDescription="@string/metromate_logo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -18,14 +19,19 @@
 
     <Spinner
         android:id="@+id/schedule_droplist"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:entries="@string-array/items_array"
+        android:layout_width="393dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="16dp"
+        andriod:background="@drawable/spinner_border"
+        android:backgroundTint="#C0C0C0"
+        android:entries="@array/areas_array"
+        android:prompt="@string/spinner_prompt"
+        andriod:spinnerMode="dropdown"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView2"
+        tools:ignore="HardcodedText" />
 
     <TableLayout
         android:id="@+id/area_key_table"
@@ -36,7 +42,8 @@
         app:layout_constraintBottom_toTopOf="@+id/from_table"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.475"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="TextSizeCheck">
 
         <TableRow>
 
@@ -173,9 +180,7 @@
         app:layout_constraintHorizontal_bias="0.475"
         app:layout_constraintStart_toStartOf="parent">
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+        <TableRow>
 
             <TextView
                 andriod:layout_width="wrap_content"
@@ -185,7 +190,7 @@
                 andriod:layout_weight="1"
                 andriod:gravity="start"
                 andriod:padding="3dp"
-                andriod:text="From Oakdene" />
+                andriod:text="@string/from_oakdene" />
 
             <TextView
                 andriod:layout_width="wrap_content"
@@ -195,7 +200,7 @@
                 andriod:layout_weight="1"
                 andriod:gravity="start"
                 andriod:padding="3dp"
-                andriod:text="From Bassonia" />
+                andriod:text="@string/from_bassonia" />
 
             <TextView
                 andriod:layout_width="wrap_content"
@@ -205,7 +210,7 @@
                 andriod:layout_weight="1"
                 andriod:gravity="start"
                 andriod:padding="3dp"
-                andriod:text="From The Glen Centre" />
+                andriod:text="@string/from_the_glen_centre" />
 
         </TableRow>
 
@@ -236,7 +241,7 @@
                 andriod:layout_weight="1"
                 andriod:gravity="start"
                 andriod:padding="4dp"
-                andriod:text="08:00am A" />
+                andriod:text="@string/_08_00am_a" />
 
             <TextView
                 andriod:layout_width="wrap_content"
@@ -246,7 +251,7 @@
                 andriod:layout_weight="1"
                 andriod:gravity="start"
                 andriod:padding="4dp"
-                andriod:text="09:00am" />
+                andriod:text="@string/_09_00am" />
 
             <TextView
                 andriod:layout_width="wrap_content"
@@ -256,12 +261,10 @@
                 andriod:layout_weight="1"
                 andriod:gravity="start"
                 andriod:padding="4dp"
-                andriod:text="09:40 am" />
+                andriod:text="@string/_09_40_am" />
         </TableRow>
         <!--next time slots -->
-        <TableRow
-            andriod:layout_width="match_parent"
-            andriod:layout_height="match_parent">
+        <TableRow>
 
             <TextView
                 andriod:layout_width="wrap_content"
