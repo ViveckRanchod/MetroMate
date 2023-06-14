@@ -21,6 +21,11 @@
             android:name=".Driver"
             android:exported="false" />
         <activity
+            android:name=".mapActivity"
+            android:exported="false" />
+
+
+        <activity
             android:name=".MainActivity"
             android:exported="true"
             android:theme="@style/Theme.MetroMate01.NoActionBar">
@@ -29,6 +34,11 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
+            <meta-data
+                android:name="com.google.android.geo.API_KEY"
+                android:value="@string/my_map_api_key" />
+
         </activity>
     </application>
 
