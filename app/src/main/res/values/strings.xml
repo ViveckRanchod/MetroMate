@@ -16,7 +16,6 @@
     <string name="sign_up">Sign Up</string>
     <string name="driver_badge_id">Driver Badge ID</string>
     <string name="last_name">Last Name</string>
-    <string name="name">Name</string>
     <string name="first_name">First Name</string>
     <string name="date_of_brith">Date of Brith</string>
     <string name="password">Password</string>
@@ -62,6 +61,8 @@
     <string name="commuterEmail">Email</string>
     <string name="eventType">Event Type</string>
     <string name="estimatedDelay">Estimated delay</string>
+
+    <string name="my_map_api_key">AIzaSyBG1Bdri7sh_Zin07TWCjnR1_sGvEYYXjI</string>
 
 
 </resources>
