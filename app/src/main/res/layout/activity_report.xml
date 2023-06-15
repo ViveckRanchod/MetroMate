@@ -9,7 +9,7 @@
     tools:context=".ReportActivity"
     tools:visibility="visible">
 
-    <include layout="@layout/layout_bottom_navigation" />
+
 
 
     <TextView
@@ -234,5 +234,7 @@
         app:layout_constraintBottom_toTopOf="@+id/editTextTextEmailAddress"
         app:layout_constraintStart_toStartOf="@+id/editTextTextEmailAddress" />
 
+
+    <include layout="@layout/layout_bottom_navigation" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
