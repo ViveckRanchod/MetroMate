@@ -68,6 +68,9 @@
     <string name="btn_reload">Reload Tag</string>
     <string name="btn_cancel">Cancel Tag</string>
 
+    <string name="cancelheader">Cancel myTag</string>
+
+
 
     <string name="commuterEmail">Email</string>
     <string name="eventType">Event Type</string>
