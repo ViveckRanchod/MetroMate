@@ -20,15 +20,15 @@
 
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="346dp"
-        android:layout_height="545dp"
+        android:layout_width="374dp"
+        android:layout_height="546dp"
         android:background="@drawable/txtfield_background"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.489"
+        app:layout_constraintHorizontal_bias="0.485"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.61"
+        app:layout_constraintVertical_bias="0.787"
         app:srcCompat="@drawable/white_rectangle_container" />
 
     <EditText
@@ -74,8 +74,8 @@
 
     <ImageView
         android:id="@+id/imageView4"
-        android:layout_width="346dp"
-        android:layout_height="50dp"
+        android:layout_width="378dp"
+        android:layout_height="45dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -232,7 +232,7 @@
 
     <EditText
         android:id="@+id/editTextTextPersonName7"
-        android:layout_width="333dp"
+        android:layout_width="347dp"
         android:layout_height="48dp"
         android:background="@drawable/txtfield_background"
         android:ems="10"

@@ -54,14 +54,15 @@
         android:id="@+id/editTextText"
         android:layout_width="160dp"
         android:layout_height="48dp"
-        android:layout_marginEnd="12dp"
-        android:autofillHints="name"
+        android:layout_marginEnd="13dp"
         android:background="@drawable/txtfield_background"
         android:ems="10"
-        android:inputType="textPersonName"
         android:text="@string/report_first_name"
+        android:autofillHints="name"
+        android:inputType="textPersonName"
         app:layout_constraintEnd_toStartOf="@+id/editTextText2"
-        app:layout_constraintTop_toTopOf="@+id/editTextText2" />
+        app:layout_constraintTop_toTopOf="@+id/editTextText2"
+        />
 
     <EditText
         android:id="@+id/editTextText2"

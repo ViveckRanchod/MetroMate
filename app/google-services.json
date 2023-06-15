@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "187730664097",
+    "firebase_url": "https://metromate-16310-default-rtdb.firebaseio.com",
+    "project_id": "metromate-16310",
+    "storage_bucket": "metromate-16310.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:187730664097:android:9c65c9de9d9881e898aee0",
+        "android_client_info": {
+          "package_name": "com.example.metromate01"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "187730664097-8s9cok3fovevl9iv5dhgh43ieh03sj6e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCUBn35aOytIcqMuN_m8dNKU5E3Hc5S3IY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "187730664097-8s9cok3fovevl9iv5dhgh43ieh03sj6e.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
