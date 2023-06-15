@@ -68,6 +68,11 @@
     <string name="btn_reload">Reload Tag</string>
     <string name="btn_cancel">Cancel Tag</string>
 
+=========
+
+    <string name="cancelheader">Cancel myTag</string>
+>>>>>>>>> Temporary merge branch 2
+
 
     <string name="commuterEmail">Email</string>
     <string name="eventType">Event Type</string>
