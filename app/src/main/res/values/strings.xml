@@ -7,10 +7,12 @@
     <string name="next">Next</string>
     <string name="previous">Previous</string>
 
+    <string name="depart_time">Departure Time:</string>
+
     <string name="welcome_text">Welcome to MetroMate</string>
 
     <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="hello_second863._fragment">Hello second fragment. Arg: %1$s</string>
     <string name="title_activity_driver_registration">DriverRegistration</string>
     <string name="email">Email</string>
     <string name="sign_up">Sign Up</string>
@@ -66,6 +68,9 @@
     <string name="tag_number">Tag number</string>
     <string name="btn_reload">Reload Tag</string>
     <string name="btn_cancel">Cancel Tag</string>
+
+    <string name="cancelheader">Cancel myTag</string>
+
 
 
     <string name="commuterEmail">Email</string>
