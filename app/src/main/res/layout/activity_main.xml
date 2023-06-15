@@ -240,7 +240,7 @@
         android:layout_width="match_parent"
         android:layout_height="51dp"
         android:background="#EA8725"
-        app:itemIconSize="42dp"
+        app:itemIconSize="45dp"
         app:itemIconTint="@color/white"
         app:itemPaddingBottom="5dp"
         app:itemPaddingTop="2dp"
