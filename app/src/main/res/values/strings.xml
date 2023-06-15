@@ -43,7 +43,6 @@
 
     <string name="report_first_name">First Name</string>
     <string name="report_last_name">Last Name</string>
-    <string name="name">Name</string>
     <string name="email_name">Email</string>
     <string name="eamil_ep_name">example@gamail.com</string>
     <string name="trip_dets">Trip details</string>
@@ -58,9 +57,41 @@
     <string name="reportHead">Report Trip</string>
     <string name="report">REPORT</string>
 
+
+    <string name="tag_header">myTag</string>
+    <string name="tag_balance">Balance:</string>
+    <string name="trips_left">Trips remaining:</string>
+    <string name="tag_type">Tag Type</string>
+    <string name="tag_zone">Zone</string>
+    <string name="tag_number">Tag number</string>
+    <string name="btn_reload">Reload Tag</string>
+    <string name="btn_cancel">Cancel Tag</string>
+
+
     <string name="commuterEmail">Email</string>
     <string name="eventType">Event Type</string>
     <string name="estimatedDelay">Estimated delay</string>
+    <string name="area_key_label">Area key label</string>
+    <string name="e">E=</string>
+    <string name="a">A=</string>
+    <string name="area_key_label2">Area key label</string>
+    <string name="b">B=</string>
+    <string name="area_key_label3">Area key label</string>
+    <string name="c">C=</string>
+    <string name="area_key_label4">Area key label</string>
+    <string name="d">D=</string>
+    <string name="area_key_label5">Area key label</string>
+    <string name="f">F=</string>
+    <string name="area_key_label6">Area key label</string>
+    <string name="from_oakdene">From Oakdene</string>
+    <string name="from_bassonia">From Bassonia</string>
+    <string name="from_the_glen_centre">From The Glen Centre</string>
+    <string name="_08_00am_a">08:00am A</string>
+    <string name="_09_00am">09:00am</string>
+    <string name="_09_40_am">09:40 am</string>
+    <string name="spinner_prompt">Select an an area schedule:</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <string name="my_map_api_key">AIzaSyBG1Bdri7sh_Zin07TWCjnR1_sGvEYYXjI</string>
 

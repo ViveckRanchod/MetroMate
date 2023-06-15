@@ -11,14 +11,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MetroMate01"
         tools:targetApi="31">
-      
+        <activity
+            android:name=".myTag_page"
+            android:exported="false" />
         <activity
             android:name=".ReportActivity"
             android:exported="false" />
         <activity
             android:name=".Driver"
             android:exported="false" />
-
         <activity
             android:name=".mapActivity"
             android:exported="false" />

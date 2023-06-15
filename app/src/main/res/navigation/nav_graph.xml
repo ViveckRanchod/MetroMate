@@ -7,9 +7,9 @@
 
     <fragment
         android:id="@+id/FirstFragment"
-        android:name="com.example.metromate01.FirstFragment"
+        android:name="com.example.metromate01.AreaKeysFragment"
         android:label="@string/first_fragment_label"
-        tools:layout="@layout/fragment_first">
+        tools:layout="@layout/area_keys">
 
         <action
             android:id="@+id/action_FirstFragment_to_SecondFragment"
