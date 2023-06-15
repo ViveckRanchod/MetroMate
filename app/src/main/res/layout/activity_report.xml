@@ -4,14 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F6F6F6"
     android:visibility="visible"
     tools:context=".ReportActivity"
-    tools:visibility="visible"
-    tools:menu="@menu/bottom_nav_menu">
-
-
-
+    tools:visibility="visible">
 
     <TextView
         android:id="@+id/textView2"
@@ -53,13 +48,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/logo_light_cropped"
-        tools:ignore="ContentDescription" />
+        tools:ignore="ContentDescription"/>
 
     <EditText
         android:id="@+id/editTextText"
         android:layout_width="160dp"
         android:layout_height="48dp"
-        android:layout_marginEnd="13dp"
+        android:layout_marginEnd="12dp"
         android:autofillHints="name"
         android:background="@drawable/txtfield_background"
         android:ems="10"
@@ -87,11 +82,11 @@
         android:layout_width="300dp"
         android:layout_height="48dp"
         android:layout_marginBottom="28dp"
-        android:autofillHints="emailAddress"
         android:background="@drawable/txtfield_background"
         android:ems="10"
-        android:inputType="textEmailAddress"
         android:text="@string/eamil_ep_name"
+        android:autofillHints="emailAddress"
+        android:inputType="textEmailAddress"
         app:layout_constraintBottom_toTopOf="@+id/textView4"
         app:layout_constraintStart_toStartOf="@+id/textView4" />
 
@@ -178,8 +173,8 @@
         android:layout_marginEnd="84dp"
         android:background="@drawable/txtfield_background"
         android:ems="10"
-        android:inputType="number"
         android:text="@string/bus_num"
+        android:inputType="number"
         app:layout_constraintBottom_toBottomOf="@+id/editTextText3"
         app:layout_constraintEnd_toStartOf="@+id/editTextText3" />
 
@@ -202,9 +197,9 @@
         android:layout_marginBottom="12dp"
         android:background="@drawable/txtfield_background"
         android:ems="10"
-        android:hint="@string/driverName_input"
         android:inputType="text"
         android:text="@string/driverName_input"
+        android:hint="@string/driverName_input"
         app:layout_constraintBottom_toTopOf="@+id/textView7"
         app:layout_constraintStart_toStartOf="@+id/textView7" />
 
@@ -232,8 +227,5 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/editTextTextEmailAddress"
         app:layout_constraintStart_toStartOf="@+id/editTextTextEmailAddress" />
-
-
-    <include layout="@layout/layout_bottom_navigation" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

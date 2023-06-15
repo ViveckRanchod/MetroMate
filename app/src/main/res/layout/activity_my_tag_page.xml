@@ -50,7 +50,7 @@
         android:id="@+id/editTextTextMultiLine2"
         android:layout_width="273dp"
         android:layout_height="88dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/balance_background"
         android:ems="10"
         android:gravity="start|top"
