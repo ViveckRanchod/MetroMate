@@ -48,13 +48,15 @@
 
 
     <string name="tag_header">myTag</string>
-    <string name = "tag_balance">Balance:</string>
-    <string name = "trips_left">Trips remaining:</string>
-    <string name = "tag_type">Tag Type</string>
-    <string name = "tag_zone">Zone</string>
-    <string name = "tag_number">Tag number</string>
-    <string name = "btn_reload">Reload Tag</string>
-    <string name = "btn_cancel">Cancel Tag</string>
+    <string name="tag_balance">Balance:</string>
+    <string name="trips_left">Trips remaining:</string>
+    <string name="tag_type">Tag Type</string>
+    <string name="tag_zone">Zone</string>
+    <string name="tag_number">Tag number</string>
+    <string name="btn_reload">Reload Tag</string>
+    <string name="btn_cancel">Cancel Tag</string>
+
+    <string name="cancelheader">Cancel myTag</string>
 
 
     <string name="commuterEmail">Email</string>
