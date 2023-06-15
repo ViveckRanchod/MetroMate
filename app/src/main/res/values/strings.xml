@@ -60,13 +60,13 @@
 
 
     <string name="tag_header">myTag</string>
-    <string name = "tag_balance">Balance:</string>
-    <string name = "trips_left">Trips remaining:</string>
-    <string name = "tag_type">Tag Type</string>
-    <string name = "tag_zone">Zone</string>
-    <string name = "tag_number">Tag number</string>
-    <string name = "btn_reload">Reload Tag</string>
-    <string name = "btn_cancel">Cancel Tag</string>
+    <string name="tag_balance">Balance:</string>
+    <string name="trips_left">Trips remaining:</string>
+    <string name="tag_type">Tag Type</string>
+    <string name="tag_zone">Zone</string>
+    <string name="tag_number">Tag number</string>
+    <string name="btn_reload">Reload Tag</string>
+    <string name="btn_cancel">Cancel Tag</string>
 
 
     <string name="commuterEmail">Email</string>
@@ -91,6 +91,8 @@
     <string name="_09_00am">09:00am</string>
     <string name="_09_40_am">09:40 am</string>
     <string name="spinner_prompt">Select an an area schedule:</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
 </resources>
