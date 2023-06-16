@@ -1,7 +1,0 @@
-<resources>
-    <style name="Theme.MetroMate01" parent="Theme.MaterialComponents.Light.DarkActionBar">
-        <style name="BottomNavigationLabel.Bold" parent="TextAppearance.MaterialComponents.BottomNavigation">
-        <item name="android:textStyle">bold</item>
-    </style>
-    </style>
-</resources>
