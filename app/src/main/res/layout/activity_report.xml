@@ -7,7 +7,8 @@
     android:background="#F6F6F6"
     android:visibility="visible"
     tools:context=".ReportActivity"
-    tools:visibility="visible">
+    tools:visibility="visible"
+    tools:menu="@menu/bottom_nav_menu">
 
 
 
