@@ -59,7 +59,7 @@ public class Driver extends AppCompatActivity {
             throw new RuntimeException(e);
         }
 
-        //send user input to db:
+        //send user input to dbase:
         signUp.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View sendView){
