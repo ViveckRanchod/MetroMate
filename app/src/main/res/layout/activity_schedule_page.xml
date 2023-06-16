@@ -35,10 +35,5 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView2"
         tools:ignore="HardcodedText" />
 
-<<<<<<< Updated upstream
-=======
-
-
->>>>>>> Stashed changes
 
 </androidx.constraintlayout.widget.ConstraintLayout>
