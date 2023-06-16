@@ -29,6 +29,7 @@
     <string name="enter_email_address">Enter email address @</string>
     <string name="password_minimum_of_8_characters">Password (minimum of 8 characters)</string>
     <string name="metromate_logo">metromate logo</string>
+    <string name="metromate_card">metromate card</string>
     <string name="button_commuter">Commuter</string>
     <string name="button_driver">Bus Driver</string>
     <string name="i_am" tools:ignore="TypographyEllipsis">I am a...</string>
@@ -71,9 +72,8 @@
     <string name="btn_cancel">Cancel Tag</string>
 
 
-
     <string name="cancelheader">Cancel myTag</string>
-
+    <string name="card" >Use Credit/Debit Card</string>
 
 
     <string name="commuterEmail">Email</string>

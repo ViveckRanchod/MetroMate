@@ -12,6 +12,9 @@
         android:theme="@style/Theme.MetroMate01"
         tools:targetApi="31">
         <activity
+            android:name=".paymentMethodPage"
+            android:exported="false" />
+        <activity
             android:name=".cancel_tag"
             android:exported="false" />
         <activity
