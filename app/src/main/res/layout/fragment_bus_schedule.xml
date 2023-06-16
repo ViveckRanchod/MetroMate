@@ -5,19 +5,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F6F6F6"
-    tools:menu="@menu/bottom_nav_menu">
+    android:background="#F6F6F6">
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="345dp"
-        android:layout_height="78dp"
-        android:layout_marginTop="36dp"
+        android:layout_width="281dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="16dp"
         andriod:contentDescription="@string/metromate_logo"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.562"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logo_light_cropped" />
+        app:srcCompat="@drawable/logo_light_cropped"
+        tools:menu="@menu/bottom_nav_menu_driver"/>
 
     <Spinner
         android:id="@+id/schedule_droplist"
@@ -581,5 +582,5 @@
 
     </TableLayout>
 
-    <include layout="@layout/layout_bottom_navigation" />
+    <include layout="@layout/layout_bottom_navigation_driver" />
 </androidx.constraintlayout.widget.ConstraintLayout>

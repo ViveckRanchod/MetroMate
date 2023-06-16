@@ -5,7 +5,8 @@
     android:id="@+id/estimatedDelay"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#242433">
+    android:background="#242433"
+    tools:menu="@menu/bottom_nav_menu_driver">
 
     <ImageView
         android:id="@+id/imageView2"
@@ -20,15 +21,15 @@
 
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="374dp"
-        android:layout_height="546dp"
+        android:layout_width="360dp"
+        android:layout_height="602dp"
         android:background="@drawable/txtfield_background"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.485"
+        app:layout_constraintHorizontal_bias="0.484"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.787"
+        app:layout_constraintVertical_bias="0.639"
         app:srcCompat="@drawable/white_rectangle_container" />
 
     <EditText
@@ -78,9 +79,10 @@
         android:layout_height="45dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.466"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.13"
+        app:layout_constraintVertical_bias="0.097"
         app:srcCompat="@drawable/orange_rectangle_container" />
 
     <Switch
@@ -96,7 +98,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/textView15"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.133"
+        app:layout_constraintVertical_bias="0.097"
         tools:checked="false" />
 
     <TextView
@@ -108,10 +110,10 @@
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.131"
+        app:layout_constraintHorizontal_bias="0.067"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.138" />
+        app:layout_constraintVertical_bias="0.104" />
 
     <TextView
         android:id="@+id/textView13"
@@ -185,10 +187,10 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.466"
+        app:layout_constraintHorizontal_bias="0.481"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.238" />
+        app:layout_constraintVertical_bias="0.199" />
 
     <EditText
         android:id="@+id/editText"
@@ -256,5 +258,10 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0" />
+
+    <include
+        layout="@layout/layout_bottom_navigation_driver"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

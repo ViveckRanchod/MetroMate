@@ -1,27 +1,9 @@
 package com.example.metromate01;
 
 import android.os.Bundle;
-
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
-
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.view.MenuItem;
 import android.view.View;
-
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
-
-import com.example.metromate01.databinding.ActivityMainBinding;
-
-import android.view.Menu;
-import android.view.MenuItem;
-
-import android.annotation.SuppressLint;
-import android.os.Bundle;
-import android.view.MenuItem;
+import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -31,68 +13,119 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class MainActivity extends AppCompatActivity
-        implements BottomNavigationView.OnNavigationItemSelectedListener {
+public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
 
-    // Declare the fragments
+    // Declare the fragments for the regular user
     private FirstFragment firstFragment;
     private SecondFragment secondFragment;
     private ThirdFragment thirdFragment;
     private FourthFragment fourthFragment;
 
+    // Declare the fragments for the bus driver
+    private BusHomeFragment busFragment;
+    private BusMapsFragment busFragment2;
+    private BusScheduleFragment busFragment3;
+
+    // The flag to indicate if the user is a bus driver or not
+    private boolean isBusDriver;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // Initialize the fragments
+        Button commuterButton = findViewById(R.id.commuterButton);
+        Button driverButton = findViewById(R.id.driverButton);
+
+        commuterButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                switchToCommuterNavigation();
+            }
+        });
+
+        driverButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                switchToDriverNavigation();
+            }
+        });
+
+        // Check if the user is a bus driver or not
+        isBusDriver = false; // Default value, you need to implement the logic to set this flag
+
+        // Initialize the fragments for the regular user
         firstFragment = new FirstFragment();
         secondFragment = new SecondFragment();
         thirdFragment = new ThirdFragment();
         fourthFragment = new FourthFragment();
+
+        // Initialize the fragments for the bus driver
+        busFragment = new BusHomeFragment();
+        busFragment2 = new BusMapsFragment();
+        busFragment3 = new BusScheduleFragment();
+
         // Set the initial fragment
-        setInitialFragment();
+        if (isBusDriver) {
+            setInitialFragment(busFragment);
+        } else {
+            setInitialFragment(firstFragment);
+        }
 
         // Set the listener for bottom navigation
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
         bottomNavigationView.setOnNavigationItemSelectedListener(this);
-        bottomNavigationView.inflateMenu(R.menu.bottom_nav_menu);
 
+        // Inflate the appropriate menu based on the user type
+        if (isBusDriver) {
+            bottomNavigationView.inflateMenu(R.menu.bottom_nav_menu_driver);
+        } else {
+            bottomNavigationView.inflateMenu(R.menu.bottom_nav_menu);
+        }
     }
 
-
-    private void setInitialFragment() {
+    private void setInitialFragment(Fragment fragment) {
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.flFragment, firstFragment);
+        fragmentTransaction.replace(R.id.flFragment, fragment);
         fragmentTransaction.commit();
-
     }
 
-    @SuppressLint("NonConstantResourceId")
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         Fragment selectedFragment = null;
 
-        switch (item.getItemId()) {
-            case R.id.homePage:
-                selectedFragment = firstFragment;
-                break;
-
-            case R.id.schedulesPage:
-                selectedFragment = secondFragment;
-                break;
-
-            case R.id.mapsRoutes:
-                selectedFragment = thirdFragment;
-                break;
-
-            case R.id.myTagID:
-                selectedFragment = fourthFragment;
-                break;
+        // Determine the selected fragment based on the user type
+        if (isBusDriver) {
+            switch (item.getItemId()) {
+                case R.id.busHomePage:
+                    selectedFragment = busFragment;
+                    break;
+                case R.id.busSchedulesPage:
+                    selectedFragment = busFragment2;
+                    break;
+                case R.id.busMapsRoutes:
+                    selectedFragment = busFragment3;
+                    break;
+            }
+        } else {
+            switch (item.getItemId()) {
+                case R.id.homePage:
+                    selectedFragment = firstFragment;
+                    break;
+                case R.id.schedulesPage:
+                    selectedFragment = secondFragment;
+                    break;
+                case R.id.mapsRoutes:
+                    selectedFragment = thirdFragment;
+                    break;
+                case R.id.myTagID:
+                    selectedFragment = fourthFragment;
+                    break;
+            }
         }
 
+        // Replace the fragment if it is not null
         if (selectedFragment != null) {
             FragmentManager fragmentManager = getSupportFragmentManager();
             FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
@@ -102,35 +135,20 @@ public class MainActivity extends AppCompatActivity
 
         return true;
     }
+
+    private void switchToCommuterNavigation() {
+        isBusDriver = false;
+        setInitialFragment(firstFragment);
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
+        bottomNavigationView.getMenu().clear();
+        bottomNavigationView.inflateMenu(R.menu.bottom_nav_menu);
+    }
+
+    private void switchToDriverNavigation() {
+        isBusDriver = true;
+        setInitialFragment(busFragment);
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
+        bottomNavigationView.getMenu().clear();
+        bottomNavigationView.inflateMenu(R.menu.bottom_nav_menu_driver);
+    }
 }
-
-
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        // Inflate the menu; this adds items to the action bar if it is present.
-//        getMenuInflater().inflate(R.menu.menu_main, menu);
-//        return true;
-//    }
-//
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//        // Handle action bar item clicks here. The action bar will
-//        // automatically handle clicks on the Home/Up button, so long
-//        // as you specify a parent activity in AndroidManifest.xml.
-//        int id = item.getItemId();
-//
-//        //noinspection SimplifiableIfStatement
-//        if (id == R.id.action_settings) {
-//            return true;
-//        }
-//
-//        return super.onOptionsItemSelected(item);
-//    }
-//
-//    @Override
-//    public boolean onSupportNavigateUp() {
-//        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
-//        return NavigationUI.navigateUp(navController, appBarConfiguration)
-//                || super.onSupportNavigateUp();
-//    }
-//}

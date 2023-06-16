@@ -5,18 +5,18 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import java.io.*;
 import androidx.fragment.app.Fragment;
+import java.io.*;
 
-public class FourthFragment extends Fragment {
+public class BusHomeFragment extends Fragment {
 
-    public FourthFragment(){
+    public BusHomeFragment(){
         // require a empty public constructor
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.activity_my_tag_page, container, false);
+
+        return inflater.inflate(R.layout.driver_homepage, container, false);
     }
 }

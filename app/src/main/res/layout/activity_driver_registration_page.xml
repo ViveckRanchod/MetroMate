@@ -201,13 +201,6 @@
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints" />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_begin="24dp" />
-
     <ImageView
         andriod:id="@+id/imageView"
         andriod:layout_width="wrap_content"
