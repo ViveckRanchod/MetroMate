@@ -137,5 +137,7 @@
         android:contentDescription="@string/metromate_card"
         app:srcCompat="@drawable/bus_tag" />
 
+    <include layout="@layout/layout_bottom_navigation" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
