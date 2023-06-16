@@ -8,7 +8,7 @@ import java.util.HashMap;
 
 public class Database {
     //reference database:
-    FirebaseDatabase metromDB; // our db
+    FirebaseDatabase metromDB; // our db/
     DatabaseReference refPath; // our path/branch/schema
 
     public void setPath(String path){
