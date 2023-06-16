@@ -14,7 +14,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
-import java.util.TimeZone;
+
 
 public class Driver extends AppCompatActivity {
 
@@ -67,7 +67,8 @@ public class Driver extends AppCompatActivity {
                 Database db = new Database();
                 db.setPath(path);
                 //set refValues in the same order of the parameters set in signUpToDatabase in getDatabase:
-                //refer to Database to see purpose of tagNumber null
+                //refer to Database to see purpose of tagNumber= null
+                assert date_dob != null;
                 db.signUpToDatabase(st_name, st_lastname, st_email, st_password, date_dob, st_badgeID,
                         null, path);
             }
