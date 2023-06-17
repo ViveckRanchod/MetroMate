@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:andriod="http://schemas.android.com/apk/res/android"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -11,17 +11,14 @@
     <EditText
         android:id="@+id/edtDateOfBirth"
         style="@style/TextInBox"
-        andriod:layout_width="wrap_content"
         android:layout_width="339dp"
-        andriod:layout_height="wrap_content"
-        android:layout_height="53dp"
         android:layout_marginBottom="24dp"
-        andriod:autofillHints="@string/_1999_05_11"
+        android:autofillHints="@string/_1999_05_11"
         android:background="@drawable/custom_edit_text_border"
-        andriod:ems="10"
+        android:ems="10"
         android:importantForAutofill="yes"
-        andriod:inputType="date"
-        andriod:text="@string/_1999_05_11"
+        android:inputType="date"
+        android:text="@string/_1999_05_11"
         app:layout_constraintBottom_toTopOf="@+id/btnSignUp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.48"
@@ -77,7 +74,7 @@
         android:layout_width="107dp"
         android:layout_height="54dp"
         android:layout_marginBottom="36dp"
-        andriod:backgroundTint="@color/dark_golden_rod"
+        android:backgroundTint="@color/dark_golden_rod"
         android:text="@string/sign_up"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -94,7 +91,7 @@
         android:ems="10"
         android:importantForAutofill="yes"
         android:inputType="textPassword"
-        andriod:text="********"
+        android:text="********"
         app:layout_constraintBottom_toTopOf="@+id/tvDateOfBirth"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.472"
@@ -123,7 +120,6 @@
         app:layout_constraintBottom_toTopOf="@+id/tvName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
         app:layout_constraintVertical_bias="0.368" />
 
     <TextView
@@ -148,7 +144,7 @@
         android:ems="10"
         android:importantForAutofill="yes"
         android:autofillHints="Enter driver badge ID"
-        andriod:text="Enter driver badge ID"
+        android:text="Enter driver badge ID"
         android:inputType="text"
         app:layout_constraintBottom_toTopOf="@+id/tvEmail"
         app:layout_constraintEnd_toEndOf="parent"
@@ -166,7 +162,7 @@
         android:ems="10"
         android:importantForAutofill="yes"
         android:inputType="textEmailAddress"
-        andriod:text="Enter email address @"
+        android:text="Enter email address @"
         app:layout_constraintBottom_toTopOf="@+id/edtPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.444"
@@ -207,19 +203,5 @@
         android:orientation="vertical"
         app:layout_constraintGuide_begin="24dp" />
 
-    <ImageView
-        andriod:id="@+id/imageView"
-        andriod:layout_width="wrap_content"
-        android:layout_width="345dp"
-        andriod:layout_height="wrap_content"
-        android:layout_height="78dp"
-        andriod:contentDescription="@string/metromate_logo"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.541"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.046"
-        app:srcCompat="@drawable/logo_light_cropped" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
