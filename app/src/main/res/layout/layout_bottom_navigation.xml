@@ -31,7 +31,6 @@
         app:itemPaddingBottom="7dp"
         app:itemPaddingTop="-4dp"
         app:itemTextColor="#FFFFFF"
-        app:labelTextAppearance="@style/BottomNavigationLabelBold"
         app:labelVisibilityMode="labeled"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -39,6 +38,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0"
-        app:menu="@menu/bottom_nav_menu" />
+        app:menu="@menu/bottom_nav_menu"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
