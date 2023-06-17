@@ -45,6 +45,7 @@
     <string name="issue_input">Insert Text</string>
     <string name="reportHead">Report Trip</string>
     <string name="report">REPORT</string>
+    <string name="name">Name</string>
 
 
     <string name="tag_header">myTag</string>
