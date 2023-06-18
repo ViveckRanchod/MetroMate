@@ -27,6 +27,10 @@
             android:name=".mapActivity"
             android:exported="false" />
 
+        <activity
+            android:name=".Commuter"
+            android:exported="false" />
+
 
         <activity
             android:name=".MainActivity"

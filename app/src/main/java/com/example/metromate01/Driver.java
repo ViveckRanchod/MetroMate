@@ -2,6 +2,7 @@ package com.example.metromate01;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -71,6 +72,11 @@ public class Driver extends AppCompatActivity {
                 assert date_dob != null;
                 db.signUpToDatabase(st_name, st_lastname, st_email, st_password, date_dob, st_badgeID,
                         null, path);
+
+                Intent intent = new Intent(Driver.this, MainActivity.class);
+                startActivity(intent);
+                finish(); // Optional: If you don't want the user to go back to the sign-up page with the back button
+
             }
         });
 
