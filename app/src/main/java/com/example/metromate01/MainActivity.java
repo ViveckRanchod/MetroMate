@@ -38,44 +38,43 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_driver_registration_page);
 
-        bottomNavigationView = findViewById(R.id.bottomNavigationView);
-        bottomNavigationView.setOnNavigationItemSelectedListener(
-                new BottomNavigationView.OnNavigationItemSelectedListener() {
-                    @Override
-                    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                        switch (item.getItemId()) {
-                            case R.id.navigation_item1:
-                                // Open MainFragment
-                                getSupportFragmentManager().beginTransaction()
-                                        .replace(R.id.flFragment, new MainFragment())
-                                        .commit();
-                                return true;
-                            case R.id.navigation_item2:
-                                // Open SchedulePageFragment
-                                getSupportFragmentManager().beginTransaction()
-                                        .replace(R.id.flFragment, new SchedulePageFragment())
-                                        .commit();
-                                return true;
-                            case R.id.navigation_item3:
-                                // Open MapsFragment
-                                getSupportFragmentManager().beginTransaction()
-                                        .replace(R.id.flFragment, new MapsFragment())
-                                        .commit();
-                                return true;
-                            case R.id.navigation_item4:
-                                // Open MyTagPageFragment
-                                getSupportFragmentManager().beginTransaction()
-                                        .replace(R.id.flFragment, new MyTagPageFragment())
-                                        .commit();
-                                return true;
-                        }
-                        return false;
-                    }
-                });
+//        bottomNavigationView = findViewById(R.id.bottomNavigationView);
+//        bottomNavigationView.setOnNavigationItemSelectedListener(
+//                new BottomNavigationView.OnNavigationItemSelectedListener() {
+//                    @Override
+//                    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+//                        switch (item.getItemId()) {
+//                            case R.id.navigation_item1:
+//                                // Open MainFragment
+//                                getSupportFragmentManager().beginTransaction()
+//                                        .replace(R.id.flFragment, new MainFragment())
+//                                        .commit();
+//                                return true;
+//                            case R.id.navigation_item2:
+//                                // Open SchedulePageFragment
+//                                getSupportFragmentManager().beginTransaction()
+//                                        .replace(R.id.flFragment, new SchedulePageFragment())
+//                                        .commit();
+//                                return true;
+//                            case R.id.navigation_item3:
+//                                // Open MapsFragment
+//                                getSupportFragmentManager().beginTransaction()
+//                                        .replace(R.id.flFragment, new MapsFragment())
+//                                        .commit();
+//                                return true;
+//                            case R.id.navigation_item4:
+//                                // Open MyTagPageFragment
+//                                getSupportFragmentManager().beginTransaction()
+//                                        .replace(R.id.flFragment, new MyTagPageFragment())
+//                                        .commit();
+//                                return true;
+//                        }
+//                        return false;
+//                    }
+//                });
     }
 }
-
 
 
