@@ -46,6 +46,6 @@ public class Schedule extends AppCompatActivity implements AdapterView.OnItemSel
 
     @Override
     public void onNothingSelected(AdapterView<?> adapterView) {
-
+        schedule_img.setImageResource(R.drawable.bus_background);
     }
 }
