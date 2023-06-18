@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F6F6F6"
-    tools:context=".mapActivity">
+    tools:context=".mapActivity"
+    tools:menu="@menu/bottom_nav_menu">
 
     <fragment
         android:id="@+id/map"
@@ -19,5 +20,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom" />
+
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
