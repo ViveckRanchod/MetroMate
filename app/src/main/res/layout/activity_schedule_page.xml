@@ -23,6 +23,7 @@
         android:layout_marginTop="36dp"
         android:background="@drawable/custom_edit_text_border"
         android:backgroundTint="#C0C0C0"
+        android:prompt="Select a schedule:"
         android:spinnerMode="dropdown"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -31,7 +32,7 @@
         tools:ignore="HardcodedText" />
 
     <ImageView
-        android:id="@+id/imageView5"
+        android:id="@+id/schedule_img"
         android:layout_width="325dp"
         android:layout_height="409dp"
         android:layout_marginTop="72dp"
