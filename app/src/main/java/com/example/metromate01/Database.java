@@ -11,6 +11,7 @@ public class Database {
     FirebaseDatabase metromDB; // our db/
     DatabaseReference refPath; // our path/branch/schema
 
+    //method resuable for both commuter and driver:
     public void setPath(String path){
         //set database name:
         metromDB = FirebaseDatabase.getInstance();

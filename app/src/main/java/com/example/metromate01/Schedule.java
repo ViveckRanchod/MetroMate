@@ -13,7 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class Schedule extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     Spinner schedule_droplist;
-    ImageView schedule_img = findViewById(R.id.schedule_img); //set on display
+    ImageView schedule_img = findViewById(R.id.schedule_img);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,7 +23,7 @@ public class Schedule extends AppCompatActivity implements AdapterView.OnItemSel
         ArrayAdapter<CharSequence> adaptArr = ArrayAdapter.createFromResource(Schedule.this, R.array.areas_array, android.R.layout.simple_spinner_item);
         adaptArr.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         schedule_droplist.setAdapter(adaptArr);
-        schedule_droplist.setSelection(0);
+        schedule_droplist.setSelection(0);  //set on display
         schedule_droplist.setOnItemSelectedListener(this);
     }
 

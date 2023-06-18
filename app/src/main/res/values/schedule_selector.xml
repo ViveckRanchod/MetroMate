@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- schedule_selector array items -->
+<!-- schedule_selector array items here -->
 <resources>
     <string-array name="areas_array">
         <item>Select a schedule:</item>

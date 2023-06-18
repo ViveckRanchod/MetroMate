@@ -22,7 +22,7 @@ public class Driver extends AppCompatActivity {
     EditText name,lastname, badgeID, email,
             password, dob;
 
-    String path ="driver"; // path
+    String path ="driver"; // path set
     Button signUp;
 
     @Override
