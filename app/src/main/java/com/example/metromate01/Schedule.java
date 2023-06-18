@@ -13,7 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class Schedule extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     Spinner schedule_droplist;
-    ImageView schedule_img = findViewById(R.id.schedule_img);
+    ImageView schedule_img = findViewById(R.id.schedule_img); //set on display
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
