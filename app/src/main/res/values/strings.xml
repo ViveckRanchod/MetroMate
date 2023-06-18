@@ -50,6 +50,9 @@
     <string name="_08_00am_a">08:00am A</string>
     <string name="_09_00am">09:00am</string>
     <string name="_09_40_am">09:40 am</string>
-    <string name="spinner_prompt">Select an an area schedule:</string>
+    <string name="spinner_prompt">Select an area schedule:</string>
+    <string name="stars_icon">********</string>
+    <string name="enter_driver_badge">Enter driver badge ID</string>
+    <string name="enter_email">Enter email address @</string>
 
 </resources>

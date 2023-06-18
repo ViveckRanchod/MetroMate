@@ -50,30 +50,24 @@ public class Driver extends AppCompatActivity {
 
         dob=  findViewById(R.id.edtDateOfBirth);
         String st_dob = dob.getText().toString();
-        //convert date again to date format:
-        Date date_dob;
-        SimpleDateFormat sdf_dob = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
-        try {
-            date_dob = sdf_dob.parse(st_dob);
-        } catch (ParseException e) {
-            throw new RuntimeException(e);
-        }
+
 
         //send user input to dbase:
-        signUp.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View sendView){
-                //pass path we want to send data to:
-                Database db = new Database();
-                db.setPath(path);
-                //set refValues in the same order of the parameters set in signUpToDatabase in getDatabase:
-                //refer to Database to see purpose of tagNumber= null
-                assert date_dob != null;
-                db.signUpToDatabase(st_name, st_lastname, st_email, st_password, date_dob, st_badgeID,
-                        null, path);
-            }
+        Database db = new Database();
+        //check input conditions:
+        if(!st_name.isEmpty() && !st_lastname.isEmpty() && !st_email.isEmpty() &&!st_password.isEmpty()
+                && st_password.length()>=8 && !st_dob.isEmpty()&& st_badgeID.isEmpty()){
+        signUp.setOnClickListener(sendView -> {
+            //pass path we want to send data to:
+            db.setPath(path);
+            //set refValues in the same order of the parameters set in signUpToDatabase in getDatabase:
+            //refer to Database to see purpose of tagNumber= null
+            db.signUpToDatabase(st_name, st_lastname, st_email, st_password, st_dob, st_badgeID,
+                    null, path);
         });
+        }else {
 
+        }
     }
 }
 

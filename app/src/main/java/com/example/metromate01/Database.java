@@ -19,21 +19,19 @@ public class Database {
     }
 
     public void signUpToDatabase(String name, String lastname, String email,
-                                 String password, Date dateOfBirth,String badgeID,
+                                 String password, String dateOfBirth,String badgeID,
                                  String tagNumber,
                                  String path)
     {
-        //convert dateOfBirth to timestamp value:
-        long ts_dateOfBirth = dateOfBirth.getTime();
-
         //store values in hash map:
-        HashMap<String, Object> userData = new HashMap<>();
+        // set badgeID and tagNumber to be null in the opposing classes
+        HashMap<String, String> userData = new HashMap<>();
         if(path.equals("driver")){
             userData.put("badgeID", badgeID);
         } else if (path.equals("commuter")){
             userData.put("tagNumber", tagNumber);
         }
-        userData.put("dateOfBirth", ts_dateOfBirth);
+        userData.put("dateOfBirth", dateOfBirth);
         userData.put("email", email);
         userData.put("lastname", lastname);
         userData.put("name", name);
