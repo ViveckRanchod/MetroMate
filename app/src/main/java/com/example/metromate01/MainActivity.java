@@ -2,6 +2,7 @@ package com.example.metromate01;
 
 import android.os.Bundle;
 
+import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -30,7 +31,6 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-
 public class MainActivity extends AppCompatActivity
         implements BottomNavigationView.OnNavigationItemSelectedListener {
 
@@ -40,17 +40,23 @@ public class MainActivity extends AppCompatActivity
     private ThirdFragment thirdFragment;
     private FourthFragment fourthFragment;
 
+    private LandingFragment landingFragment;
+
+    private BottomSheetBehavior<View> bottomSheetBehavior;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        landingFragment = new LandingFragment();
+
         // Initialize the fragments
         firstFragment = new FirstFragment();
         secondFragment = new SecondFragment();
         thirdFragment = new ThirdFragment();
         fourthFragment = new FourthFragment();
+
         // Set the initial fragment
         setInitialFragment();
 
@@ -59,15 +65,21 @@ public class MainActivity extends AppCompatActivity
         bottomNavigationView.setOnNavigationItemSelectedListener(this);
         bottomNavigationView.inflateMenu(R.menu.bottom_nav_menu);
 
-    }
+        // Print the maximum item count
+        int maxItemCount = bottomNavigationView.getMaxItemCount();
+        System.out.println("Maximum item count: " + maxItemCount);
 
+        // Set up the bottom sheet
+        View bottomSheet = findViewById(R.id.coordinatorLayout);
+        bottomSheetBehavior = BottomSheetBehavior.from(bottomSheet);
+        bottomSheetBehavior.setState(BottomSheetBehavior.STATE_HIDDEN);
+    }
 
     private void setInitialFragment() {
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.flFragment, firstFragment);
+        fragmentTransaction.replace(R.id.flFragment, landingFragment);
         fragmentTransaction.commit();
-
     }
 
     @SuppressLint("NonConstantResourceId")
@@ -102,35 +114,14 @@ public class MainActivity extends AppCompatActivity
 
         return true;
     }
+
+    // Method to show the bottom sheet
+    private void showBottomSheet() {
+        bottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
+    }
+
+    // Method to hide the bottom sheet
+    private void hideBottomSheet() {
+        bottomSheetBehavior.setState(BottomSheetBehavior.STATE_HIDDEN);
+    }
 }
-
-
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        // Inflate the menu; this adds items to the action bar if it is present.
-//        getMenuInflater().inflate(R.menu.menu_main, menu);
-//        return true;
-//    }
-//
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//        // Handle action bar item clicks here. The action bar will
-//        // automatically handle clicks on the Home/Up button, so long
-//        // as you specify a parent activity in AndroidManifest.xml.
-//        int id = item.getItemId();
-//
-//        //noinspection SimplifiableIfStatement
-//        if (id == R.id.action_settings) {
-//            return true;
-//        }
-//
-//        return super.onOptionsItemSelected(item);
-//    }
-//
-//    @Override
-//    public boolean onSupportNavigateUp() {
-//        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
-//        return NavigationUI.navigateUp(navController, appBarConfiguration)
-//                || super.onSupportNavigateUp();
-//    }
-//}

@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F6F6F6"
-    tools:context=".myTag_page">
+    tools:context=".myTag_page"
+    tools:menu="@menu/bottom_nav_menu">
 
     <ImageView
         android:id="@+id/imageView5"

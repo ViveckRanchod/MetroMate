@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bus_background">
+    android:background="@drawable/bus_background"
+    tools:context=".LandingFragment">
 
 
     <Button
@@ -44,8 +45,8 @@
 
     <ImageView
         android:id="@+id/imageView9"
-        android:layout_width="396dp"
-        android:layout_height="172dp"
+        android:layout_width="416dp"
+        android:layout_height="170dp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView8"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
