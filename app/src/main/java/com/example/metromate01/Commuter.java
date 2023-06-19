@@ -48,7 +48,7 @@ public class Commuter extends AppCompatActivity {
                     null, path);
                 Toast.makeText(Commuter.this, "You have signed up successfully!", Toast.LENGTH_SHORT).show();
             }else {
-                Toast.makeText(Commuter.this, "Please ensure are fields are filled & the password is 8 or more characters long", Toast.LENGTH_SHORT).show();
+                Toast.makeText(Commuter.this, "Please ensure all fields are filled & the password is 8 or more characters long", Toast.LENGTH_SHORT).show();
             }
         });
     }
