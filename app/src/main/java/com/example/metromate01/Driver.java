@@ -54,14 +54,14 @@ public class Driver extends AppCompatActivity {
             //set refValues in the same order of the parameters set in signUpToDatabase in getDatabase:
             //refer to Database to see purpose of tagNumber= null
             if(!st_name.isEmpty() && !st_lastname.isEmpty() && !st_email.isEmpty() &&!st_password.isEmpty()
-                    && !st_dob.isEmpty()&& !st_badgeID.isEmpty()){
+                    && st_password.length()>=8 && !st_dob.isEmpty()&& !st_badgeID.isEmpty()){
                 //pass path we want to send data to:
                 db.setPath(path);
                 db.signUpToDatabase(st_name, st_lastname, st_email, st_password, st_dob, st_badgeID,
                     null, path);
-                Toast.makeText(Driver.this, "You signed up boss man", Toast.LENGTH_SHORT).show();
+                Toast.makeText(Driver.this, "You have signed up successfully!", Toast.LENGTH_SHORT).show();
             }else {
-                Toast.makeText(Driver.this, "Please ensure are fields are filled & password meets specified criteria", Toast.LENGTH_SHORT).show();
+                Toast.makeText(Driver.this, "Please ensure are fields are filled & the password is 8 or more characters long", Toast.LENGTH_SHORT).show();
             }
         });
     }

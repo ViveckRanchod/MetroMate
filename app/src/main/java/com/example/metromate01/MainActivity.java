@@ -32,5 +32,9 @@ public class MainActivity extends AppCompatActivity {
         // Open DriverRegistrationPageActivity
         Intent intent = new Intent(this, Driver.class);
         startActivity(intent);
+
+        // Open commuter_registration activity
+        Intent intentCommuter = new Intent(this, Commuter.class);
+        startActivity(intentCommuter);
     }
 }

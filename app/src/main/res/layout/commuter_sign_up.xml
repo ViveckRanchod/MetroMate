@@ -16,10 +16,11 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.008"
-        app:srcCompat="@drawable/logo_light_cropped" />
+        app:srcCompat="@drawable/logo_light_cropped"
+        android:contentDescription="@string/metromate_logo" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/btnsignUp"
         android:layout_width="145dp"
         android:layout_height="70dp"
         android:backgroundTint="#DDA516"
@@ -28,7 +29,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.835" />
+        app:layout_constraintVertical_bias="0.835"
+        tools:ignore="HardcodedText" />
 
     <TextView
         android:id="@+id/textView"
@@ -42,13 +44,16 @@
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.094" />
+        app:layout_constraintVertical_bias="0.094"
+        tools:ignore="HardcodedText"/>
 
     <EditText
         android:id="@+id/editTextDate"
+        style="@style/TextInBox"
         android:layout_width="333dp"
         android:layout_height="48dp"
         android:background="@drawable/txtfield_background"
+        android:text="1998/08/15"
         android:ems="10"
         android:inputType="date"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -56,22 +61,26 @@
         app:layout_constraintHorizontal_bias="0.616"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.625" />
+        app:layout_constraintVertical_bias="0.625"
+        tools:ignore="HardcodedText,LabelFor"/>
 
     <EditText
         android:id="@+id/commuterEmail"
+        style="@style/TextInBox"
         android:layout_width="333dp"
         android:layout_height="48dp"
         android:background="@drawable/txtfield_background"
         android:ems="10"
         android:hint="@string/commuterEmail"
         android:inputType="textEmailAddress"
+        android:text=" Enter email address"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.583"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.306" />
+        app:layout_constraintVertical_bias="0.306"
+        tools:ignore="HardcodedText,LabelFor"/>
 
     <TextView
         android:id="@+id/textView4"
@@ -84,7 +93,8 @@
         app:layout_constraintHorizontal_bias="0.1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="1.0"
+        tools:ignore="HardcodedText"/>
 
     <TextView
         android:id="@+id/textView5"
@@ -97,35 +107,40 @@
         app:layout_constraintHorizontal_bias="0.122"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="1.0"
+        tools:ignore="HardcodedText"/>
 
     <EditText
         android:id="@+id/editTextTextPersonName4"
+        style="@style/TextInBox"
         android:layout_width="333dp"
         android:layout_height="48dp"
         android:background="@drawable/txtfield_background"
         android:ems="10"
         android:hint="@string/commuterEmail"
+        android:text="Enter tag number"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.616"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.417" />
+        app:layout_constraintVertical_bias="0.417"
+        tools:ignore="HardcodedText"/>
 
     <TextView
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Password"
+        android:text="Password (minimum of 8 charcaters)"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         app:layout_constraintBottom_toTopOf="@+id/editTextTextPassword"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.118"
+        app:layout_constraintHorizontal_bias="0.402"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="1.0"
+        tools:ignore="HardcodedText"/>
 
     <TextView
         android:id="@+id/textView2"
@@ -138,52 +153,62 @@
         app:layout_constraintHorizontal_bias="0.107"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.992" />
+        app:layout_constraintVertical_bias="0.992"
+        tools:ignore="HardcodedText"/>
 
     <EditText
         android:id="@+id/editTextTextPersonName"
+        style="@style/TextInBox"
         android:layout_width="160dp"
         android:layout_height="48dp"
         android:background="@drawable/txtfield_background"
         android:ems="10"
         android:hint="First Name"
+        android:text="First Name"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.154"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.198" />
+        app:layout_constraintVertical_bias="0.198"
+        tools:ignore="HardcodedText"/>
 
     <EditText
         android:id="@+id/editTextTextPersonName2"
+        style="@style/TextInBox"
         android:layout_width="160dp"
         android:layout_height="48dp"
         android:background="@drawable/txtfield_background"
         android:ems="10"
         android:hint="Last Name"
+        android:text="Last Name"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.892"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.198" />
+        app:layout_constraintVertical_bias="0.198"
+        tools:ignore="HardcodedText"/>
 
     <EditText
         android:id="@+id/editTextTextPassword"
+        style="@style/TextInBox"
         android:layout_width="333dp"
         android:layout_height="48dp"
         android:background="@drawable/txtfield_background"
         android:ems="10"
         android:hint="***********"
         android:inputType="textPassword"
+        android:text="********"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.616"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.52" />
+        app:layout_constraintVertical_bias="0.52"
+        tools:ignore="HardcodedText"/>
 
     <TextView
         android:id="@+id/textView7"
@@ -196,6 +221,7 @@
         app:layout_constraintHorizontal_bias="0.126"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.995" />
+        app:layout_constraintVertical_bias="0.995"
+        tools:ignore="HardcodedText"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
