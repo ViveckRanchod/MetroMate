@@ -1,0 +1,11 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+<item>
+    <shape android:shape="line">
+        <stroke
+            android:color="#242433" /> <!-- Replace with your desired line color -->
+        <size
+            android:width="2dp" /> <!-- Replace with your desired line width -->
+
+    </shape>
+</item>
+</layer-list>

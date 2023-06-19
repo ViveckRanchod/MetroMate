@@ -12,15 +12,40 @@
         android:theme="@style/Theme.MetroMate01"
         tools:targetApi="31">
         <activity
+            android:name=".cancel_tag"
+            android:exported="false" />
+        <activity
+            android:name=".myTag_page"
+            android:exported="false" />
+        <activity
+            android:name=".ReportActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Driver"
+            android:exported="false" />
+        <activity
+            android:name=".mapActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".Commuter"
+            android:exported="false" />
+
+
+        <activity
             android:name=".MainActivity"
             android:exported="true"
-            android:label="@string/app_name"
             android:theme="@style/Theme.MetroMate01.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
+            <meta-data
+                android:name="com.google.android.geo.API_KEY"
+                android:value="@string/my_map_api_key" />
+
         </activity>
     </application>
 
