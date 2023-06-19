@@ -24,6 +24,8 @@ public class Database {
                                  String tagNumber,
                                  String path)
     {
+        DatabaseReference newDriver = refPath.push();
+
         //store values in hash map:
         // set badgeID and tagNumber to be null in the opposing classes
         HashMap<String, String> userData = new HashMap<>();
@@ -38,6 +40,6 @@ public class Database {
         userData.put("name", name);
         userData.put("password", password);
         //send data to path to add user:
-        refPath.setValue(userData);
+        newDriver.setValue(userData);
     }
 }

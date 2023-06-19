@@ -55,5 +55,6 @@
     <string name="enter_driver_badge">Enter driver badge ID</string>
     <string name="enter_email">Enter email address @</string>
     <string name="bus_background">bus_background</string>
+    <string name="scheduleSelect">Select a schedule:</string>
 
 </resources>
