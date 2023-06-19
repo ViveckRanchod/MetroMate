@@ -1,24 +1,18 @@
-<menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.example.metromate01.MainActivity">
-
-
-        <item
-            android:id="@+id/homePage"
-            android:title="Home"
-            android:icon="@drawable/home_icon_foreground"/>
-        <item
-            android:id="@+id/schedulesPage"
-            android:title="Schedules"
-            android:icon="@drawable/home_clock_icon_foreground"/>
-        <item
-            android:id="@+id/mapsRoutes"
-            android:title="Maps and Routes"
-            android:icon="@drawable/maps_icon_foreground"/>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/myTagID"
+        android:id="@+id/navigation_item1"
+        android:title="Home"
+        android:icon="@drawable/home_icon_foreground" />
+    <item
+        android:id="@+id/navigation_item2"
+        android:title="Schedules"
+        android:icon="@drawable/home_clock_icon_foreground" />
+    <item
+        android:id="@+id/navigation_item3"
+        android:title="Map"
+        android:icon="@drawable/maps_icon_foreground" />
+    <item
+        android:id="@+id/navigation_item4"
         android:title="myTag"
-        android:icon="@drawable/mytag_icon_foreground"/>
-
+        android:icon="@drawable/mytag_icon_foreground" />
 </menu>

@@ -18,7 +18,6 @@
     <string name="sign_up">Sign Up</string>
     <string name="driver_badge_id">Driver Badge ID</string>
     <string name="last_name">Last Name</string>
-    <string name="name">Name</string>
     <string name="first_name">First Name</string>
     <string name="date_of_brith">Date of Brith</string>
     <string name="password">Password</string>
@@ -59,6 +58,7 @@
     <string name="issue_input">Insert Text</string>
     <string name="reportHead">Report Trip</string>
     <string name="report">REPORT</string>
+    <string name="name">Name</string>
 
 
     <string name="tag_header">myTag</string>
@@ -69,6 +69,9 @@
     <string name="tag_number">Tag number</string>
     <string name="btn_reload">Reload Tag</string>
     <string name="btn_cancel">Cancel Tag</string>
+
+    <string name="cancelheader">Cancel myTag</string>
+
 
 
     <string name="commuterEmail">Email</string>
@@ -95,6 +98,8 @@
     <string name="spinner_prompt">Select an an area schedule:</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="my_map_api_key">AIzaSyBG1Bdri7sh_Zin07TWCjnR1_sGvEYYXjI</string>
 
 
 </resources>

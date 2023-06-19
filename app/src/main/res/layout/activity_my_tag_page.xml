@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     android:background="#F6F6F6"
     tools:context=".myTag_page"
-    android:id="@+id/fourthFragment"
     tools:menu="@menu/bottom_nav_menu">
 
     <ImageView
@@ -50,7 +49,7 @@
         android:id="@+id/editTextTextMultiLine2"
         android:layout_width="273dp"
         android:layout_height="88dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/balance_background"
         android:ems="10"
         android:gravity="start|top"
@@ -152,7 +151,5 @@
         app:layout_constraintHorizontal_bias="0.338"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView16" />
-
-    <include layout="@layout/layout_bottom_navigation" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
