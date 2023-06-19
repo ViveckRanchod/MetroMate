@@ -22,7 +22,7 @@ import java.util.Objects;
 import com.google.android.gms.maps.SupportMapFragment;
 
 
-public class MainActivity extends AppCompatActivity implements OnMapReadyCallback {
+public class Map extends AppCompatActivity implements OnMapReadyCallback {
 
     private GoogleMap myMap;
     private SearchView searchView;
@@ -39,7 +39,23 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                 .findFragmentById(R.id.map_fragment);
         Objects.requireNonNull(mapFragment).getMapAsync(this);
 
+        // Initialize the search view
 
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                // Perform the search when the user submits the query
+                searchLocation(query);
+                return true;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                // Handle any text changes in the search view
+                return false;
+            }
+        });
 
         // Initialize bus stops
         busStops = new ArrayList<>();
@@ -66,6 +82,45 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         }
     }
 
+    private void searchLocation(String location) {
+        // Perform the search for the given location
+        // Here, you can use any geocoding service or library to convert the location string to latitude and longitude coordinates
+
+        // For example, you can use the Geocoder class from the Android framework:
+        Geocoder geocoder = new Geocoder(this);
+        List<Address> addresses;
+        try {
+            // Perform geocoding for the location query
+            addresses = geocoder.getFromLocationName(location, 1);
+
+            if (!addresses.isEmpty()) {
+                Address address = addresses.get(0);
+                double latitude = address.getLatitude();
+                double longitude = address.getLongitude();
+
+                // Clear existing markers
+                myMap.clear();
+
+                // Add bus stop markers
+                for (BusStop busStop : busStops) {
+                    MarkerOptions markerOptions = new MarkerOptions()
+                            .position(busStop.getLocation())
+                            .title(busStop.getTitle())
+                            .icon(BitmapDescriptorFactory.fromResource(R.drawable.bus_pin_icon_foreground));
+                    myMap.addMarker(markerOptions);
+                }
+
+                // Add a marker for the searched location
+                LatLng searchLocation = new LatLng(latitude, longitude);
+                myMap.addMarker(new MarkerOptions().position(searchLocation).title("Searched Location"));
+
+                // Move the camera to the searched location
+                myMap.moveCamera(CameraUpdateFactory.newLatLng(searchLocation));
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     private class BusStop {
         private String title;
