@@ -8,9 +8,6 @@
     android:background="#F6F6F6"
     tools:context=".Driver">
 
-<<<<<<< Updated upstream
 
-=======
->>>>>>> Stashed changes
 
 </androidx.constraintlayout.widget.ConstraintLayout>
