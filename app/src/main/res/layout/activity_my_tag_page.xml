@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="#F6F6F6"
     tools:context=".myTag_page"
-    android:id="@+id/fourthFragment"
+
     tools:menu="@menu/bottom_nav_menu">
 
     <ImageView

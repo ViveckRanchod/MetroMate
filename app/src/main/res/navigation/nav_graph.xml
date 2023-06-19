@@ -28,12 +28,12 @@
         tools:layout="@layout/activity_schedule_page" />
 
     <fragment
-        android:id="@+id/profileFragment"
+        android:id="@+id/thirdFragment"
         android:name="com.example.metromate01.ThirdFragment"
         tools:layout="@layout/fragment_third" />
 
     <fragment
-        android:id="@+id/settingsFragment"
+        android:id="@+id/fourthFragment"
         android:name="com.example.metromate01.FourthFragment"
         tools:layout="@layout/activity_my_tag_page" />
 

@@ -15,8 +15,6 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
 
-    private LandingFragment landingFragment;
-
     // Declare the fragments for the regular user
     private FirstFragment firstFragment;
     private SecondFragment secondFragment;
