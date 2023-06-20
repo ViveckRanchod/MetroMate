@@ -235,6 +235,4 @@
         app:layout_constraintStart_toStartOf="@+id/editTextTextEmailAddress" />
 
 
-    <include layout="@layout/layout_bottom_navigation" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

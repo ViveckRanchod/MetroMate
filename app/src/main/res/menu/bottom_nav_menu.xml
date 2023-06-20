@@ -1,18 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
+
     <item
-        android:id="@+id/navigation_item1"
-        android:title="Home"
-        android:icon="@drawable/home_icon_foreground" />
+        android:id="@+id/navigation_home"
+        android:icon="@drawable/home_icon_foreground"
+        android:title="@string/title_home" />
+
     <item
-        android:id="@+id/navigation_item2"
-        android:title="Schedules"
-        android:icon="@drawable/home_clock_icon_foreground" />
+        android:id="@+id/navigation_dashboard"
+        android:icon="@drawable/home_clock_icon_foreground"
+        android:title="@string/title_dashboard" />
+
     <item
-        android:id="@+id/navigation_item3"
-        android:title="Map"
-        android:icon="@drawable/maps_icon_foreground" />
+        android:id="@+id/navigation_notifications"
+        android:icon="@drawable/maps_icon_foreground"
+        android:title="@string/title_notifications" />
+
     <item
-        android:id="@+id/navigation_item4"
-        android:title="myTag"
-        android:icon="@drawable/mytag_icon_foreground" />
+        android:id="@+id/navigation_mytag"
+        android:icon="@drawable/mytag_icon_foreground"
+        android:title="@string/title_mytag" />
+
 </menu>

@@ -95,11 +95,14 @@
     <string name="_08_00am_a">08:00am A</string>
     <string name="_09_00am">09:00am</string>
     <string name="_09_40_am">09:40 am</string>
-    <string name="spinner_prompt">Select an an area schedule:</string>
+    <string name="spinner_prompt">Select an area schedule:</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <string name="my_map_api_key">AIzaSyBG1Bdri7sh_Zin07TWCjnR1_sGvEYYXjI</string>
-
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Schedules</string>
+    <string name="title_notifications">Maps and Routes</string>
+    <string name="title_mytag">myTag</string>
 
 </resources>

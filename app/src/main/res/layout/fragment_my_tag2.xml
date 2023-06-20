@@ -5,8 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F6F6F6"
-    tools:context=".myTag_page"
-    tools:menu="@menu/bottom_nav_menu">
+    tools:context=".ui.mytag.MyTagFragment"
+    >
 
     <ImageView
         android:id="@+id/imageView5"
@@ -20,7 +20,7 @@
         app:srcCompat="@drawable/logo_light_cropped" />
 
     <TextView
-        android:id="@+id/textView12"
+        android:id="@+id/text_mytag"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="80dp"
@@ -34,31 +34,21 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageView5" />
 
-    <ImageView
-        android:id="@+id/imageView6"
-        android:layout_width="342dp"
-        android:layout_height="276dp"
-        android:layout_marginTop="12dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.49"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView12"
-        app:srcCompat="@drawable/bus_tag" />
-
     <EditText
         android:id="@+id/editTextTextMultiLine2"
         android:layout_width="273dp"
         android:layout_height="88dp"
-        android:layout_marginTop="16dp"
         android:background="@drawable/balance_background"
         android:ems="10"
         android:gravity="start|top"
         android:inputType="text"
         android:text=". "
+        app:layout_constraintBottom_toTopOf="@+id/button6"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.466"
+        app:layout_constraintHorizontal_bias="0.333"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView6" />
+        app:layout_constraintTop_toBottomOf="@+id/textView20"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/button5"
@@ -117,27 +107,28 @@
         android:id="@+id/textView19"
         android:layout_width="94dp"
         android:layout_height="20dp"
-        android:layout_marginTop="188dp"
         android:hint="@string/tag_number"
         android:textSize="16sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/textView16"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.672"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView6" />
+        app:layout_constraintTop_toBottomOf="@+id/text_mytag" />
 
     <TextView
         android:id="@+id/textView16"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
         android:hint="@string/tag_balance"
         android:textSize="18sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.273"
+        app:layout_constraintHorizontal_bias="0.295"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView6" />
+        app:layout_constraintTop_toBottomOf="@+id/text_mytag"
+        app:layout_constraintVertical_bias="0.278" />
 
     <TextView
         android:id="@+id/textView20"
