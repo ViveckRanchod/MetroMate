@@ -3,7 +3,7 @@
 <!-- res/drawable/custom_edit_text_border.xml: -->
 
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:andriod="http://schemas.android.com/aapt"
+
     android:shape="rectangle"
     android:padding="10dp">
 
