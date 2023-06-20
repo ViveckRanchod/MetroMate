@@ -23,13 +23,14 @@ public class Driver extends AppCompatActivity {
             password, dob;
 
     String path ="driver"; // path set
+    int tagNumber =0;
     Button signUp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_driver_registration_page);
-    //assign variables to xml elements:
+        //assign variables to xml elements:
         signUp = findViewById(R.id.btnSignUp);
         name = findViewById(R.id.edtName);
         lastname= findViewById(R.id.edtLastName);
@@ -47,20 +48,21 @@ public class Driver extends AppCompatActivity {
             String st_name = name.getText().toString();
             String st_lastname = lastname.getText().toString();
             String st_email = email.getText().toString();
-            String st_badgeID = badgeID.getText().toString();
+            int in_badgeID = Integer.parseInt(badgeID.getText().toString());
             String st_password = password.getText().toString();
             String st_dob = dob.getText().toString();
 
             //set refValues in the same order of the parameters set in signUpToDatabase in getDatabase:
             //refer to Database to see purpose of tagNumber= null
-            if(!st_name.isEmpty() && !st_lastname.isEmpty() && !st_email.isEmpty() &&!st_password.isEmpty()
-                    && st_password.length()>=8 && !st_dob.isEmpty()&& !st_badgeID.isEmpty()){
+            if(!st_name.isEmpty() && !st_lastname.isEmpty() && !st_email.isEmpty() && !st_password.isEmpty()
+                    && st_password.length()>=8 && !st_dob.isEmpty() && in_badgeID>0){
                 //pass path we want to send data to:
                 db.setPath(path);
-                db.signUpToDatabase(st_name, st_lastname, st_email, st_password, st_dob, st_badgeID,
-                    null, path);
+                db.signUpToDatabase(st_name, st_lastname, st_email, st_password, st_dob, in_badgeID,
+                    tagNumber, path);
                 Toast.makeText(Driver.this, "You have signed up successfully!", Toast.LENGTH_SHORT).show();
-            }else {
+            }
+            else {
                 Toast.makeText(Driver.this, "Please ensure are fields are filled & the password is 8 or more characters long", Toast.LENGTH_SHORT).show();
             }
         });

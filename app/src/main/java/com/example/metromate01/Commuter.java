@@ -10,13 +10,14 @@ import androidx.appcompat.app.AppCompatActivity;
 public class Commuter extends AppCompatActivity {
     EditText name,lastname, tagNumber, email,
             password, dob;
-    String path ="commuter"; // path set
+    String path ="commuters"; // path set
+    int badgeId = 0;
     Button signUp;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.commuter_sign_up);
-    //assign variables to xml elements:
+        //assign variables to xml elements:
         signUp = findViewById(R.id.btnsignUp);
         name = findViewById(R.id.editTextTextPersonName);
         lastname= findViewById(R.id.editTextTextPersonName2);
@@ -34,18 +35,18 @@ public class Commuter extends AppCompatActivity {
             String st_name = name.getText().toString();
             String st_lastname = lastname.getText().toString();
             String st_email = email.getText().toString();
-            String st_tagNumber = tagNumber.getText().toString();
+            int in_tagNumber = Integer.parseInt(tagNumber.getText().toString());
             String st_password = password.getText().toString();
             String st_dob = dob.getText().toString();
 
             //set refValues in the same order of the parameters set in signUpToDatabase in getDatabase:
             //refer to Database to see purpose of badgeID = null
             if(!st_name.isEmpty() && !st_lastname.isEmpty() && !st_email.isEmpty() &&!st_password.isEmpty()
-                    && st_password.length()>=8 && !st_dob.isEmpty()&& !st_tagNumber.isEmpty()){
+                    && st_password.length()>=8 && !st_dob.isEmpty()&& in_tagNumber>0){
                 //pass path we want to send data to:
                 db.setPath(path);
-                db.signUpToDatabase(st_name, st_lastname, st_email, st_password, st_dob, st_tagNumber,
-                    null, path);
+                db.signUpToDatabase(st_name, st_lastname, st_email, st_password, st_dob, in_tagNumber,
+                    badgeId, path);
                 Toast.makeText(Commuter.this, "You have signed up successfully!", Toast.LENGTH_SHORT).show();
             }else {
                 Toast.makeText(Commuter.this, "Please ensure all fields are filled & the password is 8 or more characters long", Toast.LENGTH_SHORT).show();
