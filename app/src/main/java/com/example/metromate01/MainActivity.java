@@ -27,11 +27,11 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_driver_registration_page);
+        setContentView(R.layout.commuter_sign_up);
 
         // Open DriverRegistrationPageActivity
-        Intent intent = new Intent(this, Driver.class);
-        startActivity(intent);
+//        Intent intent = new Intent(this, Driver.class);
+//        startActivity(intent);
 
         // Open commuter_registration activity
         Intent intentCommuter = new Intent(this, Commuter.class);
