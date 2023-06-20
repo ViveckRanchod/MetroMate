@@ -14,9 +14,7 @@
         <activity
             android:name=".cancel_tag"
             android:exported="false" />
-        <activity
-            android:name=".myTag_page"
-            android:exported="false" />
+
         <activity
             android:name=".ReportActivity"
             android:exported="false" />
