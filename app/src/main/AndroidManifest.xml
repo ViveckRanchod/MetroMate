@@ -26,9 +26,6 @@
         <activity
             android:name=".Driver"
             android:exported="false" />
-        <activity
-            android:name=".Map"
-            android:exported="false" />
 
         <activity
             android:name=".Commuter"
