@@ -1,19 +1,19 @@
-package com.example.metromate01.ui.notifications;
+package com.example.metromate01.ui.maps;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class NotificationsViewModel extends ViewModel {
-
+public class MapsViewModel extends ViewModel{
     private final MutableLiveData<String> mText;
 
-    public NotificationsViewModel() {
-        mText = new MutableLiveData<>();
-        mText.setValue("This is notifications fragment");
-    }
 
+    public MapsViewModel(){
+        mText = new MutableLiveData<>();
+        mText.setValue("This is maps fragment");
+    }
     public LiveData<String> getText() {
         return mText;
     }
+
 }
