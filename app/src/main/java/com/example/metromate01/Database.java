@@ -24,13 +24,13 @@ public class Database {
     {
         DatabaseReference newUser = refPath.push();
 
-        //store values in hash map:
-        // set badgeID and tagNumber to be =0 in the opposing classes
+        //store editText values in a hash map:
+        // set badgeID =0 in commuter class and tagNumber to be =0 in driver class, to execute method
         HashMap<String, Object> userData = new HashMap<>();
-        if(path.equals("driver") ){
+        if(path.equals("driver")){
             userData.put("badgeID", badgeID);
         }
-        if (path.equals("commuters") ){
+        if (path.equals("commuters")){
             userData.put("tagNumber", tagNumber);
         }
         userData.put("dateOfBirth", dateOfBirth);
@@ -38,7 +38,8 @@ public class Database {
         userData.put("lastname", lastname);
         userData.put("name", name);
         userData.put("password", password);
-        //send data to path to add user:
+
+        //send data to path to add new user:
         newUser.setValue(userData);
     }
 }

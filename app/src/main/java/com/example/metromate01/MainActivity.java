@@ -36,5 +36,9 @@ public class MainActivity extends AppCompatActivity {
         // Open commuter_registration activity
         Intent intentCommuter = new Intent(this, Commuter.class);
         startActivity(intentCommuter);
+
+        // Open schedule
+//        Intent intentSchedule = new Intent(this, Schedule.class);
+//        startActivity(intentSchedule);
     }
 }

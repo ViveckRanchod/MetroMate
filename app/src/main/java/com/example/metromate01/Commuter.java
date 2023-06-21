@@ -27,7 +27,7 @@ public class Commuter extends AppCompatActivity {
         password=  findViewById(R.id.editTextTextPassword);
         dob=  findViewById(R.id.editTextDate);
 
-        //send user input to dbase:
+        //send user input to database:
         Database db = new Database();
         //check input conditions:
 
@@ -40,8 +40,8 @@ public class Commuter extends AppCompatActivity {
             String st_password = password.getText().toString();
             String st_dob = dob.getText().toString();
 
-            //set refValues in the same order of the parameters set in signUpToDatabase in getDatabase:
-            //refer to Database to see purpose of badgeID = 0
+            //set refValues in the same order of the parameters set in signUpToDatabase in Database class:
+            //refer to Database class to see purpose of badgeID = 0
 
             if(!st_name.isEmpty() && !st_lastname.isEmpty() && !st_email.isEmpty() &&!st_password.isEmpty()
                     && st_password.length()>=8 && !st_dob.isEmpty()&& in_tagNumber>0)
