@@ -12,15 +12,15 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/navigation_dashboard"
+        android:id="@+id/navigation_schedules"
         android:name="com.example.metromate01.ui.schedules.SchedulesFragment"
         android:label="@string/title_dashboard"
         tools:layout="@layout/fragment_activity_schedule_page" />
 
     <fragment
-        android:id="@+id/navigation_notifications"
+        android:id="@+id/navigation_maps"
         android:name="com.example.metromate01.ui.maps.MapsFragment"
-        android:label="@string/title_notifications"
+        android:label="@string/title_maps"
         tools:layout="@layout/fragment_maps" />
 
     <fragment

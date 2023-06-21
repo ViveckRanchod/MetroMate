@@ -6,7 +6,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#F6F6F6"
-    tools:context=".ui.schedules.SchedulesFragment">
+    android:visibility="visible"
+    tools:context=".ui.schedules.SchedulesFragment"
+    tools:visibility="visible">
 
     <TextView
         android:id="@+id/text_dashboard"
@@ -15,40 +17,46 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
+        android:text="@string/title_dashboard"
         android:textAlignment="center"
         android:textSize="20sp"
+        android:textStyle="bold"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="285dp"
-        android:layout_height="38dp"
-        android:layout_marginTop="4dp"
+        android:layout_width="249dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="16dp"
         andriod:contentDescription="@string/metromate_logo"
+        android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/logo_light_cropped" />
 
     <Spinner
         android:id="@+id/schedule_droplist"
-        android:layout_width="393dp"
-        android:layout_height="48dp"
+        android:layout_width="385dp"
+        android:layout_height="67dp"
         android:layout_marginTop="16dp"
         andriod:background="@drawable/spinner_border"
         android:backgroundTint="#C0C0C0"
         android:entries="@array/areas_array"
         android:prompt="@string/spinner_prompt"
         andriod:spinnerMode="dropdown"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2"
+        app:layout_constraintVertical_bias="0.0"
         tools:ignore="HardcodedText" />
 
-<!--    <include layout="@layout/layout_bottom_navigation" />-->
+    <!--    <include layout="@layout/layout_bottom_navigation" />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -10,7 +10,7 @@ public class MyTagViewModel extends ViewModel {
 
     public MyTagViewModel() {
         mText = new MutableLiveData<>();
-        mText.setValue("This is mytag fragment");
+        mText.setValue("myTag");
     }
 
     public LiveData<String> getText() {
