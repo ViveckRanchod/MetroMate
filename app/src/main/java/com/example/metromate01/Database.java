@@ -6,10 +6,10 @@ import java.util.HashMap;
 
 public class Database {
     //reference database:
-    FirebaseDatabase metromDB; // our db/
-    DatabaseReference refPath; // our path/branch/schema
+    FirebaseDatabase metromDB; // our db
+    DatabaseReference refPath; // our path/branch
 
-    //method resuable for both commuter and driver:
+    //method reusable for both commuter and driver:
     public void setPath(String path){
         //set database name:
         metromDB = FirebaseDatabase.getInstance();
@@ -25,7 +25,7 @@ public class Database {
         DatabaseReference newUser = refPath.push();
 
         //store values in hash map:
-        // set badgeID and tagNumber to be null in the opposing classes
+        // set badgeID and tagNumber to be =0 in the opposing classes
         HashMap<String, Object> userData = new HashMap<>();
         if(path.equals("driver") ){
             userData.put("badgeID", badgeID);

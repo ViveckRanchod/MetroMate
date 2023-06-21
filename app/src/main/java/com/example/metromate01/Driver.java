@@ -44,6 +44,7 @@ public class Driver extends AppCompatActivity {
         //check input conditions:
 
         signUp.setOnClickListener(sendView -> {
+
             //get current user inputs:
             String st_name = name.getText().toString();
             String st_lastname = lastname.getText().toString();
@@ -53,21 +54,22 @@ public class Driver extends AppCompatActivity {
             String st_dob = dob.getText().toString();
 
             //set refValues in the same order of the parameters set in signUpToDatabase in getDatabase:
-            //refer to Database to see purpose of tagNumber= null
+            //refer to Database to see purpose of tagNumber= 0
+
             if(!st_name.isEmpty() && !st_lastname.isEmpty() && !st_email.isEmpty() && !st_password.isEmpty()
-                    && st_password.length()>=8 && !st_dob.isEmpty() && in_badgeID>0){
+                    && st_password.length()>=8 && !st_dob.isEmpty() && in_badgeID>0)
+            {
                 //pass path we want to send data to:
                 db.setPath(path);
                 db.signUpToDatabase(st_name, st_lastname, st_email, st_password, st_dob, in_badgeID,
                     tagNumber, path);
                 Toast.makeText(Driver.this, "You have signed up successfully!", Toast.LENGTH_SHORT).show();
-            }
-            else {
+
+            }else {
                 Toast.makeText(Driver.this, "Please ensure are fields are filled & the password is 8 or more characters long", Toast.LENGTH_SHORT).show();
             }
         });
     }
 }
 
-/* name= (EditText) findViewById(R.id.edtName);
-        String st_name = name.getText().toString();*/
+

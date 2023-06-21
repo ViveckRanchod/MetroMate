@@ -17,6 +17,7 @@ public class Commuter extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.commuter_sign_up);
+
         //assign variables to xml elements:
         signUp = findViewById(R.id.btnsignUp);
         name = findViewById(R.id.editTextTextPersonName);
@@ -40,9 +41,11 @@ public class Commuter extends AppCompatActivity {
             String st_dob = dob.getText().toString();
 
             //set refValues in the same order of the parameters set in signUpToDatabase in getDatabase:
-            //refer to Database to see purpose of badgeID = null
+            //refer to Database to see purpose of badgeID = 0
+
             if(!st_name.isEmpty() && !st_lastname.isEmpty() && !st_email.isEmpty() &&!st_password.isEmpty()
-                    && st_password.length()>=8 && !st_dob.isEmpty()&& in_tagNumber>0){
+                    && st_password.length()>=8 && !st_dob.isEmpty()&& in_tagNumber>0)
+            {
                 //pass path we want to send data to:
                 db.setPath(path);
                 db.signUpToDatabase(st_name, st_lastname, st_email, st_password, st_dob, badgeId, in_tagNumber  , path);
