@@ -13,7 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class Schedule extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
     Spinner schedule_droplist;
-    ImageView schedule_img = findViewById(R.id.schedule_img);
+    ImageView schedule_img ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,6 +26,8 @@ public class Schedule extends AppCompatActivity implements AdapterView.OnItemSel
         schedule_droplist.setAdapter(adaptArr);
         schedule_droplist.setSelection(0);  //set default display
         schedule_droplist.setOnItemSelectedListener(this);
+
+        schedule_img= findViewById(R.id.schedule_img);
     }
 
     @Override
@@ -35,6 +37,7 @@ public class Schedule extends AppCompatActivity implements AdapterView.OnItemSel
         switch(schedule_selected_id){
             case 0:
                     schedule_img.setImageResource(R.drawable.bus_background);
+                    break;
                  case 1:
                          schedule_img.setImageResource(R.drawable.oakdene_schedule);
                          break;

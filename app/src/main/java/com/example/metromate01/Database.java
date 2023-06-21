@@ -17,6 +17,7 @@ public class Database {
         refPath = metromDB.getReference(path);
     }
 
+    // set badgeID =0 in commuter class and tagNumber to be =0 in driver class, to execute method:
     public void signUpToDatabase(String name, String lastname, String email,
                                  String password, String dateOfBirth, int badgeID,
                                  int tagNumber,
@@ -25,7 +26,6 @@ public class Database {
         DatabaseReference newUser = refPath.push();
 
         //store editText values in a hash map:
-        // set badgeID =0 in commuter class and tagNumber to be =0 in driver class, to execute method
         HashMap<String, Object> userData = new HashMap<>();
         if(path.equals("driver")){
             userData.put("badgeID", badgeID);
