@@ -27,18 +27,18 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.commuter_sign_up);
+        setContentView(R.layout.activity_schedule_page);
 
         // Open DriverRegistrationPageActivity
 //        Intent intent = new Intent(this, Driver.class);
 //        startActivity(intent);
 
         // Open commuter_registration activity
-        Intent intentCommuter = new Intent(this, Commuter.class);
-        startActivity(intentCommuter);
+//        Intent intentCommuter = new Intent(this, Commuter.class);
+//        startActivity(intentCommuter);
 
         // Open schedule
-//        Intent intentSchedule = new Intent(this, Schedule.class);
-//        startActivity(intentSchedule);
+        Intent intentSchedule = new Intent(this, Schedule.class);
+        startActivity(intentSchedule);
     }
 }

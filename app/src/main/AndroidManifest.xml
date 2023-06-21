@@ -19,6 +19,11 @@
             android:name=".Commuter"
             android:exported="false" />
 
+        <activity
+            android:name=".Schedule"
+            android:exported="false" />
+
+
 
         <activity
             android:name=".MainActivity"
