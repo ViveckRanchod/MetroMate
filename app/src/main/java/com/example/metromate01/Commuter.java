@@ -45,8 +45,7 @@ public class Commuter extends AppCompatActivity {
                     && st_password.length()>=8 && !st_dob.isEmpty()&& in_tagNumber>0){
                 //pass path we want to send data to:
                 db.setPath(path);
-                db.signUpToDatabase(st_name, st_lastname, st_email, st_password, st_dob, in_tagNumber,
-                    badgeId, path);
+                db.signUpToDatabase(st_name, st_lastname, st_email, st_password, st_dob, badgeId, in_tagNumber  , path);
                 Toast.makeText(Commuter.this, "You have signed up successfully!", Toast.LENGTH_SHORT).show();
             }else {
                 Toast.makeText(Commuter.this, "Please ensure all fields are filled & the password is 8 or more characters long", Toast.LENGTH_SHORT).show();

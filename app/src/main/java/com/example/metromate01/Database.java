@@ -27,10 +27,10 @@ public class Database {
         //store values in hash map:
         // set badgeID and tagNumber to be null in the opposing classes
         HashMap<String, Object> userData = new HashMap<>();
-        if(path.equals("driver") && tagNumber==0){
+        if(path.equals("driver") ){
             userData.put("badgeID", badgeID);
         }
-        if (path.equals("commuter") && badgeID==0){
+        if (path.equals("commuters") ){
             userData.put("tagNumber", tagNumber);
         }
         userData.put("dateOfBirth", dateOfBirth);
