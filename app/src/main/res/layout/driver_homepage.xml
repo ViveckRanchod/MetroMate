@@ -20,8 +20,8 @@
 
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="374dp"
-        android:layout_height="546dp"
+        android:layout_width="355dp"
+        android:layout_height="596dp"
         android:background="@drawable/txtfield_background"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -74,8 +74,8 @@
 
     <ImageView
         android:id="@+id/imageView4"
-        android:layout_width="378dp"
-        android:layout_height="45dp"
+        android:layout_width="360dp"
+        android:layout_height="50dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -106,6 +106,7 @@
         android:text="Enable Tracking"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textColor="#FFFFFF"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.131"
@@ -183,12 +184,14 @@
         android:layout_height="wrap_content"
         android:text="Report event"
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="#242433"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.466"
+        app:layout_constraintHorizontal_bias="0.507"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.238" />
+        app:layout_constraintVertical_bias="0.232" />
 
     <EditText
         android:id="@+id/editText"

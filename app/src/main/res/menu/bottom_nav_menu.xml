@@ -14,7 +14,7 @@
     <item
         android:id="@+id/navigation_maps"
         android:icon="@drawable/maps_icon_foreground"
-        android:title="@string/title_notifications" />
+        android:title="@string/title_maps" />
 
     <item
         android:id="@+id/navigation_mytag"

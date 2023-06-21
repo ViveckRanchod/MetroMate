@@ -10,20 +10,31 @@
 
     <ImageView
         android:id="@+id/imageView5"
-        android:layout_width="280dp"
+        android:layout_width="249dp"
         android:layout_height="49dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="24dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/logo_light_cropped" />
+
+    <ImageView
+        android:id="@+id/imageView10"
+        android:layout_width="352dp"
+        android:layout_height="304dp"
+        android:src="@drawable/bus_tag"
+        app:layout_constraintBottom_toTopOf="@+id/editTextTextMultiLine2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.487"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView5"
+        app:layout_constraintVertical_bias="0.88" />
 
     <TextView
         android:id="@+id/text_mytag"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="20dp"
         android:hint="@string/tag_header"
         android:text="myTag"
         android:textAlignment="center"
@@ -32,7 +43,7 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView5" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView5" />
 
     <EditText
         android:id="@+id/editTextTextMultiLine2"
@@ -45,22 +56,22 @@
         android:text=". "
         app:layout_constraintBottom_toTopOf="@+id/button6"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.333"
+        app:layout_constraintHorizontal_bias="0.525"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView20"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/textView18"
+        app:layout_constraintVertical_bias="0.811" />
 
     <Button
         android:id="@+id/button5"
         android:layout_width="142dp"
         android:layout_height="55dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="92dp"
         android:backgroundTint="@color/dark_blue"
         android:hint="@string/btn_reload"
         android:text="Reload Tag"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintHorizontal_bias="0.505"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextMultiLine2" />
 
@@ -68,53 +79,71 @@
         android:id="@+id/button6"
         android:layout_width="145dp"
         android:layout_height="55dp"
-        android:layout_marginBottom="112dp"
+        android:layout_marginBottom="196dp"
         android:backgroundTint="@color/maroon"
         android:text="Cancel Tag"
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textView17"
-        android:layout_width="87dp"
-        android:layout_height="18dp"
-        android:layout_marginTop="140dp"
+        android:layout_width="90dp"
+        android:layout_height="25dp"
+        android:layout_marginBottom="12dp"
         android:hint="@string/tag_type"
         android:text="Tag Type"
         android:textSize="16sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/textView19"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.656"
+        app:layout_constraintHorizontal_bias="0.62"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView12" />
+        app:layout_constraintTop_toBottomOf="@+id/text_mytag"
+        app:layout_constraintVertical_bias="0.96" />
 
     <TextView
         android:id="@+id/textView18"
-        android:layout_width="74dp"
-        android:layout_height="18dp"
-        android:layout_marginTop="30dp"
+        android:layout_width="78dp"
+        android:layout_height="26dp"
+        android:layout_marginTop="116dp"
         android:hint="@string/tag_zone"
 
         android:lineSpacingExtra="16sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.63"
+        app:layout_constraintHorizontal_bias="0.606"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/textView17" />
 
     <TextView
         android:id="@+id/textView19"
-        android:layout_width="94dp"
-        android:layout_height="20dp"
+        android:layout_width="98dp"
+        android:layout_height="27dp"
         android:hint="@string/tag_number"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/textView16"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.672"
+        app:layout_constraintHorizontal_bias="0.638"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_mytag" />
+        app:layout_constraintTop_toBottomOf="@+id/text_mytag"
+        app:layout_constraintVertical_bias="0.484" />
+
+    <TextView
+        android:id="@+id/textView20"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/trips_left"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/editTextTextMultiLine2"
+        app:layout_constraintEnd_toEndOf="@+id/editTextTextMultiLine2"
+        app:layout_constraintHorizontal_bias="0.157"
+        app:layout_constraintStart_toStartOf="@+id/editTextTextMultiLine2"
+        app:layout_constraintTop_toTopOf="@+id/editTextTextMultiLine2"
+        app:layout_constraintVertical_bias="0.781" />
 
     <TextView
         android:id="@+id/textView16"
@@ -125,22 +154,9 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.295"
+        app:layout_constraintHorizontal_bias="0.263"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_mytag"
-        app:layout_constraintVertical_bias="0.278" />
-
-    <TextView
-        android:id="@+id/textView20"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:hint="@string/trips_left"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.338"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView16" />
+        app:layout_constraintVertical_bias="0.492" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
