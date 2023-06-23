@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_bus_home"
+        android:icon="@drawable/home_icon_foreground"
+        android:title="@string/title_home" />
+
+    <item
+        android:id="@+id/navigation_bus_schedules"
+        android:icon="@drawable/home_clock_icon_foreground"
+        android:title="@string/title_dashboard" />
+
+    <item
+        android:id="@+id/navigation_bus_maps"
+        android:icon="@drawable/maps_icon_foreground"
+        android:title="@string/title_maps" />
+
+
+</menu>
