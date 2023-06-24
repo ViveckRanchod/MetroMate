@@ -24,8 +24,8 @@ public class MapsFragment extends Fragment {
         binding = FragmentMapsBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textMaps;
-        mapsViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+//        final TextView textView = binding.textMaps;
+//        mapsViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
 
