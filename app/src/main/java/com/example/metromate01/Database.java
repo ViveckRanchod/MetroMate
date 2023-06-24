@@ -17,6 +17,12 @@ public class Database {
         //set reference variable for path:
         refPath = metromDB.getReference(path);
     }
+    public void setNextChild(String path, String child){
+        //set database name:
+        metromDB = FirebaseDatabase.getInstance();
+        //set reference variable for path:
+        refPath = metromDB.getReference(path).child(child);
+    }
 
     public void signUpToDatabase(String name, String lastname, String email,
                                  String password, Date dateOfBirth,String badgeID,
