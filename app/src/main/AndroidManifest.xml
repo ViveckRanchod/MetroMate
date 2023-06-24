@@ -11,7 +11,7 @@
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/metromate_icon"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.MetroMate01"
@@ -34,7 +34,7 @@
 
 
         <activity
-            android:name=".MainActivity"
+            android:name=".LandingLaunch"
             android:exported="true"
             android:theme="@style/Theme.MetroMate01.NoActionBar">
             <intent-filter>
