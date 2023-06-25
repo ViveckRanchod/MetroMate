@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -30,6 +31,8 @@ public class ReportActivity extends AppCompatActivity {
         bus_number = findViewById(R.id.editTextNumber);
         report = findViewById(R.id.button3);
 
+
+
         report.setOnClickListener(rView -> {
             //get the current user ID from the firebase database
             FirebaseUser current = FirebaseAuth.getInstance().getCurrentUser();
@@ -44,11 +47,13 @@ public class ReportActivity extends AppCompatActivity {
             String sBus_number = bus_number.getText().toString();
             String sDate = dateOfMsg.getText().toString();
 
-            if(!sFirstName.isEmpty()&&!sLastName.isEmpty()&&!sEmail.isEmpty()
+            if(!sFirstName.isEmpty()&&!sLastName.isEmpty()&&!sEmail.isEmpty() &&!sDate.isEmpty()
             &&!sSchedule.isEmpty()&&!sMessage.isEmpty()&&!sBus_number.isEmpty()){
                 Database db = new Database();
                 db.setPath("report");
                 db.sendReport(uid,sFirstName,sLastName,sEmail,sBus_number,sSchedule,sDate, sMessage);
+            }else{
+                Toast.makeText(this,"Please ensure all fields are filled", Toast.LENGTH_SHORT).show();
             }
         });
     }
