@@ -1,5 +1,6 @@
 package com.example.metromate01;
 
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -40,5 +41,24 @@ public class Database {
         userData.put("password", password);
         //send data to path to add user:
         refPath.setValue(userData);
+    }
+
+
+    public void sendReport(String uid, String name, String lastname,
+                           String email, String bus_number, String schedule,
+                           String date, String message) {
+        // set new report unique id
+        DatabaseReference newReport = refPath.push();
+        // send data to the db:
+        HashMap<String, Object> reportData = new HashMap<>();
+        reportData.put("uid", uid);
+        reportData.put("name", name);
+        reportData.put("lastname", lastname);
+        reportData.put("email", email);
+        reportData.put("bus_number", bus_number);
+        reportData.put("schedule", schedule);
+        reportData.put("date", date);
+        reportData.put("message", message);
+        newReport.setValue(reportData);
     }
 }
