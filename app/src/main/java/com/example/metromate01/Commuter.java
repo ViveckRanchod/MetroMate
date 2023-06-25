@@ -11,7 +11,7 @@ public class Commuter extends AppCompatActivity {
 
     RecyclerView referenceView;
     Database reference;
-    mAdapter adapter;
+
     ArrayList<Object> areas;
     @Override
     protected void onCreate(Bundle savedInstanceState) {

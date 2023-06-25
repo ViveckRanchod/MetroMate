@@ -1,34 +1,28 @@
 package com.example.metromate01;
 
-import com.google.type.DateTime;
-
-import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
 
 // trip information model for the cards:
-public class Trips {
-    int bus_no;
-    String departure, arrival, trip_name, price, time;
+public class trips {
 
-    public int getBus_no(){
-        return bus_no;
+    String arrivalTime ,departureTime, cashPrice, tagPrice, busNo;
+
+    public String getArrivalTime() {
+        return arrivalTime;
     }
 
-    public String getTrip_name(){
-        return trip_name;
+    public String getDepartureTime() {
+        return departureTime;
     }
 
-
-    public String getArrival(){
-        return arrival;
+    public String getCashPrice() {
+        return cashPrice;
     }
 
-    public String getPrice(){
-        return price;
+    public String getTagPrice() {
+        return tagPrice;
     }
 
-    public String getTime(){
-        return time;
+    public String getBusNo() {
+        return busNo;
     }
-
 }
