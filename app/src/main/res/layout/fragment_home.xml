@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#242433"
-
     android:visibility="visible"
     tools:context=".ui.home.HomeFragment">
 
@@ -283,19 +282,16 @@
         app:layout_constraintVertical_bias="1.0"
         tools:visibility="visible" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/homeRecycleView"
-        android:layout_width="356dp"
-        android:layout_height="306dp"
-        android:layout_marginTop="16dp"
-        android:background="#F8F8F8"
-        android:backgroundTint="#FFFFFF"
+    <include
+        layout="@layout/trip_list"
+        android:layout_width="404dp"
+        android:layout_height="322dp"
+        android:layout_marginTop="36dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.539"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView11"
-        app:layout_constraintVertical_bias="1.0" />
+        tools:context=".tripsList" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
