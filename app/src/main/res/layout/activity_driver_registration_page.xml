@@ -4,60 +4,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
+    android:background="#F6F6F6"
     tools:context=".Driver">
-
-    <EditText
-        android:id="@+id/edtDateOfBirth"
-        style="@style/TextInBox"
-        android:layout_width="339dp"
-        android:layout_height="53dp"
-        android:layout_marginBottom="24dp"
-        android:autofillHints="@string/_1999_05_11"
-        android:background="@drawable/custom_edit_text_border"
-        android:ems="10"
-        android:importantForAutofill="yes"
-        android:inputType="date"
-        android:text="@string/_1999_05_11"
-        app:layout_constraintBottom_toTopOf="@+id/btnSignUp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.48"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="LabelFor" />
 
     <EditText
         android:id="@+id/edtLastName"
         style="@style/TextInBox"
         android:layout_width="165dp"
         android:layout_height="53dp"
-        android:layout_marginBottom="12dp"
-        android:background="@drawable/custom_edit_text_border"
-        android:ems="10"
-        android:inputType="text"
-        android:importantForAutofill="yes"
+        android:layout_marginBottom="16dp"
         android:autofillHints="Last Name"
+        android:background="@drawable/txtfield_background"
+        android:ems="10"
+        android:importantForAutofill="yes"
+        android:inputType="text"
         android:text="@string/last_name"
         app:layout_constraintBottom_toTopOf="@+id/tvBadgeId"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.361"
+        app:layout_constraintHorizontal_bias="0.686"
         app:layout_constraintStart_toEndOf="@+id/edtName"
-        tools:ignore="LabelFor" />
-
-    <EditText
-        android:id="@+id/edtName"
-        style="@style/TextInBox"
-        android:layout_width="157dp"
-        android:layout_height="53dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginBottom="12dp"
-        android:background="@drawable/custom_edit_text_border"
-        android:ems="10"
-        android:inputType="text"
-        android:importantForAutofill="yes"
-        android:autofillHints="First Name"
-        android:text="@string/first_name"
-        app:layout_constraintBottom_toTopOf="@+id/tvBadgeId"
-        app:layout_constraintStart_toStartOf="parent"
         tools:ignore="LabelFor" />
 
     <TextView
@@ -65,78 +30,23 @@
         style="@style/Headers"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="4dp"
         android:text="@string/driver_badge_id"
         app:layout_constraintBottom_toTopOf="@+id/edtBadgeId"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.094"
+        app:layout_constraintHorizontal_bias="0.079"
         app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/btnSignUp"
-        android:layout_width="107dp"
-        android:layout_height="54dp"
-        android:layout_marginBottom="36dp"
-        android:backgroundTint="@color/dark_golden_rod"
-        android:text="@string/sign_up"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <EditText
-        android:id="@+id/edtPassword"
-        style="@style/TextInBox"
-        android:layout_width="339dp"
-        android:layout_height="53dp"
-        android:layout_marginBottom="20dp"
-        android:autofillHints="********"
-        android:background="@drawable/custom_edit_text_border"
-        android:ems="10"
-        android:importantForAutofill="yes"
-        android:inputType="textPassword"
-        android:text="***"
-        app:layout_constraintBottom_toTopOf="@+id/tvDateOfBirth"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.472"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="LabelFor" />
-
-    <TextView
-        android:id="@+id/tvEmail"
-        style="@style/Headers"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-
-        android:text="@string/email"
-        app:layout_constraintBottom_toTopOf="@+id/edtEmail"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.074"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/tvRegisterAcc"
-        style="@style/Header"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:text="@string/register_your_account"
-        app:layout_constraintBottom_toTopOf="@+id/tvName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
-        app:layout_constraintVertical_bias="0.368" />
 
     <TextView
         android:id="@+id/tvName"
         style="@style/Headers"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="12dp"
+        android:layout_marginBottom="8dp"
         android:text="@string/name"
         app:layout_constraintBottom_toTopOf="@+id/edtLastName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.074"
+        app:layout_constraintHorizontal_bias="0.057"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
@@ -144,16 +54,16 @@
         style="@style/TextInBox"
         android:layout_width="339dp"
         android:layout_height="53dp"
-        android:layout_marginBottom="16dp"
-        android:background="@drawable/custom_edit_text_border"
+        android:layout_marginBottom="12dp"
+        android:autofillHints="Enter driver badge ID"
+        android:background="@drawable/txtfield_background"
         android:ems="10"
         android:importantForAutofill="yes"
-        android:autofillHints="Enter driver badge ID"
-        android:text="1234"
         android:inputType="text"
+        android:text="1234"
         app:layout_constraintBottom_toTopOf="@+id/tvEmail"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.428"
+        app:layout_constraintHorizontal_bias="0.407"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="LabelFor" />
 
@@ -162,14 +72,45 @@
         style="@style/TextInBox"
         android:layout_width="339dp"
         android:layout_height="53dp"
-        android:layout_marginBottom="56dp"
+        android:layout_marginBottom="52dp"
         android:autofillHints="Enter email address @"
-        android:background="@drawable/custom_edit_text_border"
+        android:background="@drawable/txtfield_background"
         android:ems="10"
         android:importantForAutofill="yes"
         android:inputType="textEmailAddress"
         android:text="@string/email"
         app:layout_constraintBottom_toTopOf="@+id/edtPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.425"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="LabelFor" />
+
+    <TextView
+        android:id="@+id/tvEmail"
+        style="@style/Headers"
+        android:layout_width="52dp"
+        android:layout_height="20dp"
+        android:layout_marginBottom="4dp"
+
+        android:text="@string/email"
+        app:layout_constraintBottom_toTopOf="@+id/edtEmail"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.064"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/edtPassword"
+        style="@style/TextInBox"
+        android:layout_width="339dp"
+        android:layout_height="53dp"
+        android:layout_marginBottom="24dp"
+        android:autofillHints="********"
+        android:background="@drawable/txtfield_background"
+        android:ems="10"
+        android:importantForAutofill="yes"
+        android:inputType="textPassword"
+        android:text="***"
+        app:layout_constraintBottom_toTopOf="@+id/tvDateOfBirth"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.444"
         app:layout_constraintStart_toStartOf="parent"
@@ -184,10 +125,28 @@
         android:text="@string/password_minimum_of_8_characters"
         app:layout_constraintBottom_toTopOf="@+id/edtPassword"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.236"
+        app:layout_constraintHorizontal_bias="0.227"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edtEmail"
-        app:layout_constraintVertical_bias="0.413" />
+        app:layout_constraintVertical_bias="0.333" />
+
+    <EditText
+        android:id="@+id/edtDateOfBirth"
+        style="@style/TextInBox"
+        android:layout_width="339dp"
+        android:layout_height="53dp"
+        android:layout_marginBottom="56dp"
+        android:autofillHints="@string/_1999_05_11"
+        android:background="@drawable/txtfield_background"
+        android:ems="10"
+        android:importantForAutofill="yes"
+        android:inputType="date"
+        android:text="@string/_1999_05_11"
+        app:layout_constraintBottom_toTopOf="@+id/btnSignUp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.462"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="LabelFor" />
 
     <TextView
         android:id="@+id/tvDateOfBirth"
@@ -195,25 +154,68 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
-        android:layout_marginBottom="84dp"
+        android:layout_marginBottom="116dp"
         android:text="@string/date_of_brith"
         app:layout_constraintBottom_toTopOf="@+id/btnSignUp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.08"
+        app:layout_constraintHorizontal_bias="0.077"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints" />
 
+    <EditText
+        android:id="@+id/edtName"
+        style="@style/TextInBox"
+        android:layout_width="157dp"
+        android:layout_height="53dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="16dp"
+        android:autofillHints="First Name"
+        android:background="@drawable/txtfield_background"
+        android:ems="10"
+        android:importantForAutofill="yes"
+        android:inputType="text"
+        android:text="@string/first_name"
+        app:layout_constraintBottom_toTopOf="@+id/tvBadgeId"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="LabelFor" />
+
+    <Button
+        android:id="@+id/btnSignUp"
+        android:layout_width="107dp"
+        android:layout_height="54dp"
+        android:backgroundTint="@color/dark_golden_rod"
+        android:text="@string/sign_up"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.897" />
+
+    <TextView
+        android:id="@+id/tvRegisterAcc"
+        style="@style/Header"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="@string/register_your_account"
+        android:textSize="24dp"
+        app:layout_constraintBottom_toTopOf="@+id/tvName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintVertical_bias="0.368" />
+
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="345dp"
-        android:layout_height="78dp"
+        android:layout_width="334dp"
+        android:layout_height="46dp"
         android:contentDescription="@string/metromate_logo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.541"
+        app:layout_constraintHorizontal_bias="0.508"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.046"
+        app:layout_constraintVertical_bias="0.021"
         app:srcCompat="@drawable/logo_light_cropped" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
