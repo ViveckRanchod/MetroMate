@@ -1,18 +1,24 @@
 package com.example.metromate01;
 
-import com.google.android.gms.tasks.Task;
+import androidx.annotation.NonNull;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 
 public class Database {
     //reference database:
     FirebaseDatabase metromDB; // our db/
     DatabaseReference refPath; // our path/branch/schema
 
-    public void setPath(String path){
+    public void setPath(String path) {
         //set database name:
         metromDB = FirebaseDatabase.getInstance();
         //set reference variable for path:
@@ -20,18 +26,17 @@ public class Database {
     }
 
     public void signUpToDatabase(String name, String lastname, String email,
-                                 String password, Date dateOfBirth,String badgeID,
+                                 String password, Date dateOfBirth, String badgeID,
                                  String tagNumber,
-                                 String path)
-    {
+                                 String path) {
         //convert dateOfBirth to timestamp value:
         long ts_dateOfBirth = dateOfBirth.getTime();
 
         //store values in hash map:
         HashMap<String, Object> userData = new HashMap<>();
-        if(path.equals("driver")){
+        if (path.equals("driver")) {
             userData.put("badgeID", badgeID);
-        } else if (path.equals("commuter")){
+        } else if (path.equals("commuter")) {
             userData.put("tagNumber", tagNumber);
         }
         userData.put("dateOfBirth", ts_dateOfBirth);
@@ -61,4 +66,47 @@ public class Database {
         reportData.put("message", message);
         newReport.setValue(reportData);
     }
+
+    //get specific values from the db and branches into a list:
+    public ArrayList<String> getChildren(String child, String children) {
+        DatabaseReference dbPath = FirebaseDatabase.getInstance().getReference(child);
+        ArrayList<String> list = new ArrayList<>();
+        dbPath.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                list.clear() ;
+                //get specific value for all the children under a main child branch & add to list:
+                for (DataSnapshot shot : dataSnapshot.getChildren()) {
+                    String depature_time = shot.child(children).getValue(String.class);
+                    list.add(depature_time);
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+            }
+        });
+        return list;
+    }
+
+    //check if the user selections match any of the values in the db branches
+    public boolean searchDatabaseChild(String path, List<String> arrival_depature){
+        DatabaseReference dbPath = FirebaseDatabase.getInstance().getReference(path);
+        List<String> foundSearch = new ArrayList<>();
+        dbPath.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot){
+                List<String> found = new ArrayList<>();
+                    for(DataSnapshot snap: dataSnapshot.getChildren()){
+                        String branch_value = snap.getValue(String.class);
+                            if(arrival_depature.contains(branch_value)){
+                                foundSearch.add(branch_value);
+                            }
+                    }
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {}
+        });
+        return !foundSearch.isEmpty();
+    }
 }
+
