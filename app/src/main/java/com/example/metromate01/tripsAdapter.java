@@ -1,5 +1,6 @@
 package com.example.metromate01;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,10 +16,13 @@ public class tripsAdapter extends RecyclerView.Adapter<tripsAdapter.MyViewHolder
 
         Context context;
         ArrayList<trips> list;
+        ArrayList<trips> filterList;
 
-        public tripsAdapter(Context context, ArrayList<trips> list) {
+
+        public tripsAdapter(Context context, ArrayList<trips> list, ArrayList<trips> filterList) {
                 this.context = context;
                 this.list = list;
+                this.filterList= new ArrayList<>(list);
         }
 
         @NonNull
@@ -36,11 +40,45 @@ public class tripsAdapter extends RecyclerView.Adapter<tripsAdapter.MyViewHolder
                 holder.cashPrice.setText(Trips.getCashPrice());
                 holder.tagPrice.setText(Trips.getTagPrice());
                 holder.busNo.setText(Trips.getBusNo());
+
         }
 
         @Override
         public int getItemCount() {
-                return list.size();
+                // return list.size();
+                return filterList.size();
+        }
+        //check if the database has the depature time the user entered:
+
+        public void filterInputTime(String time_input){
+                //empty for every search
+                filterList.clear();
+
+                for(trips filter: list){
+                       String deptTimeDB = filter.getDepartureTime();
+                        if(deptTimeDB.equals(time_input)){
+                               filterList.add(filter);
+                        }
+                }
+        }
+
+        //get the card views that have a time closest to the database entries:
+        public void filterClosestTimes(String before, String after){
+                //empty for every search
+                filterList.clear();
+
+                for(trips filterBA: list){
+                        String deptTimeBA = filterBA.getDepartureTime();
+                        if(deptTimeBA.equals(before)&&deptTimeBA.equals(after)){
+                                filterList.add(filterBA);
+                        }
+                }
+
+        }
+        public void reset() {
+                filterList.clear();
+                filterList.addAll(list);
+               // notifyDataSetChanged();
         }
 
         public static class MyViewHolder extends RecyclerView.ViewHolder{
@@ -58,11 +96,7 @@ public class tripsAdapter extends RecyclerView.Adapter<tripsAdapter.MyViewHolder
                 }
         }
 }
-/*
-/* fetch these from where they are declared
-Spinner spinner1, spinner2;
-EditText time;
-Button search;
+
 
 
  time = FindViewById(R.id.editTextTime2);
@@ -74,7 +108,7 @@ search.setOnClickListener(new View.OnclickLister(){
 @Override
 public void onClick()
         {
-        //get current values and inputs:
+0        //get current values and inputs:
 
         int spinner1_id = Sspinner1.getItemIdAtPosition(position);
         int spinner2_id = Sspinner2.getItemIdAtPosition(position);
@@ -137,7 +171,7 @@ for (int i = 0; i < getItemCount(); i++) {
                     viewHolder.itemView.setVisibility(View.GONE);
                 }
             }
-        }/
+        }
 
         }
         else{
@@ -150,4 +184,4 @@ for (int i = 0; i < getItemCount(); i++) {
         });
 
 
-        */
+
