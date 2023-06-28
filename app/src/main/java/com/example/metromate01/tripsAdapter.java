@@ -15,13 +15,14 @@ public class tripsAdapter extends RecyclerView.Adapter<tripsAdapter.MyViewHolder
 
         Context context;
         ArrayList<trips> list;
-        ArrayList<trips> filterList;
+        ArrayList<trips> filterList;//leave it here
 
 
         public tripsAdapter(Context context, ArrayList<trips> list) {
                 this.context = context;
                 this.list = list;
                 this.filterList= new ArrayList<>(list);
+                //remove filterList from the constructor and parameter
         }
 
         @NonNull
@@ -44,40 +45,61 @@ public class tripsAdapter extends RecyclerView.Adapter<tripsAdapter.MyViewHolder
 
         @Override
         public int getItemCount() {
-                // return list.size();
+               
+                //add return list.size() and remove the bottom
                 return filterList.size();
         }
         //check if the database has the depature time the user entered:
 
         public void filterInputTime(String time_input){
-                //empty for every search
+                // ArrayList<trips> filterList = new ArrayList(); ADD THIS
+                //remove filterList.clear();
                 filterList.clear();
 
                 for(trips filter: list){
                         String deptTimeDB = filter.getDepartureTime();
+                        //CHANGE CONDITION IN THIS IF
+                        /*if(filter.getDepatureTime().equals(time_input))*/
                         if(deptTimeDB.equals(time_input)){
                                 filterList.add(filter);
                         }
                 }
+                //INCLUDE: passData(filterList);
         }
+
+       /*ADD THIS COMMENT AND METHOD:
+        //set list to filtered data
+       public void passData(ArrayList<trips> data){
+                list = data;
+                notifyDataSetChanged();
+        }*/
+
 
         //get the card views that have a time closest to the database entries:
         public void filterClosestTimes(String before, String after){
-                //empty for every search
+                // ArrayList<trips> filterList = new ArrayList(); ADD THIS
+                //remove filterList.clear();
                 filterList.clear();
 
                 for(trips filterBA: list){
                         String deptTimeBA = filterBA.getDepartureTime();
-                        if(deptTimeBA.equals(before)&&deptTimeBA.equals(after)){
+                        //CHANGED THIS FROM: if(deptTimeBA.equals(before)||deptTimeBA.equals(after)){
+                        // filterList.add(filterBA);} TO->
+                        if(deptTimeBA.equals(before)) {
+                                filterList.add(filterBA);
+                        }
+                        if(deptTimeBA.equals(after)){
                                 filterList.add(filterBA);
                         }
                 }
+                //INCLUDE: passData(filterList);
 
         }
         public void reset() {
+                //remove both filter codes and leave the notifyDataChange code
                 filterList.clear();
                 filterList.addAll(list);
-                // notifyDataSetChanged();
+              notifyDataSetChanged();
         }
 
         public static class MyViewHolder extends RecyclerView.ViewHolder{

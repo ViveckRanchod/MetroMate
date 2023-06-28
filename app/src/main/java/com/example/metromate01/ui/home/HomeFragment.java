@@ -133,8 +133,8 @@ public class HomeFragment extends Fragment {
                         }
 
                         // Find closest departure times to user input
-                        LocalTime closestBefore = null;
-                        LocalTime closestAfter = null;
+                        LocalTime closestBefore;
+                        LocalTime closestAfter;
                         for (LocalTime deptTime : deptTimeList) {
                             if (deptTime.isBefore(Ttime_input) && (closestBefore == null || deptTime.isAfter(closestBefore))) {
                                 closestBefore = deptTime;
