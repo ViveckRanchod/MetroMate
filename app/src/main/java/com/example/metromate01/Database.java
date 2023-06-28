@@ -2,15 +2,14 @@ package com.example.metromate01;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-
-import java.util.Date;
 import java.util.HashMap;
 
 public class Database {
     //reference database:
-    FirebaseDatabase metromDB; // our db/
-    DatabaseReference refPath; // our path/branch/schema
+    FirebaseDatabase metromDB; // our db
+    DatabaseReference refPath; // our path/branch
 
+    //method reusable for both commuter and driver:
     public void setPath(String path){
         //set database name:
         metromDB = FirebaseDatabase.getInstance();
@@ -18,27 +17,29 @@ public class Database {
         refPath = metromDB.getReference(path);
     }
 
+    // set badgeID =0 in commuter class and tagNumber to be =0 in driver class, to execute method:
     public void signUpToDatabase(String name, String lastname, String email,
-                                 String password, Date dateOfBirth,String badgeID,
-                                 String tagNumber,
+                                 String password, String dateOfBirth, int badgeID,
+                                 int tagNumber,
                                  String path)
     {
-        //convert dateOfBirth to timestamp value:
-        long ts_dateOfBirth = dateOfBirth.getTime();
+        DatabaseReference newUser = refPath.push();
 
-        //store values in hash map:
+        //store editText values in a hash map:
         HashMap<String, Object> userData = new HashMap<>();
         if(path.equals("driver")){
             userData.put("badgeID", badgeID);
-        } else if (path.equals("commuter")){
+        }
+        if (path.equals("commuters")){
             userData.put("tagNumber", tagNumber);
         }
-        userData.put("dateOfBirth", ts_dateOfBirth);
+        userData.put("dateOfBirth", dateOfBirth);
         userData.put("email", email);
         userData.put("lastname", lastname);
         userData.put("name", name);
         userData.put("password", password);
-        //send data to path to add user:
-        refPath.setValue(userData);
+
+        //send data to path to add new user:
+        newUser.setValue(userData);
     }
 }
