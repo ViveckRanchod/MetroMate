@@ -111,7 +111,6 @@ public class HomeFragment extends Fragment {
                 String StrclosestAfter = null;
                 List<LocalTime> deptTimeList = new ArrayList<>();
                 ArrayList<trips> list = new ArrayList<>();
-                ArrayList<trips> filterList = new ArrayList<>();
 
                 tripsAdapter adapter = new tripsAdapter(getContext(), list);
                 Database db = new Database();
@@ -133,8 +132,8 @@ public class HomeFragment extends Fragment {
                         }
 
                         // Find closest departure times to user input
-                        LocalTime closestBefore;
-                        LocalTime closestAfter;
+                        LocalTime closestBefore = null;
+                        LocalTime closestAfter = null;
                         for (LocalTime deptTime : deptTimeList) {
                             if (deptTime.isBefore(Ttime_input) && (closestBefore == null || deptTime.isAfter(closestBefore))) {
                                 closestBefore = deptTime;
@@ -162,15 +161,11 @@ public class HomeFragment extends Fragment {
                 else {
                     Toast.makeText(getContext(), "Please ensure the departure and arrival stop are selected and a departure time is filled", Toast.LENGTH_SHORT).show();
                 }
-
-                adapter.reset();
+              //  adapter.reset();
             }
         });
 
         return root;
-
-
-
     }
 
     @Override
