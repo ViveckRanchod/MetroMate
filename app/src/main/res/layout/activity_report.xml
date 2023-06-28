@@ -108,7 +108,7 @@
         android:inputType="textMultiLine"
         android:text="@string/issue_input"
         android:visibility="visible"
-        app:layout_constraintBottom_toTopOf="@+id/button3"
+        app:layout_constraintBottom_toTopOf="@+id/submitButton1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.505"
         app:layout_constraintStart_toStartOf="parent" />
@@ -210,7 +210,7 @@
         app:layout_constraintStart_toStartOf="@+id/textView7" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/submitButton1"
         android:layout_width="140dp"
         android:layout_height="55dp"
         android:layout_marginBottom="56dp"
