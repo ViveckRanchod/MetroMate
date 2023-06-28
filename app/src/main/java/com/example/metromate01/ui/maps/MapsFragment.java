@@ -125,7 +125,7 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback {
                     MarkerOptions markerOptions = new MarkerOptions()
                             .position(busStop.getLocation())
                             .title(busStop.getTitle())
-                            .icon(BitmapDescriptorFactory.fromResource(R.drawable.bus_pin_icon_foreground));
+                            .icon(BitmapDescriptorFactory.fromResource(R.drawable.bus_pin_foreground));
                     myMap.addMarker(markerOptions);
                 }
 
@@ -146,7 +146,7 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback {
             MarkerOptions markerOptions = new MarkerOptions()
                     .position(busStop.getLocation())
                     .title(busStop.getTitle())
-                    .icon(BitmapDescriptorFactory.fromResource(R.drawable.bus_pin_icon_foreground));
+                    .icon(BitmapDescriptorFactory.fromResource(R.drawable.bus_pin_foreground));
             myMap.addMarker(markerOptions);
         }
 

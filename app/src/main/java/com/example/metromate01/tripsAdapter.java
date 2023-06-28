@@ -120,7 +120,6 @@ public void onClick()
         }
 
 
-
         }else{
         Toast.makeText(this,"Please ensure all fields are selected and inputs are filled", Toast.LENGTH_SHORT).show();
 
