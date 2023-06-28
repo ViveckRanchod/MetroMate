@@ -46,10 +46,10 @@ public class CommuterHome extends Fragment {
                 //declare objects:
                 String StrclosestBefore=null ,  StrclosestAfter =null;
                 List<LocalTime> deptTimeList = new ArrayList<>();
-                List<trips> list = new ArrayList<>();
-                List<trips> filterList = new ArrayList<>();
+                ArrayList<trips> list = new ArrayList<>();
+                ArrayList<trips> filterList = new ArrayList<>();
 
-                tripsAdapter adapter = new tripsAdapter(getContext(), (ArrayList<trips>) list, (ArrayList<trips>) filterList);
+                tripsAdapter adapter = new tripsAdapter(getContext(), list, (ArrayList<trips>) filterList);
                 Database db = new Database();
 
 
