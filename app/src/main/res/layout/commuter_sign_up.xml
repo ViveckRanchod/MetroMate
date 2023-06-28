@@ -20,16 +20,15 @@
         app:srcCompat="@drawable/logo_light_cropped" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/btnsignUp"
         android:layout_width="107dp"
         android:layout_height="54dp"
+        android:layout_marginBottom="96dp"
         android:backgroundTint="#DDA516"
         android:text="Sign Up"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextDate"
-        app:layout_constraintVertical_bias="0.457" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textView"
