@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="areas_array">
-        <item>[47A] Oakdene/The Glen Centre</item>
-        <item>[47B] Bassonia</item>
-        <item>[32] Bedfordview/ East Gate</item>
+        <item>Gandhi</item>
+        <item>Bedfordview</item>
+        <item>Oakdene</item>
     </string-array>
 </resources>

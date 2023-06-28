@@ -27,7 +27,7 @@
         app:layout_constraintTop_toBottomOf="@+id/search_view"
         tools:layout_editor_absoluteX="-2dp" />
 
-    <androidx.appcompat.widget.SearchView
+    <AutoCompleteTextView
         android:id="@+id/search_view"
         android:layout_width="407dp"
         android:layout_height="58dp"

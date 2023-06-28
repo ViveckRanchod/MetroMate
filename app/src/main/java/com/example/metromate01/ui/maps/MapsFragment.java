@@ -6,12 +6,15 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.AutoCompleteTextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
+import com.example.metromate01.PlacesAutoCompleteAdapter;
 import com.example.metromate01.R;
 import com.example.metromate01.databinding.FragmentMapsBinding;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -34,9 +37,9 @@ import java.util.List;
 public class MapsFragment extends Fragment implements OnMapReadyCallback {
 
     private FragmentMapsBinding binding;
-
     private GoogleMap myMap;
-    private SearchView searchView;
+    private AutoCompleteTextView autoCompleteTextView;
+
     private List<BusStop> busStops;
 
     @Override
@@ -56,20 +59,17 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback {
             mapFragment.getMapAsync(this);
         }
 
-        searchView = view.findViewById(R.id.search_view);
-        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+        autoCompleteTextView = view.findViewById(R.id.search_view);
+        autoCompleteTextView.setAdapter(new PlacesAutoCompleteAdapter(requireContext())); // Set the adapter for autocomplete suggestions
 
+        autoCompleteTextView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public boolean onQueryTextSubmit(String query) {
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String query = (String) parent.getItemAtPosition(position);
                 searchLocation(query);
-                return true;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                return false;
             }
         });
+;
 
         busStops = new ArrayList<>();
 

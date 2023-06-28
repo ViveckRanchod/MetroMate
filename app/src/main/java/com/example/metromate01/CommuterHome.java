@@ -10,7 +10,6 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import java.time.LocalTime;
@@ -27,7 +26,7 @@ public class CommuterHome extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
-        time = view.findViewById(R.id.editTextTime2);
+        time = view.findViewById(R.id.editTextDepartureTime);
         spinner1 = view.findViewById(R.id.spinner);
         spinner2 = view.findViewById(R.id.spinner2);
         search = view.findViewById(R.id.button);
@@ -49,7 +48,7 @@ public class CommuterHome extends Fragment {
                 ArrayList<trips> list = new ArrayList<>();
                 ArrayList<trips> filterList = new ArrayList<>();
 
-                tripsAdapter adapter = new tripsAdapter(getContext(), list, (ArrayList<trips>) filterList);
+                tripsAdapter adapter = new tripsAdapter(getContext(), list);
                 Database db = new Database();
 
 
@@ -59,8 +58,8 @@ public class CommuterHome extends Fragment {
 
                 if (!Sspinner1.isEmpty() && !Sspinner2.isEmpty() && !Stime.isEmpty() && spinner1_id != spinner2_id) {
 
-                    //check if the Ttime_input matches any of the time values in the deptTimeList or if it doesnt then get the closest time values
-                    // before and after Ttime_input that are found in the deptTimeList and display the cards accordingly
+//check if the Ttime_input matches any of the time values in the deptTimeList or if it doesnt then get the closest time values
+// before and after Ttime_input that are found in the deptTimeList and display the cards accordingly
 
                     if (deptStopList.contains(Stime)) {
                         adapter.filterInputTime(Stime);
