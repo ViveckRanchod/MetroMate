@@ -43,7 +43,7 @@ public class CommuterHome extends Fragment {
                 int spinner2_id = spinner2.getSelectedItemPosition();
 
                 String Stime = time.getText().toString();
-                //declare objects
+                //declare objects:
                 String StrclosestBefore=null ,  StrclosestAfter =null;
                 List<LocalTime> deptTimeList = new ArrayList<>();
                 ArrayList<trips> list = new ArrayList<>();
