@@ -89,7 +89,7 @@ public class Database {
     }
 
     //check if the user selections match any of the values in the db branches
-    public boolean searchDatabaseChild(String path, List<String> arrival_depature){
+   /* public boolean searchDatabaseChild(String path, List<String> list, String searchItem){
         DatabaseReference dbPath = FirebaseDatabase.getInstance().getReference(path);
         List<String> foundSearch = new ArrayList<>();
         dbPath.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -98,7 +98,7 @@ public class Database {
                 List<String> found = new ArrayList<>();
                     for(DataSnapshot snap: dataSnapshot.getChildren()){
                         String branch_value = snap.getValue(String.class);
-                            if(arrival_depature.contains(branch_value)){
+                            if(list.contains(branch_value)){
                                 foundSearch.add(branch_value);
                             }
                     }
@@ -106,7 +106,7 @@ public class Database {
             @Override
             public void onCancelled(@NonNull DatabaseError error) {}
         });
-        return !foundSearch.isEmpty();
-    }
+        return !foundSearch.isEmpty(); // return true if values are found
+    }*/
 }
 
