@@ -147,12 +147,12 @@ public class HomeFragment extends Fragment {
                         if (closestBefore != null) {
                             StrclosestBefore = closestBefore.format(formatTime);
                         }else{
-                            Toast.makeText(getContext(), "No avaialble Bus at this time", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getContext(), "No avaialble Buses at this time", Toast.LENGTH_SHORT).show();
                         }
                         if (closestAfter != null) {
                             StrclosestAfter = closestAfter.format(formatTime);
                         }else{
-                            Toast.makeText(getContext(), "No avaialble Bus at this time", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(getContext(), "No avaialble Buses at this time", Toast.LENGTH_SHORT).show();
                         }
 
                         adapter.filterClosestTimes(StrclosestBefore, StrclosestAfter);
@@ -164,7 +164,6 @@ public class HomeFragment extends Fragment {
               //  adapter.reset();
             }
         });
-
         return root;
     }
 
