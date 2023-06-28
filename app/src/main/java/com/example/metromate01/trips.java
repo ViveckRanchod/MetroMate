@@ -4,7 +4,7 @@ package com.example.metromate01;
 // trip information model for the cards:
 public class trips {
 
-    String arrivalTime ,departureTime, cashPrice, tagPrice, busNo;
+    String arrivalTime, departureTime, cashPrice, tagPrice, busNo;
 
     public String getArrivalTime() {
         return arrivalTime;
