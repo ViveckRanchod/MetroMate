@@ -1,6 +1,7 @@
 package com.example.metromate01.ui.home;
 
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -77,6 +78,7 @@ public class HomeFragment extends Fragment {
         search = view.findViewById(R.id.button);
 
         database.addValueEventListener(new ValueEventListener() {
+            @SuppressLint("NotifyDataSetChanged")
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 list.clear(); // Clear the list before adding new items
@@ -165,7 +167,7 @@ public class HomeFragment extends Fragment {
                     } else {
                         for (trips Trips : closestTripTimes) {
 
-                            // Get the position of the current trip in the filterlist
+                            // get the position of the current trip in the filterlist
                             int position = closestTripTimes.indexOf(Trips);
 
                             tripsAdapter.MyViewHolder holder = (tripsAdapter.MyViewHolder) recyclerView.findViewHolderForAdapterPosition(position);

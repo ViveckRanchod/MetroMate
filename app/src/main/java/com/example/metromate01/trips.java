@@ -1,18 +1,18 @@
 package com.example.metromate01;
 
 
-// trip information model for the cards:
+// trip information model for the card
 public class trips {
 
     String arrivalTime, departureTime, cashPrice, tagPrice, busNo ,departureStop, arrivalStop;
 
-    public String getDepartureStop() {
+   /* public String getDepartureStop() {
         return departureStop;
     }
 
     public String getArrivalStop() {
         return arrivalStop;
-    }
+    }*/
 
     public String getArrivalTime() {
         return arrivalTime;

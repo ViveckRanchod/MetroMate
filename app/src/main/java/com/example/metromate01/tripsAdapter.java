@@ -47,11 +47,6 @@ public class tripsAdapter extends RecyclerView.Adapter<tripsAdapter.MyViewHolder
                 return filterList.size();
         }
 
-       //set list to filtered data
-      /* public void passData(ArrayList<trips> data){
-               filterList = data;
-               notifyDataSetChanged();
-       }*/
 
         //get the card views that have a time closest to the database entries:
        /* public void filterClosestTimes(String before, String after){
