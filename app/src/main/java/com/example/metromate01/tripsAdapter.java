@@ -24,7 +24,7 @@ public class tripsAdapter extends RecyclerView.Adapter<tripsAdapter.MyViewHolder
                 this.filterList=new ArrayList<>(list);
 
         }
-
+//
         @NonNull
         @Override
         public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {

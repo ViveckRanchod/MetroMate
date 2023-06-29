@@ -157,7 +157,7 @@ public class HomeFragment extends Fragment {
                             closestTripTimes.add(time);
                             minDifference = timeDifference;
                         } else if (minDifference == timeDifference) {
-                            closestTripTimes.add(time);
+                            closestTripTimes.add(time);//
                         }
                     }
                     if (closestTripTimes.isEmpty()) {

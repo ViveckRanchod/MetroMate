@@ -67,7 +67,7 @@ public class Database {
         newReport.setValue(reportData);
     }
 
-    //get specific values from the db and branches into a list:
+    //get specific values from the db and branches into a list://
   public ArrayList<String> getChildren(String child, String children) {
         DatabaseReference dbPath = FirebaseDatabase.getInstance().getReference(child);
         ArrayList<String> list = new ArrayList<>();
