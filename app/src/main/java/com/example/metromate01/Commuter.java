@@ -1,6 +1,7 @@
 package com.example.metromate01;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -51,6 +52,12 @@ public class Commuter extends AppCompatActivity {
                 db.setPath(path);
                 db.signUpToDatabase(st_name, st_lastname, st_email, st_password, st_dob, badgeId, in_tagNumber, path);
                 Toast.makeText(Commuter.this, "You have signed up successfully!", Toast.LENGTH_SHORT).show();
+
+                // After successful registration
+                SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putBoolean("isLoggedIn", true);
+                editor.apply();
 
                 // Start the MainActivity or desired activity
                 Intent intent = new Intent(Commuter.this, MainActivity.class);
