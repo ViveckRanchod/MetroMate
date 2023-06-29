@@ -22,7 +22,7 @@ public class tripsAdapter extends RecyclerView.Adapter<tripsAdapter.MyViewHolder
                 this.context = context;
                 this.list = list;
                 this.filterList=new ArrayList<>(list);
-                //remove filterList from the constructor and parameter
+
         }
 
         @NonNull

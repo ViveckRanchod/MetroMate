@@ -123,8 +123,14 @@ public class HomeFragment extends Fragment {
                     ArrayList<trips> closestTripTimes = new ArrayList<>();
 
                     // Convert time input into local time object
-                    DateTimeFormatter format_time = DateTimeFormatter.ofPattern("HH:mm");
-                    LocalTime Ttime_input = LocalTime.parse(Stime, format_time);
+                    DateTimeFormatter format_time = null;
+                    if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+                        format_time = DateTimeFormatter.ofPattern("HH:mm");
+                    }
+                    LocalTime Ttime_input = null;
+                    if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+                        Ttime_input = LocalTime.parse(Stime, format_time);
+                    }
 
                     for (trips time : filterList) {
                         String availableTime = time.getDepartureTime();
@@ -137,8 +143,14 @@ public class HomeFragment extends Fragment {
 
                     for (trips time : filterList) {
                         String deptTimeDB = time.getDepartureTime();
-                        LocalTime TIME_deptTimeDB = LocalTime.parse(deptTimeDB, format_time);
-                        long timeDifference = Math.abs(ChronoUnit.MINUTES.between(Ttime_input, TIME_deptTimeDB));
+                        LocalTime TIME_deptTimeDB = null;
+                        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+                            TIME_deptTimeDB = LocalTime.parse(deptTimeDB, format_time);
+                        }
+                        long timeDifference = 0;
+                        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+                            timeDifference = Math.abs(ChronoUnit.MINUTES.between(Ttime_input, TIME_deptTimeDB));
+                        }
 
                         if (timeDifference < minDifference) {
                             closestTripTimes.clear();
@@ -153,7 +165,7 @@ public class HomeFragment extends Fragment {
                     } else {
                         for (trips Trips : closestTripTimes) {
 
-                            // Get the position of the current trip in the list
+                            // Get the position of the current trip in the filterlist
                             int position = closestTripTimes.indexOf(Trips);
 
                             tripsAdapter.MyViewHolder holder = (tripsAdapter.MyViewHolder) recyclerView.findViewHolderForAdapterPosition(position);
