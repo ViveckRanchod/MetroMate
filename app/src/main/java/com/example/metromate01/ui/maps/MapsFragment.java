@@ -74,6 +74,7 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback {
         busStops = new ArrayList<>();
 
         // Retrieve bus stops from Firebase
+        
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference stopsRef = database.getReference("stops");
 
@@ -82,8 +83,8 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot stopSnapshot : dataSnapshot.getChildren()) {
                     String title = stopSnapshot.getKey();
-                    double latitude = stopSnapshot.child("latitude").getValue(Double.class);
-                    double longitude = stopSnapshot.child("longitude").getValue(Double.class);
+                    double latitude = stopSnapshot.child("0").getValue(Double.class);
+                    double longitude = stopSnapshot.child("1").getValue(Double.class);
 
                     // Create BusStop object and add it to the list
                     busStops.add(new BusStop(title, new LatLng(latitude, longitude)));
