@@ -74,7 +74,7 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback {
         busStops = new ArrayList<>();
 
         // Retrieve bus stops from Firebase
-        
+
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference stopsRef = database.getReference("stops");
 
