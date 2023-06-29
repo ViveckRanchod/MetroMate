@@ -29,7 +29,7 @@ public class ReportActivity extends AppCompatActivity {
         schedule = findViewById(R.id.editTextText3);
         dateOfMsg = findViewById(R.id.editTextDate);
         bus_number = findViewById(R.id.editTextNumber);
-        report = findViewById(R.id.button3);
+        report = findViewById(R.id.submitButton1);
 
 
 
