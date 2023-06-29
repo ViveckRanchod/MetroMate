@@ -118,8 +118,48 @@ public class HomeFragment extends Fragment {
 
                 if (!Sspinner1.isEmpty() && !Sspinner2.isEmpty() && !Stime.isEmpty() && spinner1_id != spinner2_id) {
                     if (deptStopList.contains(Stime)) {
+
                         TripAdapter.filterInputTime(Stime);
-                    }
+
+                        adapter.filterInputTime(Stime);
+                    } else {
+                        // Convert time input into local time object
+                        DateTimeFormatter format_time = DateTimeFormatter.ofPattern("HH:mm");
+                        LocalTime Ttime_input = LocalTime.parse(Stime, format_time);
+
+                        // Convert db list of departure times from db to local time objects
+                        for (String timeDB : deptStopList) {
+                            LocalTime timeFromDb = LocalTime.parse(timeDB, DateTimeFormatter.ofPattern("HH:mm"));
+                            deptTimeList.add(timeFromDb);
+                        }
+
+                        // Find closest departure times to user input
+                        LocalTime closestBefore = null;
+                        LocalTime closestAfter = null;
+                        for (LocalTime deptTime : deptTimeList) {
+                            if (deptTime.isBefore(Ttime_input) && (closestBefore == null || deptTime.isAfter(closestBefore))) {
+                                closestBefore = deptTime;
+                            }
+                            if (deptTime.isAfter(Ttime_input) && (closestAfter == null || deptTime.isBefore(closestAfter))) {
+                                closestAfter = deptTime;
+                            }
+                        }
+
+                        DateTimeFormatter formatTime = DateTimeFormatter.ofPattern("HH:mm");
+                        if (closestBefore != null) {
+                            StrclosestBefore = closestBefore.format(formatTime);
+                        }else{
+                            Toast.makeText(getContext(), "No avaialble Buses at this time", Toast.LENGTH_SHORT).show();
+                        }
+                        if (closestAfter != null) {
+                            StrclosestAfter = closestAfter.format(formatTime);
+                        }else{
+                            Toast.makeText(getContext(), "No avaialble Buses at this time", Toast.LENGTH_SHORT).show();
+                        }
+
+                        adapter.filterClosestTimes(StrclosestBefore, StrclosestAfter);
+
+                }
                     // Convert time input into local time object
                     DateTimeFormatter format_time = DateTimeFormatter.ofPattern("HH:mm");
                     LocalTime Ttime_input = LocalTime.parse(Stime, format_time);
@@ -162,7 +202,6 @@ public class HomeFragment extends Fragment {
                 TripAdapter.reset();
             }
         });
-
         return root;
 
     }
