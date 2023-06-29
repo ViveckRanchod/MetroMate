@@ -1,7 +1,6 @@
 package com.example.metromate01.ui.home;
 
 
-import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -31,8 +30,8 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
-import java.util.List;
 
 public class HomeFragment extends Fragment {
 
@@ -40,9 +39,9 @@ public class HomeFragment extends Fragment {
 
     RecyclerView recyclerView;
     DatabaseReference database;
+    Database db = new Database();
     tripsAdapter TripAdapter;
     ArrayList<trips> list;
-
     Spinner spinner1, spinner2;
     EditText time;
     Button search;
@@ -96,80 +95,119 @@ public class HomeFragment extends Fragment {
             }
         });
 
-        search.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // Get current values and inputs
-                String Sspinner1 = spinner1.getSelectedItem().toString();
-                String Sspinner2 = spinner2.getSelectedItem().toString();
-                int spinner1_id = spinner1.getSelectedItemPosition();
-                int spinner2_id = spinner2.getSelectedItemPosition();
-                String Stime = time.getText().toString();
+        search.setOnClickListener(view1 -> {
+            // Get current values and inputs
+            String Sspinner1 = spinner1.getSelectedItem().toString();
+            String Sspinner2 = spinner2.getSelectedItem().toString();
+            int spinner1_id = spinner1.getSelectedItemPosition();
+            int spinner2_id = spinner2.getSelectedItemPosition();
+            String Stime = time.getText().toString();
 
-                // Declare objects
-                String StrclosestBefore = null;
-                String StrclosestAfter = null;
-                List<LocalTime> deptTimeList = new ArrayList<>();
-                ArrayList<trips> list = new ArrayList<>();
 
-                tripsAdapter adapter = new tripsAdapter(getContext(), list);
-                Database db = new Database();
+            if (!Sspinner1.isEmpty() && !Sspinner2.isEmpty() && !Stime.isEmpty() && spinner1_id != spinner2_id) {
+                ArrayList<trips> filterList = new ArrayList<>();
 
-                List<String> deptStopList = db.getChildren("trips", "depatureStop");
+                //check that the selections are in the database and add the selections to the 	filterlist
 
-                if (!Sspinner1.isEmpty() && !Sspinner2.isEmpty() && !Stime.isEmpty() && spinner1_id != spinner2_id) {
-                    if (deptStopList.contains(Stime)) {
-                        adapter.filterInputTime(Stime);
-                    } else {
-                        // Convert time input into local time object
-                        DateTimeFormatter format_time = DateTimeFormatter.ofPattern("HH:mm");
-                        LocalTime Ttime_input = LocalTime.parse(Stime, format_time);
-
-                        // Convert db list of departure times from db to local time objects
-                        for (String timeDB : deptStopList) {
-                            LocalTime timeFromDb = LocalTime.parse(timeDB, DateTimeFormatter.ofPattern("HH:mm"));
-                            deptTimeList.add(timeFromDb);
-                        }
-
-                        // Find closest departure times to user input
-                        LocalTime closestBefore = null;
-                        LocalTime closestAfter = null;
-                        for (LocalTime deptTime : deptTimeList) {
-                            if (deptTime.isBefore(Ttime_input) && (closestBefore == null || deptTime.isAfter(closestBefore))) {
-                                closestBefore = deptTime;
-                            }
-                            if (deptTime.isAfter(Ttime_input) && (closestAfter == null || deptTime.isBefore(closestAfter))) {
-                                closestAfter = deptTime;
-                            }
-                        }
-
-                        DateTimeFormatter formatTime = DateTimeFormatter.ofPattern("HH:mm");
-                        if (closestBefore != null) {
-                            StrclosestBefore = closestBefore.format(formatTime);
-                        }else{
-                            Toast.makeText(getContext(), "No avaialble Buses at this time", Toast.LENGTH_SHORT).show();
-                        }
-                        if (closestAfter != null) {
-                            StrclosestAfter = closestAfter.format(formatTime);
-                        }else{
-                            Toast.makeText(getContext(), "No avaialble Buses at this time", Toast.LENGTH_SHORT).show();
-                        }
-
-                        adapter.filterClosestTimes(StrclosestBefore, StrclosestAfter);
+                for (trips destination : list) {
+                    String firstSelection = db.getChildren("trips", "departureStop").get(list.indexOf(destination));
+                    String secondSelection = db.getChildren("trips", "arrivalStop").get(list.indexOf(destination));
+                    if (firstSelection.equals(Sspinner1) && secondSelection.equals(Sspinner2)) {
+                        filterList.add(destination);
                     }
                 }
-                else {
-                    Toast.makeText(getContext(), "Please ensure the departure and arrival stop are selected and a departure time is filled", Toast.LENGTH_SHORT).show();
+                //sort list according to time values:
+                // if (deptStopList.contains(Stime){TripAdapter.filterInputTime(Stime);}
+
+                if (!filterList.isEmpty()) {
+                    ArrayList<trips> closestTripTimes = new ArrayList<>();
+
+                    // Convert time input into local time object
+                    DateTimeFormatter format_time = DateTimeFormatter.ofPattern("HH:mm");
+                    LocalTime Ttime_input = LocalTime.parse(Stime, format_time);
+
+                    for (trips time : filterList) {
+                        String availableTime = time.getDepartureTime();
+                        if(availableTime.equals(Stime)){
+                            closestTripTimes.add(time);
+                        }
+                    }
+                    //get closest times to the input by calculating minutes between existing departureTime values :
+                    long minDifference = Long.MAX_VALUE;
+
+                    for (trips time : filterList) {
+                        String deptTimeDB = time.getDepartureTime();
+                        LocalTime TIME_deptTimeDB = LocalTime.parse(deptTimeDB, format_time);
+                        long timeDifference = Math.abs(ChronoUnit.MINUTES.between(Ttime_input, TIME_deptTimeDB));
+
+                        if (timeDifference < minDifference) {
+                            closestTripTimes.clear();
+                            closestTripTimes.add(time);
+                            minDifference = timeDifference;
+                        } else if (minDifference == timeDifference) {
+                            closestTripTimes.add(time);
+                        }
+                    }
+                    if (closestTripTimes.isEmpty()) {
+                        Toast.makeText(getContext(), "No available buses at this time.", Toast.LENGTH_SHORT).show();
+                    } else {
+                        for (trips Trips : closestTripTimes) {
+
+                            // Get the position of the current trip in the list
+                            int position = closestTripTimes.indexOf(Trips);
+
+                            tripsAdapter.MyViewHolder holder = (tripsAdapter.MyViewHolder) recyclerView.findViewHolderForAdapterPosition(position);
+                            // fetch the corresponding trip from the list based on the position
+                            trips Trip = filterList.get(position);
+                            if(holder!=null) {
+                                holder.arvTime.setText(Trip.getArrivalTime());
+                                holder.depTime.setText(Trip.getDepartureTime());
+                                holder.cashPrice.setText(Trip.getCashPrice());
+                                holder.tagPrice.setText(Trip.getTagPrice());
+                                holder.busNo.setText(Trip.getBusNo());
+                            }
+                        }
+                    }
                 }
-              //  adapter.reset();
+            } else {
+                Toast.makeText(getContext(), "Please ensure the departure and arrival stop are selected and a departure time is filled", Toast.LENGTH_SHORT).show();
             }
         });
-        return root;
-    }
 
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        binding = null;
+return root;
+
+        }
+
+        @Override
+        public void onDestroyView() {
+            super.onDestroyView();
+            binding = null;
+        }
     }
-}
+    /*/ Convert db list of departure times from db to local time objects
+                    for (String timeDB : deptStopList) {
+                        LocalTime timeFromDb = LocalTime.parse(timeDB, DateTimeFormatter.ofPattern("HH:mm"));
+                        deptTimeList.add(timeFromDb);
+                    }
+
+                    // Find closest departure times to user input
+                    for (LocalTime deptTime : deptTimeList) {
+                        if (deptTime.isBefore(Ttime_input) && (closestBefore == null || deptTime.isAfter(closestBefore))) {
+                            closestBefore = deptTime;
+                        }
+                        if (deptTime.isAfter(Ttime_input) && (closestAfter == null || deptTime.isBefore(closestAfter))) {
+                            closestAfter = deptTime;
+                        }
+                    }
+
+                    DateTimeFormatter formatTime = DateTimeFormatter.ofPattern("HH:mm");
+                    if (closestBefore != null) {
+                        StrclosestBefore = closestBefore.format(formatTime);
+                    }else{
+                        Toast.makeText(getContext(), "No avaialble Bus at this time", Toast.LENGTH_SHORT).show();
+                    }
+                    if (closestAfter != null) {
+                        StrclosestAfter = closestAfter.format(formatTime);
+                    }else{
+                        Toast.makeText(getContext(), "No avaialble Bus at this time", Toast.LENGTH_SHORT).show();
+                    }*/

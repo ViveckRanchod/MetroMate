@@ -76,9 +76,9 @@ public class Database {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 list.clear() ;
                 //get specific value for all the children under a main child branch & add to list:
-                for (DataSnapshot shot : dataSnapshot.getChildren()) {
-                    String depature_time = shot.child(children).getValue(String.class);
-                    list.add(depature_time);
+                for (DataSnapshot childBranch : dataSnapshot.getChildren()) {
+                    String getChild = childBranch.child(children).getValue(String.class);
+                    list.add(getChild);
                 }
             }
             @Override

@@ -15,11 +15,13 @@ public class tripsAdapter extends RecyclerView.Adapter<tripsAdapter.MyViewHolder
 
         Context context;
         ArrayList<trips> list;
+        ArrayList<trips> filterList;
 
 
         public tripsAdapter(Context context, ArrayList<trips> list) {
                 this.context = context;
                 this.list = list;
+                this.filterList=new ArrayList<>(list);
                 //remove filterList from the constructor and parameter
         }
 
@@ -38,37 +40,21 @@ public class tripsAdapter extends RecyclerView.Adapter<tripsAdapter.MyViewHolder
                 holder.cashPrice.setText(Trips.getCashPrice());
                 holder.tagPrice.setText(Trips.getTagPrice());
                 holder.busNo.setText(Trips.getBusNo());
-
         }
 
         @Override
         public int getItemCount() {
-               
-                //add return list.size() and remove the bottom filterList
                 return list.size();
-        }
-        //check if the database has the depature time the user entered:
-
-        public void filterInputTime(String time_input){
-               ArrayList<trips> filterList = new ArrayList<>();
-                //remove filterList.clear();
-                for (trips filter : list) {
-                        String deptTimeDB = filter.getDepartureTime();
-                        if (deptTimeDB.equals(time_input)) {
-                                filterList.add(filter);
-                        }
-                }
-                passData(filterList);
         }
 
        //set list to filtered data
-       public void passData(ArrayList<trips> data){
-               list = data;
+      /* public void passData(ArrayList<trips> data){
+               filterList = data;
                notifyDataSetChanged();
-       }
+       }*/
 
         //get the card views that have a time closest to the database entries:
-        public void filterClosestTimes(String before, String after){
+       /* public void filterClosestTimes(String before, String after){
                ArrayList<trips> filterList = new ArrayList<>();
 
                 for(trips filterBA: list){
@@ -84,15 +70,11 @@ public class tripsAdapter extends RecyclerView.Adapter<tripsAdapter.MyViewHolder
                 }
                 passData(filterList);
 
-        }
-        public void reset() {
-                //remove both filter codes and leave the notifyDataChange code
-              notifyDataSetChanged();
-        }
+        }*/
 
         public static class MyViewHolder extends RecyclerView.ViewHolder{
 
-                TextView arvTime, depTime, cashPrice, tagPrice, busNo;
+                public TextView arvTime, depTime, cashPrice, tagPrice, busNo;
 
                 public MyViewHolder(@NonNull View itemView) {
                         super(itemView);
