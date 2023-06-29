@@ -15,6 +15,10 @@
         android:theme="@style/Theme.MetroMate01"
         tools:targetApi="31">
 
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyDsIUbcFDAmIDhDXM7GuaBAbLfgEcRNRrg" />
+
         <activity
             android:name=".cancel_tag"
             android:exported="false"
@@ -33,8 +37,12 @@
 
         <activity
             android:name=".Commuter"
+
             android:exported="false"
             android:theme="@style/Theme.MetroMate01.NoActionBar" />
+
+            android:exported="false" />
+
 
         <activity
             android:name=".LandingLaunch"
@@ -44,10 +52,15 @@
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-            <meta-data
-                android:name="com.google.android.geo.API_KEY"
-                android:value="AIzaSyDsIUbcFDAmIDhDXM7GuaBAbLfgEcRNRrg"/>
+
         </activity>
+
+
+
+
+        </activity>
+      </application>
+
 
         <!-- Add the MainActivity declaration -->
         <activity
