@@ -117,7 +117,7 @@ public class HomeFragment extends Fragment {
                     }
                 }
                 //sort list according to time values:
-                // if (deptStopList.contains(Stime){TripAdapter.filterInputTime(Stime);}
+                // if (deptStopList.contains(Stime){TripAdapter.filterInputTime(Stime);} ignore
 
                 if (!filterList.isEmpty()) {
                     ArrayList<trips> closestTripTimes = new ArrayList<>();
