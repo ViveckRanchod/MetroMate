@@ -128,8 +128,8 @@ public class HomeFragment extends Fragment {
                             LocalTime timeInput = LocalTime.parse(depTime, DateTimeFormatter.ofPattern("HH:mm"));
 
                             // The filtered list containing the trips that meet the condition, get the departure time of said trips:
-                            for (trips trip : filteredList) {
-                                String deptTimeDB = trip.getDepartureTime();
+                            for (trips tripTime : filteredList) {
+                                String deptTimeDB = tripTime.getDepartureTime();
                                 LocalTime timeDB = LocalTime.parse(deptTimeDB, DateTimeFormatter.ofPattern("HH:mm"));
 
                                 long timeDifference = Math.abs(ChronoUnit.MINUTES.between(timeInput, timeDB));
@@ -137,21 +137,22 @@ public class HomeFragment extends Fragment {
                                 // Check the timeDifference vs minDifference to get the closest to input time:
                                 if (timeDifference < minDifference) {
                                     tripTimes.clear();
-                                    tripTimes.add(trip);
+                                    tripTimes.add(tripTime);
                                     minDifference = timeDifference;
                                 } else if (timeDifference == minDifference) {
-                                    tripTimes.add(trip);
+                                    tripTimes.add(tripTime);
                                 }
+                                // Convert LocalTime back to string before adding to tripTimes
+                                ArrayList<trips> tripTimesFormatted = new ArrayList<>();
+                                for (trips getStr : tripTimes) {
+                                    String departureTimeFormatted = String.format(String.valueOf(DateTimeFormatter.ofPattern("HH:mm")));
+                                    getStr.setDepartureTime(departureTimeFormatted);
+                                    tripTimesFormatted.add(getStr);
+                                }
+                                tripAdapter.update(tripTimesFormatted);
                             }
 
-                            // Convert LocalTime back to string before adding to tripTimes
-                            ArrayList<trips> tripTimesFormatted = new ArrayList<>();
-                            for (trips getStr : tripTimes) {
-                                String departureTimeFormatted = String.format(String.valueOf(DateTimeFormatter.ofPattern("HH:mm")));
-                                getStr.setDepartureTime(departureTimeFormatted);
-                                tripTimesFormatted.add(getStr);
-                            }
-                            tripAdapter.update(tripTimesFormatted);
+
                         }
                     }
                 } else {
