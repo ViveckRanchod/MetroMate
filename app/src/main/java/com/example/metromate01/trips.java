@@ -6,7 +6,7 @@ public class trips {
 
     String arrivalTime, departureTime, cashPrice, tagPrice, busNo ,departureStop, arrivalStop;
 
-    public trips(String arrivalTime, String departureTime, String cashPrice, String tagPrice, String busNo, String departureStop, String arrivalStop){
+    public trips(){
         this.arrivalTime = arrivalTime;
         this.departureTime = departureTime;
         this.cashPrice = cashPrice;
