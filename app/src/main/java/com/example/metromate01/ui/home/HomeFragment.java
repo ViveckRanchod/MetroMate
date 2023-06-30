@@ -122,37 +122,38 @@ public class HomeFragment extends Fragment {
                         if (isInputTimeFound) {
                             tripAdapter.update(tripTimes);
                         } else {
+                            ArrayList<trips> closestTrips = new ArrayList<>();
                             long minDifference = Long.MAX_VALUE;
-
                             // Change objects into local time objects:
                             LocalTime timeInput = LocalTime.parse(depTime, DateTimeFormatter.ofPattern("HH:mm"));
 
-                            // The filtered list containing the trips that meet the condition, get the departure time of said trips:
-                            for (trips tripTime : filteredList) {
-                                String deptTimeDB = tripTime.getDepartureTime();
+                            // Find the closest trips based on the departure time difference:
+                            for (trips trip : filteredList) {
+                                String deptTimeDB = trip.getDepartureTime();
                                 LocalTime timeDB = LocalTime.parse(deptTimeDB, DateTimeFormatter.ofPattern("HH:mm"));
 
                                 long timeDifference = Math.abs(ChronoUnit.MINUTES.between(timeInput, timeDB));
 
-                                // Check the timeDifference vs minDifference to get the closest to input time:
-                                if (timeDifference < minDifference) {
-                                    tripTimes.clear();
-                                    tripTimes.add(tripTime);
-                                    minDifference = timeDifference;
-                                } else if (timeDifference == minDifference) {
-                                    tripTimes.add(tripTime);
+                                if (timeDifference <= minDifference) {
+                                    if (timeDifference < minDifference) {
+                                        minDifference = timeDifference;
+                                        closestTrips.clear();
+                                    }
+                                    closestTrips.add(trip);
                                 }
-                                // Convert LocalTime back to string before adding to tripTimes
+                            }
+
+                            if (closestTrips.isEmpty()) {
+                                Toast.makeText(getContext(), "No available buses for those routes.", Toast.LENGTH_SHORT).show();
+                            } else {
                                 ArrayList<trips> tripTimesFormatted = new ArrayList<>();
-                                for (trips getStr : tripTimes) {
-                                    String departureTimeFormatted = String.format(String.valueOf(DateTimeFormatter.ofPattern("HH:mm")));
+                                for (trips getStr : closestTrips) {
+                                    String departureTimeFormatted = getStr.getDepartureTime();
                                     getStr.setDepartureTime(departureTimeFormatted);
                                     tripTimesFormatted.add(getStr);
                                 }
                                 tripAdapter.update(tripTimesFormatted);
                             }
-
-
                         }
                     }
                 } else {
