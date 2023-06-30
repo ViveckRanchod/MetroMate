@@ -143,9 +143,7 @@ public class HomeFragment extends Fragment {
                                 }
                             }
 
-                            if (closestTrips.isEmpty()) {
-                                Toast.makeText(getContext(), "No available buses for those routes.", Toast.LENGTH_SHORT).show();
-                            } else {
+                            if (!closestTrips.isEmpty()) {
                                 ArrayList<trips> tripTimesFormatted = new ArrayList<>();
                                 for (trips getStr : closestTrips) {
                                     String departureTimeFormatted = getStr.getDepartureTime();
@@ -153,8 +151,13 @@ public class HomeFragment extends Fragment {
                                     tripTimesFormatted.add(getStr);
                                 }
                                 tripAdapter.update(tripTimesFormatted);
-                            }
+                            } else {
+                            Toast.makeText(getContext(), "No available buses for those routes.", Toast.LENGTH_SHORT).show();
                         }
+
+                            }
+
+
                     }
                 } else {
                     Toast.makeText(getContext(), "Please ensure the departure and arrival stop are selected, and a departure time is filled.", Toast.LENGTH_SHORT).show();
