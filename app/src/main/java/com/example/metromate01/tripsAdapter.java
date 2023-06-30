@@ -34,7 +34,7 @@ public class tripsAdapter extends RecyclerView.Adapter<tripsAdapter.MyViewHolder
 
         @Override
         public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-                trips Trips = filterList.get(position);
+                trips Trips = list.get(position);
                 holder.arvTime.setText(Trips.getArrivalTime());
                 holder.depTime.setText(Trips.getDepartureTime());
                 holder.cashPrice.setText(Trips.getCashPrice());
@@ -44,7 +44,7 @@ public class tripsAdapter extends RecyclerView.Adapter<tripsAdapter.MyViewHolder
 
         @Override
         public int getItemCount() {
-                return filterList.size();
+                return list.size();
         }
 
 

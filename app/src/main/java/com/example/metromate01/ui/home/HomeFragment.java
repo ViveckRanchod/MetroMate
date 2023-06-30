@@ -1,6 +1,5 @@
 package com.example.metromate01.ui.home;
 
-
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -41,17 +40,14 @@ public class HomeFragment extends Fragment {
     RecyclerView recyclerView;
     DatabaseReference database;
     Database db = new Database();
-    tripsAdapter TripAdapter;
+    tripsAdapter tripAdapter;
     ArrayList<trips> list;
     Spinner spinner1, spinner2;
     EditText time;
     Button search;
 
-
-    public View onCreateView(@NonNull LayoutInflater inflater,
-                             ViewGroup container, Bundle savedInstanceState) {
-        HomeViewModel homeViewModel =
-                new ViewModelProvider(this).get(HomeViewModel.class);
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        HomeViewModel homeViewModel = new ViewModelProvider(this).get(HomeViewModel.class);
 
         binding = FragmentHomeBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
@@ -59,169 +55,114 @@ public class HomeFragment extends Fragment {
         final TextView textView = binding.textHome;
         homeViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
 
-
-        recyclerView = root.findViewById(R.id.tripsList); // Use root.findViewById instead of recyclerView.findViewById
+        recyclerView = root.findViewById(R.id.tripsList);
         database = FirebaseDatabase.getInstance().getReference("trips");
         recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(requireContext())); // Use requireContext() instead of this
+        recyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
 
         list = new ArrayList<>();
-        TripAdapter = new tripsAdapter(requireContext(), list); // Use requireContext() instead of this
-        recyclerView.setAdapter(TripAdapter);
+        tripAdapter = new tripsAdapter(requireContext(), list);
+        recyclerView.setAdapter(tripAdapter);
 
-        //Viveck- changed it to inflate root
-        View view = root;
-
-        time = view.findViewById(R.id.editTextDepartureTime);
-        spinner1 = view.findViewById(R.id.spinner);
-        spinner2 = view.findViewById(R.id.spinner2);
-        search = view.findViewById(R.id.button);
+        time = root.findViewById(R.id.editTextDepartureTime);
+        spinner1 = root.findViewById(R.id.spinner);
+        spinner2 = root.findViewById(R.id.spinner2);
+        search = root.findViewById(R.id.button);
 
         database.addValueEventListener(new ValueEventListener() {
             @SuppressLint("NotifyDataSetChanged")
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                list.clear(); // Clear the list before adding new items
-
+                list.clear();
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-                    trips Trip = dataSnapshot.getValue(trips.class);
-                    list.add(Trip);
+                    trips trip = dataSnapshot.getValue(trips.class);
+                    list.add(trip);
                 }
-
-                TripAdapter.notifyDataSetChanged(); // Notify the adapter that the data has changed
+                tripAdapter.notifyDataSetChanged();
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
+                // Handle database cancellation error if needed
             }
         });
 
-        search.setOnClickListener(view1 -> {
-            // Get current values and inputs
-            String Sspinner1 = spinner1.getSelectedItem().toString();
-            String Sspinner2 = spinner2.getSelectedItem().toString();
-            int spinner1_id = spinner1.getSelectedItemPosition();
-            int spinner2_id = spinner2.getSelectedItemPosition();
-            String Stime = time.getText().toString();
+        search.setOnClickListener(view -> {
+            String spinner1Selection = spinner1.getSelectedItem().toString();
+            String spinner2Selection = spinner2.getSelectedItem().toString();
+            int spinner1Position = spinner1.getSelectedItemPosition();
+            int spinner2Position = spinner2.getSelectedItemPosition();
+            String departureTime = time.getText().toString();
 
+            if (!spinner1Selection.isEmpty() && !spinner2Selection.isEmpty() && !departureTime.isEmpty() && spinner1Position != spinner2Position) {
+                ArrayList<trips> filteredList = new ArrayList<>();
 
-            if (!Sspinner1.isEmpty() && !Sspinner2.isEmpty() && !Stime.isEmpty() && spinner1_id != spinner2_id) {
-                ArrayList<trips> filterList = new ArrayList<>();
-
-                //check that the selections are in the database and add the selections to the 	filterlist
-
-                for (trips destination : list) {
-                    String firstSelection = db.getChildren("trips", "departureStop").get(list.indexOf(destination));
-                    String secondSelection = db.getChildren("trips", "arrivalStop").get(list.indexOf(destination));
-                    if (firstSelection.equals(Sspinner1) && secondSelection.equals(Sspinner2)) {
-                        filterList.add(destination);
+                for (trips trip : list) {
+                    String departureStop = db.getChildren("trips", "departureStop").get(list.indexOf(trip));
+                    String arrivalStop = db.getChildren("trips", "arrivalStop").get(list.indexOf(trip));
+                    if (departureStop.equals(spinner1Selection) && arrivalStop.equals(spinner2Selection)) {
+                        filteredList.add(trip);
                     }
                 }
-                //sort list according to time values:
-                // if (deptStopList.contains(Stime){TripAdapter.filterInputTime(Stime);} ignore
 
-                if (!filterList.isEmpty()) {
+                // Sort the list according to time values (if needed)
+
+                if (!filteredList.isEmpty()) {
                     ArrayList<trips> closestTripTimes = new ArrayList<>();
 
-                    // Convert time input into local time object
-                    DateTimeFormatter format_time = null;
-                    if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
-                        format_time = DateTimeFormatter.ofPattern("HH:mm");
-                    }
-                    LocalTime Ttime_input = null;
-                    if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
-                        Ttime_input = LocalTime.parse(Stime, format_time);
-                    }
+                    DateTimeFormatter formatTime = DateTimeFormatter.ofPattern("HH:mm");
+                    LocalTime timeInput = LocalTime.parse(departureTime, formatTime);
 
-                    for (trips time : filterList) {
-                        String availableTime = time.getDepartureTime();
-                        if(availableTime.equals(Stime)){
-                            closestTripTimes.add(time);
+                    for (trips trip : filteredList) {
+                        String availableTime = trip.getDepartureTime();
+                        if (availableTime.equals(departureTime)) {
+                            closestTripTimes.add(trip);
                         }
                     }
-                    //get closest times to the input by calculating minutes between existing departureTime values :
+
                     long minDifference = Long.MAX_VALUE;
 
-                    for (trips time : filterList) {
-                        String deptTimeDB = time.getDepartureTime();
-                        LocalTime TIME_deptTimeDB = null;
-                        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
-                            TIME_deptTimeDB = LocalTime.parse(deptTimeDB, format_time);
-                        }
-                        long timeDifference = 0;
-                        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
-                            timeDifference = Math.abs(ChronoUnit.MINUTES.between(Ttime_input, TIME_deptTimeDB));
-                        }
+                    for (trips trip : filteredList) {
+                        String deptTimeDB = trip.getDepartureTime();
+                        LocalTime timeDB = LocalTime.parse(deptTimeDB, formatTime);
+                        long timeDifference = Math.abs(ChronoUnit.MINUTES.between(timeInput, timeDB));
 
                         if (timeDifference < minDifference) {
                             closestTripTimes.clear();
-                            closestTripTimes.add(time);
+                            closestTripTimes.add(trip);
                             minDifference = timeDifference;
-                        } else if (minDifference == timeDifference) {
-                            closestTripTimes.add(time);//
+                        } else if (timeDifference == minDifference) {
+                            closestTripTimes.add(trip);
                         }
                     }
+
                     if (closestTripTimes.isEmpty()) {
                         Toast.makeText(getContext(), "No available buses at this time.", Toast.LENGTH_SHORT).show();
                     } else {
-                        for (trips Trips : closestTripTimes) {
-
-                            // get the position of the current trip in the filterlist
-                            int position = closestTripTimes.indexOf(Trips);
-
+                        for (trips trip : closestTripTimes) {
+                            int position = filteredList.indexOf(trip);
                             tripsAdapter.MyViewHolder holder = (tripsAdapter.MyViewHolder) recyclerView.findViewHolderForAdapterPosition(position);
-                            // fetch the corresponding trip from the list based on the position
-                            trips Trip = filterList.get(position);
-                            if(holder!=null) {
-                                holder.arvTime.setText(Trip.getArrivalTime());
-                                holder.depTime.setText(Trip.getDepartureTime());
-                                holder.cashPrice.setText(Trip.getCashPrice());
-                                holder.tagPrice.setText(Trip.getTagPrice());
-                                holder.busNo.setText(Trip.getBusNo());
+                            if (holder != null) {
+                                holder.arvTime.setText(trip.getArrivalTime());
+                                holder.depTime.setText(trip.getDepartureTime());
+                                holder.cashPrice.setText(trip.getCashPrice());
+                                holder.tagPrice.setText(trip.getTagPrice());
+                                holder.busNo.setText(trip.getBusNo());
                             }
                         }
                     }
                 }
             } else {
-                Toast.makeText(getContext(), "Please ensure the departure and arrival stop are selected and a departure time is filled", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "Please ensure the departure and arrival stop are selected, and a departure time is filled.", Toast.LENGTH_SHORT).show();
             }
         });
 
-return root;
-
-        }
-
-        @Override
-        public void onDestroyView() {
-            super.onDestroyView();
-            binding = null;
-        }
+        return root;
     }
-    /*/ Convert db list of departure times from db to local time objects
-                    for (String timeDB : deptStopList) {
-                        LocalTime timeFromDb = LocalTime.parse(timeDB, DateTimeFormatter.ofPattern("HH:mm"));
-                        deptTimeList.add(timeFromDb);
-                    }
 
-                    // Find closest departure times to user input
-                    for (LocalTime deptTime : deptTimeList) {
-                        if (deptTime.isBefore(Ttime_input) && (closestBefore == null || deptTime.isAfter(closestBefore))) {
-                            closestBefore = deptTime;
-                        }
-                        if (deptTime.isAfter(Ttime_input) && (closestAfter == null || deptTime.isBefore(closestAfter))) {
-                            closestAfter = deptTime;
-                        }
-                    }
-
-                    DateTimeFormatter formatTime = DateTimeFormatter.ofPattern("HH:mm");
-                    if (closestBefore != null) {
-                        StrclosestBefore = closestBefore.format(formatTime);
-                    }else{
-                        Toast.makeText(getContext(), "No avaialble Bus at this time", Toast.LENGTH_SHORT).show();
-                    }
-                    if (closestAfter != null) {
-                        StrclosestAfter = closestAfter.format(formatTime);
-                    }else{
-                        Toast.makeText(getContext(), "No avaialble Bus at this time", Toast.LENGTH_SHORT).show();
-                    }*/
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        binding = null;
+    }
+}
