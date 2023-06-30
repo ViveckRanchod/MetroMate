@@ -19,7 +19,6 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.metromate01.Database;
 import com.example.metromate01.R;
 import com.example.metromate01.databinding.FragmentHomeBinding;
 import com.example.metromate01.trips;
@@ -34,7 +33,7 @@ import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
-import java.util.Collections;
+
 
 public class HomeFragment extends Fragment {
 
@@ -108,35 +107,46 @@ public class HomeFragment extends Fragment {
                         }
                     }
 
-
                     if (filteredList.isEmpty()) {
-                        Toast.makeText(getContext(), "No available buses for the those routes.", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(), "No available buses for those routes.", Toast.LENGTH_SHORT).show();
                     } else {
-                        // Sort the filtered list based on the closest time
-                        filteredList.sort((trip1, trip2) -> {
-                            LocalTime time1 = LocalTime.parse(trip1.getDepartureTime(), DateTimeFormatter.ofPattern("HH:mm"));
-                            LocalTime time2 = LocalTime.parse(trip2.getDepartureTime(), DateTimeFormatter.ofPattern("HH:mm"));
-                            LocalTime inputTime = LocalTime.parse(depTime, DateTimeFormatter.ofPattern("HH:mm"));
+                        ArrayList<trips> tripTimes = new ArrayList<>();
+                        boolean isInputTimeFound = false;
 
-                            //get the difference in minuetes between the two time values and the input time
-                            long diff1 = Math.abs(ChronoUnit.MINUTES.between(time1, inputTime));
-                            long diff2 = Math.abs(ChronoUnit.MINUTES.between(time2, inputTime));
+                        for (trips found : filteredList) {
+                            if (found.getDepartureTime().equals(depTime)) {
+                                isInputTimeFound = true;
+                                tripTimes.add(found);
+                                break;
+                            }
+                        }
 
-                            return Long.compare(diff1, diff2);
-                        });
+                        if (isInputTimeFound) {
+                            tripAdapter.update(tripTimes);
+                        } else {
+                            // Sort the filtered list based on the closest time
+                            filteredList.sort((trip1, trip2) -> {
+                                LocalTime time1 = LocalTime.parse(trip1.getDepartureTime(), DateTimeFormatter.ofPattern("HH:mm"));
+                                LocalTime time2 = LocalTime.parse(trip2.getDepartureTime(), DateTimeFormatter.ofPattern("HH:mm"));
+                                LocalTime inputTime = LocalTime.parse(depTime, DateTimeFormatter.ofPattern("HH:mm"));
 
-                        tripAdapter.update(filteredList);
+                                // get the difference in minutes between the two time values and the input time
+                                long diff1 = Math.abs(ChronoUnit.MINUTES.between(time1, inputTime));
+                                long diff2 = Math.abs(ChronoUnit.MINUTES.between(time2, inputTime));
+
+                                return Long.compare(diff1, diff2);
+                            });
+
+                            tripAdapter.update(filteredList);
+                        }
                     }
                 } else {
                     Toast.makeText(getContext(), "Please ensure the departure and arrival stop are selected, and a departure time is filled.", Toast.LENGTH_SHORT).show();
                 }
-
             } catch (Exception e) {
-
                 Toast.makeText(getContext(), "An error occurred: " + e.getMessage(), Toast.LENGTH_SHORT).show();
                 e.printStackTrace();
             }
-
         });
 
         return root;
