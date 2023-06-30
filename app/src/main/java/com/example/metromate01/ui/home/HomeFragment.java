@@ -118,7 +118,7 @@ public class HomeFragment extends Fragment {
                         if (availableTime.equals(departureTime)) {
                             closestTripTimes.add(trip);
                         }
-                        break;
+
                     }
 
                     long minDifference = Long.MAX_VALUE;
