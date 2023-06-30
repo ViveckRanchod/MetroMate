@@ -37,4 +37,8 @@ public class trips {
     public String getBusNo() {
         return busNo;
     }
+
+    public void setDepartureTime(String formattedDepartureTime) {
+        this.departureTime = formattedDepartureTime;
+    }
 }

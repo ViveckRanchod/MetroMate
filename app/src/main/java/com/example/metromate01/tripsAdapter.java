@@ -16,13 +16,11 @@ public class tripsAdapter extends RecyclerView.Adapter<tripsAdapter.MyViewHolder
 
         Context context;
         ArrayList<trips> list;
-        ArrayList<trips> filterList;
 
 
         public tripsAdapter(Context context, ArrayList<trips> list) {
                 this.context = context;
                 this.list = list;
-                this.filterList=new ArrayList<>(list);
 
         }
 //
@@ -54,24 +52,6 @@ public class tripsAdapter extends RecyclerView.Adapter<tripsAdapter.MyViewHolder
                 list.addAll(filteredTrips);
                 notifyDataSetChanged();
         }
-        //get the card views that have a time closest to the database entries:
-       /* public void filterClosestTimes(String before, String after){
-               ArrayList<trips> filterList = new ArrayList<>();
-
-                for(trips filterBA: list){
-                        String deptTimeBA = filterBA.getDepartureTime();
-                        //CHANGED THIS FROM: if(deptTimeBA.equals(before)||deptTimeBA.equals(after)){
-                        // filterList.add(filterBA);} TO->
-                        if(deptTimeBA.equals(before)) {
-                                filterList.add(filterBA);
-                        }
-                        if(deptTimeBA.equals(after)){
-                                filterList.add(filterBA);
-                        }
-                }
-                passData(filterList);
-
-        }*/
 
         public static class MyViewHolder extends RecyclerView.ViewHolder{
 

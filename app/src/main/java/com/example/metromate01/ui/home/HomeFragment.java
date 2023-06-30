@@ -72,7 +72,6 @@ public class HomeFragment extends Fragment {
         spinner1 = root.findViewById(R.id.spinner);
         spinner2 = root.findViewById(R.id.spinner2);
         search = root.findViewById(R.id.button);
-       // String availableTime = tripObj.getDepartureTime();
 
         database.addValueEventListener(new ValueEventListener() {
             @SuppressLint("NotifyDataSetChanged")
@@ -91,7 +90,6 @@ public class HomeFragment extends Fragment {
                 // Handle database cancellation error if needed
             }
         });
-
 
         search.setOnClickListener(view -> {
             try {
@@ -124,20 +122,36 @@ public class HomeFragment extends Fragment {
                         if (isInputTimeFound) {
                             tripAdapter.update(tripTimes);
                         } else {
-                            // Sort the filtered list based on the closest time
-                            filteredList.sort((trip1, trip2) -> {
-                                LocalTime time1 = LocalTime.parse(trip1.getDepartureTime(), DateTimeFormatter.ofPattern("HH:mm"));
-                                LocalTime time2 = LocalTime.parse(trip2.getDepartureTime(), DateTimeFormatter.ofPattern("HH:mm"));
-                                LocalTime inputTime = LocalTime.parse(depTime, DateTimeFormatter.ofPattern("HH:mm"));
+                            long minDifference = Long.MAX_VALUE;
 
-                                // get the difference in minutes between the two time values and the input time
-                                long diff1 = Math.abs(ChronoUnit.MINUTES.between(time1, inputTime));
-                                long diff2 = Math.abs(ChronoUnit.MINUTES.between(time2, inputTime));
+                            // Change objects into local time objects:
+                            LocalTime timeInput = LocalTime.parse(depTime, DateTimeFormatter.ofPattern("HH:mm"));
 
-                                return Long.compare(diff1, diff2);
-                            });
+                            // The filtered list containing the trips that meet the condition, get the departure time of said trips:
+                            for (trips trip : filteredList) {
+                                String deptTimeDB = trip.getDepartureTime();
+                                LocalTime timeDB = LocalTime.parse(deptTimeDB, DateTimeFormatter.ofPattern("HH:mm"));
 
-                            tripAdapter.update(filteredList);
+                                long timeDifference = Math.abs(ChronoUnit.MINUTES.between(timeInput, timeDB));
+
+                                // Check the timeDifference vs minDifference to get the closest to input time:
+                                if (timeDifference < minDifference) {
+                                    tripTimes.clear();
+                                    tripTimes.add(trip);
+                                    minDifference = timeDifference;
+                                } else if (timeDifference == minDifference) {
+                                    tripTimes.add(trip);
+                                }
+                            }
+
+                            // Convert LocalTime back to string before adding to tripTimes
+                            ArrayList<trips> tripTimesFormatted = new ArrayList<>();
+                            for (trips getStr : tripTimes) {
+                                String departureTimeFormatted = String.format(String.valueOf(DateTimeFormatter.ofPattern("HH:mm")));
+                                getStr.setDepartureTime(departureTimeFormatted);
+                                tripTimesFormatted.add(getStr);
+                            }
+                            tripAdapter.update(tripTimesFormatted);
                         }
                     }
                 } else {
