@@ -68,25 +68,25 @@ public class Database {
     }
 
     //get specific value from the database sub branches into a list://
-  public ArrayList<String> getChildren(String child, String children) {
+  /*public ArrayList<String> getChildren(String child, String children) {
         DatabaseReference dbPath = FirebaseDatabase.getInstance().getReference(child);
-        ArrayList<String> list = new ArrayList<>();
+        ArrayList<String> listArr = new ArrayList<>();
         dbPath.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                list.clear() ;
+                listArr.clear() ;
                 //get specific value for all the children under a main child branch & add to list:
                 for (DataSnapshot childBranch : dataSnapshot.getChildren()) {
                     String getChild = childBranch.child(children).getValue(String.class);
-                    list.add(getChild);
+                    listArr.add(getChild);
                 }
             }
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
             }
         });
-        return list;
-    }
+        return listArr;
+    }*/
 
 }
 
