@@ -1,5 +1,6 @@
 package com.example.metromate01;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -47,7 +48,12 @@ public class tripsAdapter extends RecyclerView.Adapter<tripsAdapter.MyViewHolder
                 return list.size();
         }
 
-
+        @SuppressLint("NotifyDataSetChanged")
+        public void update(ArrayList<trips> filteredTrips){
+                list.clear();
+                list.addAll(filteredTrips);
+                notifyDataSetChanged();
+        }
         //get the card views that have a time closest to the database entries:
        /* public void filterClosestTimes(String before, String after){
                ArrayList<trips> filterList = new ArrayList<>();
