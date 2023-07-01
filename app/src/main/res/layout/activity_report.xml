@@ -56,6 +56,7 @@
 
     <EditText
         android:id="@+id/editTextText"
+        style="@style/TextInBox"
         android:layout_width="160dp"
         android:layout_height="48dp"
 
@@ -71,8 +72,9 @@
 
     <EditText
         android:id="@+id/editTextText2"
-        android:layout_width="143dp"
-        android:layout_height="55dp"
+        style="@style/TextInBox"
+        android:layout_width="150dp"
+        android:layout_height="48dp"
         android:layout_marginStart="173dp"
         android:layout_marginBottom="8dp"
         android:autofillHints="name"
@@ -85,8 +87,9 @@
 
     <EditText
         android:id="@+id/editTextTextEmailAddress"
-        android:layout_width="300dp"
-        android:layout_height="48dp"
+        style="@style/TextInBox"
+        android:layout_width="320dp"
+        android:layout_height="51dp"
         android:layout_marginBottom="28dp"
         android:autofillHints="emailAddress"
         android:background="@drawable/txtfield_background"
@@ -98,6 +101,7 @@
 
     <EditText
         android:id="@+id/editTextTextMultiLine"
+        style="@style/TextInBox"
         android:layout_width="308dp"
         android:layout_height="88dp"
         android:layout_marginBottom="24dp"
@@ -137,8 +141,9 @@
 
     <EditText
         android:id="@+id/editTextDate"
-        android:layout_width="280dp"
-        android:layout_height="49dp"
+        style="@style/TextInBox"
+        android:layout_width="305dp"
+        android:layout_height="54dp"
         android:layout_marginBottom="12dp"
         android:background="@drawable/txtfield_background"
         android:ems="10"
@@ -174,6 +179,7 @@
 
     <EditText
         android:id="@+id/editTextNumber"
+        style="@style/TextInBox"
         android:layout_width="110dp"
         android:layout_height="48dp"
         android:layout_marginEnd="84dp"
@@ -189,7 +195,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
-        android:text="@string/driverName_head"
+        android:text="Schedule"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/editTextText3"
@@ -197,15 +203,15 @@
 
     <EditText
         android:id="@+id/editTextText3"
-        android:layout_width="110dp"
-        android:layout_height="48dp"
+        style="@style/TextInBox"
+        android:layout_width="121dp"
+        android:layout_height="52dp"
         android:layout_marginStart="188dp"
         android:layout_marginBottom="12dp"
         android:background="@drawable/txtfield_background"
         android:ems="10"
-        android:hint="@string/driverName_input"
+        android:hint="Morning/Afternoon"
         android:inputType="text"
-        android:text="@string/driverName_input"
         app:layout_constraintBottom_toTopOf="@+id/textView7"
         app:layout_constraintStart_toStartOf="@+id/textView7" />
 
