@@ -125,19 +125,14 @@ public class BusHomeFragment extends Fragment {
     // Create a LocationListener to receive location updates
     private final LocationListener locationListener = new LocationListener() {
         public void onLocationChanged(Location location) {
-// Fetch the device's location here (example coordinates used)
+            // Fetch the device's location here (example coordinates used)
             double latitude = location.getLatitude();
             double longitude = location.getLongitude();
 
-// Store the location in Firebase using GeoFire
+            // Store the location in Firebase under driverLocations
             DatabaseReference driverLocationRef = FirebaseDatabase.getInstance().getReference().child("driverLocations");
-            GeoFire geoFire = new GeoFire(driverLocationRef);
-            geoFire.setLocation(driverId, new GeoLocation(latitude, longitude));
-
-
-            // You can also directly update the latitude and longitude child nodes if needed
-            // ref.child(driverId).child("latitude").setValue(latitude);
-            // ref.child(driverId).child("longitude").setValue(longitude);
+            driverLocationRef.child(driverId).child("latitude").setValue(latitude);
+            driverLocationRef.child(driverId).child("longitude").setValue(longitude);
         }
 
         public void onProviderDisabled(String provider) {}
