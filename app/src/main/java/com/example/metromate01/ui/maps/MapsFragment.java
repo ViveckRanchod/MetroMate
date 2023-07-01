@@ -6,15 +6,12 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.AutoCompleteTextView;
+import android.widget.SearchView;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.metromate01.PlacesAutoCompleteAdapter;
 import com.example.metromate01.R;
 import com.example.metromate01.databinding.FragmentMapsBinding;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -38,9 +35,11 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback {
 
     private FragmentMapsBinding binding;
     private GoogleMap myMap;
-    private AutoCompleteTextView autoCompleteTextView;
+    private SearchView searchView;
 
     private List<BusStop> busStops;
+
+    private  List<busTracking> busTrackings;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -59,23 +58,13 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback {
             mapFragment.getMapAsync(this);
         }
 
-        autoCompleteTextView = view.findViewById(R.id.search_view);
-        autoCompleteTextView.setAdapter(new PlacesAutoCompleteAdapter(requireContext())); // Set the adapter for autocomplete suggestions
-
-        autoCompleteTextView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String query = (String) parent.getItemAtPosition(position);
-                searchLocation(query);
-            }
-        });
-        ;
-
+        searchView = view.findViewById(R.id.search_view);
         busStops = new ArrayList<>();
 
         // Retrieve bus stops from Firebase
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference stopsRef = database.getReference("stops");
+        DatabaseReference trackingRef = database.getReference("driverLocations");
 
         stopsRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -98,6 +87,44 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback {
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
                 // Handle potential errors
+            }
+        });
+
+        trackingRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot stopSnapshot : dataSnapshot.getChildren()) {
+                    String title = stopSnapshot.getKey();
+                    double trackinglatitude = stopSnapshot.child("0").getValue(Double.class);
+                    double trackinglongitude = stopSnapshot.child("0").getValue(Double.class);
+
+                    // Create BusStop object and add it to the list
+                    busTrackings.add(new busTracking(title, new LatLng(trackinglatitude, trackinglongitude)));
+                }
+
+                // Call onMapReady() explicitly to ensure the map is initialized after retrieving data
+                if (myMap != null) {
+                    onMapReady(myMap);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                // Handle potential errors
+            }
+        });
+
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                searchLocation(query);
+                return true;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                return false;
             }
         });
     }
@@ -150,6 +177,13 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback {
             myMap.addMarker(markerOptions);
         }
 
+        for (busTracking Bustracking : busTrackings) {
+            MarkerOptions markerOptions = new MarkerOptions()
+                    .position(Bustracking.getBusLocation())
+                    .icon(BitmapDescriptorFactory.fromResource(R.drawable.bus_pin_foreground));
+            myMap.addMarker(markerOptions);
+        }
+
         if (!busStops.isEmpty()) {
             myMap.moveCamera(CameraUpdateFactory.newLatLng(busStops.get(0).getLocation()));
         }
@@ -164,12 +198,28 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback {
             this.location = location;
         }
 
+
         public String getTitle() {
             return title;
         }
 
         public LatLng getLocation() {
             return location;
+        }
+    }
+
+
+    private static class busTracking {
+
+        private LatLng busLocation;
+        public busTracking(String title, LatLng latLng) {
+
+                this.busLocation = busLocation;
+
+        }
+
+        public  LatLng getBusLocation(){
+            return busLocation;
         }
     }
 }
