@@ -59,7 +59,10 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback {
         }
 
         searchView = view.findViewById(R.id.search_view);
+
         busStops = new ArrayList<>();
+        busTrackings = new ArrayList<>();
+
 
         // Retrieve bus stops from Firebase
         FirebaseDatabase database = FirebaseDatabase.getInstance();
@@ -95,8 +98,8 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot stopSnapshot : dataSnapshot.getChildren()) {
                     String title = stopSnapshot.getKey();
-                    double trackinglatitude = stopSnapshot.child("0").getValue(Double.class);
-                    double trackinglongitude = stopSnapshot.child("0").getValue(Double.class);
+                    double trackinglatitude = stopSnapshot.child("latitude").getValue(Double.class);
+                    double trackinglongitude = stopSnapshot.child("longitude").getValue(Double.class);
 
                     // Create BusStop object and add it to the list
                     busTrackings.add(new busTracking(title, new LatLng(trackinglatitude, trackinglongitude)));
@@ -147,12 +150,20 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback {
                 double longitude = address.getLongitude();
 
                 myMap.clear();
+//Places the bus tracking marker after a searched location
 
                 for (BusStop busStop : busStops) {
                     MarkerOptions markerOptions = new MarkerOptions()
                             .position(busStop.getLocation())
                             .title(busStop.getTitle())
                             .icon(BitmapDescriptorFactory.fromResource(R.drawable.bus_pin_foreground));
+                    myMap.addMarker(markerOptions);
+                }
+//Places the bus tracking marker after a searched location
+                for (busTracking Bustracking : busTrackings) {
+                    MarkerOptions markerOptions = new MarkerOptions()
+                            .position(Bustracking.getBusLocation())
+                            .icon(BitmapDescriptorFactory.fromResource(R.drawable.tracking_icon_foreground));
                     myMap.addMarker(markerOptions);
                 }
 
@@ -180,7 +191,7 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback {
         for (busTracking Bustracking : busTrackings) {
             MarkerOptions markerOptions = new MarkerOptions()
                     .position(Bustracking.getBusLocation())
-                    .icon(BitmapDescriptorFactory.fromResource(R.drawable.bus_pin_foreground));
+                    .icon(BitmapDescriptorFactory.fromResource(R.drawable.tracking_icon_foreground));
             myMap.addMarker(markerOptions);
         }
 
@@ -212,11 +223,10 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback {
     private static class busTracking {
 
         private LatLng busLocation;
-        public busTracking(String title, LatLng latLng) {
-
-                this.busLocation = busLocation;
-
+        public busTracking(String title, LatLng busLocation) {
+            this.busLocation = busLocation;
         }
+
 
         public  LatLng getBusLocation(){
             return busLocation;
