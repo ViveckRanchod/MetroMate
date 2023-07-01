@@ -141,7 +141,7 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback {
 
                     MarkerOptions markerOptions = new MarkerOptions()
                             .position(new LatLng(trackinglatitude, trackinglongitude))
-                            .icon(BitmapDescriptorFactory.fromResource(R.drawable.tracking_icon_foreground));
+                            .icon(BitmapDescriptorFactory.fromResource(R.drawable.bus_tracker_icon_foreground));
                     myMap.addMarker(markerOptions);
                 }
 
@@ -208,7 +208,7 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback {
                 for (busTracking Bustracking : busTrackings) {
                     MarkerOptions markerOptions = new MarkerOptions()
                             .position(Bustracking.getBusLocation())
-                            .icon(BitmapDescriptorFactory.fromResource(R.drawable.tracking_icon_foreground));
+                            .icon(BitmapDescriptorFactory.fromResource(R.drawable.bus_tracker_icon_foreground));
                     myMap.addMarker(markerOptions);
                 }
 
