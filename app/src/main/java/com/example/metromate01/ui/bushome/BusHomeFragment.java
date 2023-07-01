@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import android.Manifest;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -14,10 +15,13 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.Switch;
 import android.widget.TextView;
 
 import com.example.metromate01.R;
+import com.example.metromate01.UserProfileCommuterActivity;
+import com.example.metromate01.UserProfileDriverActivity;
 import com.example.metromate01.databinding.FragmentBusHomeBinding;
 import com.example.metromate01.ui.bushome.BusHomeViewModel;
 import com.google.firebase.database.DataSnapshot;
@@ -43,6 +47,7 @@ import android.os.Bundle;
 import android.widget.Toast;
 public class BusHomeFragment extends Fragment {
 
+    private ImageButton profileImageButton;
     private FragmentBusHomeBinding binding;
     private DatabaseReference driverLocationRef;
     private String driverId;
@@ -60,6 +65,15 @@ public class BusHomeFragment extends Fragment {
         final TextView textView = binding.textBusHome;
         busHomeViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
 
+        profileImageButton = root.findViewById(R.id.profileImageButton2);
+        profileImageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Open the user profile activity
+                Intent intent = new Intent(getActivity(), UserProfileDriverActivity.class);
+                startActivity(intent);
+            }
+        });
         // Generate a unique driver ID (can use UUID or any other method)
         driverId = generateDriverId();
 
