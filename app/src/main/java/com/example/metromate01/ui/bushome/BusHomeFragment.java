@@ -20,6 +20,8 @@ import android.widget.TextView;
 import com.example.metromate01.R;
 import com.example.metromate01.databinding.FragmentBusHomeBinding;
 import com.example.metromate01.ui.bushome.BusHomeViewModel;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -31,6 +33,8 @@ import com.firebase.geofire.GeoFire;
 import com.firebase.geofire.GeoLocation;
 import com.firebase.geofire.GeoQuery;
 import com.firebase.geofire.GeoQueryEventListener;
+import com.google.firebase.database.ValueEventListener;
+
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationListener;
@@ -131,8 +135,28 @@ public class BusHomeFragment extends Fragment {
 
             // Store the location in Firebase under driverLocations
             DatabaseReference driverLocationRef = FirebaseDatabase.getInstance().getReference().child("driverLocations");
-            driverLocationRef.child(driverId).child("latitude").setValue(latitude);
-            driverLocationRef.child(driverId).child("longitude").setValue(longitude);
+            DatabaseReference driverRef = driverLocationRef.child(driverId);
+
+            // Check if the driver already exists in the database
+            driverRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    if (snapshot.exists()) {
+                        // Update the existing location coordinates
+                        driverRef.child("latitude").setValue(latitude);
+                        driverRef.child("longitude").setValue(longitude);
+                    } else {
+                        // Create a new location entry in the database
+                        driverRef.child("latitude").setValue(latitude);
+                        driverRef.child("longitude").setValue(longitude);
+                    }
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+                    // Handle the error if necessary
+                }
+            });
         }
 
         public void onProviderDisabled(String provider) {}
