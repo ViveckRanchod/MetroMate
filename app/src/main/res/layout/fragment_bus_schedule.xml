@@ -5,7 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F6F6F6">
+    android:background="#F6F6F6"
+    tools:menu="@menu/bottom_nav_menu">
 
     <ImageView
         android:id="@+id/imageView2"
@@ -582,5 +583,9 @@
 
     </TableLayout>
 
+<<<<<<<< HEAD:app/src/main/res/layout/fragment_bus_schedule.xml
     <include layout="@layout/layout_bottom_navigation_driver" />
+========
+    <include layout="@layout/layout_bottom_navigation" />
+>>>>>>>> a001bb024698269bbca25762998fe685fab252db:app/src/main/res/layout/activity_schedule_page.xml
 </androidx.constraintlayout.widget.ConstraintLayout>
