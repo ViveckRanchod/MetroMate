@@ -43,18 +43,19 @@
         tools:ignore="HardcodedText" />
 
     <ImageButton
-        android:id="@+id/imageButton6"
+        android:id="@+id/profileImageButton"
         android:layout_width="78dp"
         android:layout_height="72dp"
         android:layout_marginEnd="5dp"
         android:backgroundTint="#242433"
         android:contentDescription="view user profile"
+        android:contextClickable="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/imageView"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
+        app:layout_constraintVertical_bias="0.001"
         app:srcCompat="@drawable/user_icon"
         tools:ignore="HardcodedText" />
 
