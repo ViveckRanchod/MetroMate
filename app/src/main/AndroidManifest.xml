@@ -37,7 +37,6 @@
 
         <activity
             android:name=".Commuter"
-
             android:exported="false"
             android:theme="@style/Theme.MetroMate01.NoActionBar" />
 
@@ -49,15 +48,10 @@
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
+            <meta-data
+                android:name="com.google.android.geo.API_KEY"
+                android:value="AIzaSyDsIUbcFDAmIDhDXM7GuaBAbLfgEcRNRrg"/>
         </activity>
-
-
-
-
-        </activity>
-      </application>
-
 
         <activity
             android:name=".MainActivity"
@@ -77,14 +71,14 @@
             </intent-filter>
         </activity>
 
-<!--        <activity-->
-<!--            android:name=".LoginActivity"-->
-<!--            android:exported="true">-->
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MAIN" />-->
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
-<!--        </activity>-->
+        <!--        <activity-->
+        <!--            android:name=".LoginActivity"-->
+        <!--            android:exported="true">-->
+        <!--            <intent-filter>-->
+        <!--                <action android:name="android.intent.action.MAIN" />-->
+        <!--                <category android:name="android.intent.category.LAUNCHER" />-->
+        <!--            </intent-filter>-->
+        <!--        </activity>-->
 
         <activity
             android:name=".UserProfileCommuterActivity"
