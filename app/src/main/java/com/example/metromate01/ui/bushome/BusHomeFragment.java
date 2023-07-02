@@ -16,6 +16,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.TextView;
 
@@ -54,7 +55,8 @@ public class BusHomeFragment extends Fragment {
     private boolean isTrackingEnabled;
     private static final int LOCATION_PERMISSION_REQUEST_CODE = 100;
 
-    EditText bus_number, route, nextStop, eventType, timeEvent, delay;
+    EditText bus_number, route, nextStop,timeEvent;
+    Spinner eventType, delay;
     String uid;
     Button report;
 
