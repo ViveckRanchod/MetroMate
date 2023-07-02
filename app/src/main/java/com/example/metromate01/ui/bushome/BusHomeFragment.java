@@ -14,12 +14,16 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Switch;
 import android.widget.TextView;
 
 import com.example.metromate01.R;
 import com.example.metromate01.databinding.FragmentBusHomeBinding;
 import com.example.metromate01.ui.bushome.BusHomeViewModel;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -48,6 +52,11 @@ public class BusHomeFragment extends Fragment {
     private String driverId;
     private boolean isTrackingEnabled;
     private static final int LOCATION_PERMISSION_REQUEST_CODE = 100;
+
+    EditText bus_number, route, nextStop, eventType, timeEvent, delay;
+    String uid;
+    Button report;
+
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
@@ -77,6 +86,41 @@ public class BusHomeFragment extends Fragment {
             } else {
                 // Stop updating the driver's location when tracking is disabled
                 stopUpdatingLocation();
+            }
+        });
+
+        //Report submit function:
+
+        bus_number = view.findViewById(R.id.editText);
+        route = view.findViewById(R.id.route);
+        nextStop = view.findViewById(R.id.editTextTextPersonName7);
+        eventType = view.findViewById(R.id.eventType);
+        timeEvent = view.findViewById(R.id.editTextTime);
+        delay = view.findViewById(R.id.eventType2);
+        report = view.findViewById(R.id.button4);
+
+        report.setOnClickListener(rView -> {
+            //get the current user ID from the firebase database
+            FirebaseUser current = FirebaseAuth.getInstance().getCurrentUser();
+            if(current!=null){ uid = current.getUid();}
+
+            //get current input:
+            String sBus_number = bus_number.getText().toString();
+            String sRoute = route.getText().toString();
+            String sNextStop = nextStop.getText().toString();
+            String sEventType = eventType.getSelectedItem.toString();
+            String sTimeEvent = timeEvent.getText().toString();
+            String sDelay = delay.getSelectedItem.toString();
+
+            if(sBus_number.isEmpty()&& sRoute.isEmpty()&& sNextStop.isEmpty() &&sEventType.isEmpty()
+                    && sTimeEvent.isEmpty()&& sDelay.isEmpty()){
+                Toast.makeText(BusHomeFragment.this,"Please ensure all fields are filled", Toast.LENGTH_SHORT).show();
+
+            }else{
+                Database db = new Database();
+                db.setPath("report");
+                db.sendReport(uid, sBus_number, sRoute, sNextStop,
+                        sEventType, sTimeEvent, sDelay);
             }
         });
 
