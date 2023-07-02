@@ -1,5 +1,4 @@
 package com.example.metromate01;
-
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -10,8 +9,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class Commuter extends AppCompatActivity {
-    EditText name, lastname, tagNumber, email,
-            password, dob;
+    EditText name, lastname, tagNumber, email, password, dob;
     String path = "commuters"; // path set
     int badgeId = 0;
     Button signUp;
@@ -21,7 +19,7 @@ public class Commuter extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.commuter_sign_up);
 
-        //assign variables to xml elements:
+        // Assign variables to XML elements:
         signUp = findViewById(R.id.btnsignUp);
         name = findViewById(R.id.editTextTextPersonName);
         lastname = findViewById(R.id.editTextTextPersonName2);
@@ -30,12 +28,12 @@ public class Commuter extends AppCompatActivity {
         password = findViewById(R.id.editTextTextPassword);
         dob = findViewById(R.id.editTextDate);
 
-        //send user input to database:
+        // Send user input to the database:
         Database db = new Database();
-        //check input conditions:
+        // Check input conditions:
 
         signUp.setOnClickListener(sendView -> {
-            //get current user inputs:
+            // Get current user inputs:
             String st_name = name.getText().toString();
             String st_lastname = lastname.getText().toString();
             String st_email = email.getText().toString();
@@ -43,12 +41,12 @@ public class Commuter extends AppCompatActivity {
             String st_password = password.getText().toString();
             String st_dob = dob.getText().toString();
 
-            //set refValues in the same order of the parameters set in signUpToDatabase in Database class:
-            //refer to Database class to see purpose of badgeID = 0
+            // Set refValues in the same order of the parameters set in signUpToDatabase in Database class.
+            // Refer to Database class to see the purpose of badgeID = 0.
 
             if (!st_name.isEmpty() && !st_lastname.isEmpty() && !st_email.isEmpty() && !st_password.isEmpty()
                     && st_password.length() >= 8 && !st_dob.isEmpty() && in_tagNumber > 0) {
-                //pass path we want to send data to:
+                // Pass the path we want to send data to:
                 db.setPath(path);
                 db.signUpToDatabase(st_name, st_lastname, st_email, st_password, st_dob, badgeId, in_tagNumber, path);
                 Toast.makeText(Commuter.this, "You have signed up successfully!", Toast.LENGTH_SHORT).show();
@@ -64,7 +62,7 @@ public class Commuter extends AppCompatActivity {
                 startActivity(intent);
                 finish(); // Optional: finish the current activity to remove it from the back stack
             } else {
-                Toast.makeText(Commuter.this, "Please ensure all fields are filled & the password is 8 or more characters long", Toast.LENGTH_SHORT).show();
+                Toast.makeText(Commuter.this, "Please ensure all fields are filled and the password is 8 or more characters long", Toast.LENGTH_SHORT).show();
             }
         });
     }

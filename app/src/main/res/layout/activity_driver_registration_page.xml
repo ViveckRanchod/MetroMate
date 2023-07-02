@@ -185,6 +185,7 @@
         android:layout_height="54dp"
         android:backgroundTint="@color/dark_golden_rod"
         android:text="@string/sign_up"
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

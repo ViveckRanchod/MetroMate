@@ -32,8 +32,7 @@
         <activity
             android:name=".Driver"
             android:exported="false"
-            android:theme="@style/Theme.MetroMate01.NoActionBar"
-            />
+            android:theme="@style/Theme.MetroMate01.NoActionBar" />
 
         <activity
             android:name=".Commuter"
@@ -44,61 +43,29 @@
             android:name=".LandingLaunch"
             android:exported="true"
             android:theme="@style/Theme.MetroMate01.NoActionBar">
+            <!-- Set this as the launcher activity -->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-            <meta-data
-                android:name="com.google.android.geo.API_KEY"
-                android:value="AIzaSyDsIUbcFDAmIDhDXM7GuaBAbLfgEcRNRrg"/>
         </activity>
 
         <activity
             android:name=".MainActivity"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            <!-- Remove the LAUNCHER category -->
         </activity>
 
         <activity
             android:name=".BusDriverActivity"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            <!-- Remove the LAUNCHER category -->
         </activity>
-
-<!--        <activity-->
-<!--            android:name=".LoginActivity"-->
-<!--            android:exported="true">-->
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MAIN" />-->
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
-<!--        </activity>-->
 
         <activity
             android:name=".UserProfileCommuterActivity"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            <!-- Remove the LAUNCHER category -->
         </activity>
-
-        <activity
-            android:name=".UserProfileDriverActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-
-
     </application>
-
 </manifest>

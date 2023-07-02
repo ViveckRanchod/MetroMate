@@ -1,11 +1,9 @@
 package com.example.metromate01;
-
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -54,6 +52,7 @@ public class Driver extends AppCompatActivity {
                 db.signUpToDatabase(st_name, st_lastname, st_email, st_password, st_dob, in_badgeID, tagNumber, path);
                 Toast.makeText(Driver.this, "You have signed up successfully!", Toast.LENGTH_SHORT).show();
 
+                // Store session state
                 SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
                 SharedPreferences.Editor editor = sharedPreferences.edit();
                 editor.putBoolean("isLoggedIn", true);
@@ -66,5 +65,15 @@ public class Driver extends AppCompatActivity {
                 Toast.makeText(Driver.this, "Please ensure all fields are filled and the password is 8 or more characters long", Toast.LENGTH_SHORT).show();
             }
         });
+
+        // Check if the user is already logged in
+        SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
+        boolean isLoggedIn = sharedPreferences.getBoolean("isLoggedIn", false);
+        if (isLoggedIn) {
+            // User is already logged in, start the desired activity directly
+            Intent intent = new Intent(Driver.this, BusDriverActivity.class);
+            startActivity(intent);
+            finish(); // Optional: Finish the current activity to prevent going back to the registration page
+        }
     }
 }
