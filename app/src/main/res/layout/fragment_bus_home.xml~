@@ -38,7 +38,7 @@
         android:layout_height="48dp"
         android:background="@drawable/txtfield_background"
         android:ems="10"
-        android:hint="Q2"
+        android:hint="Oak to Gandhi"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

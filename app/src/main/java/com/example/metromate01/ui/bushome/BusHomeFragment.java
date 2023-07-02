@@ -5,7 +5,6 @@ import androidx.lifecycle.ViewModelProvider;
 
 import android.Manifest;
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -15,15 +14,18 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.TextView;
 
+import com.example.metromate01.Database;
 import com.example.metromate01.R;
-import com.example.metromate01.UserProfileCommuterActivity;
-import com.example.metromate01.UserProfileDriverActivity;
 import com.example.metromate01.databinding.FragmentBusHomeBinding;
 import com.example.metromate01.ui.bushome.BusHomeViewModel;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -47,12 +49,16 @@ import android.os.Bundle;
 import android.widget.Toast;
 public class BusHomeFragment extends Fragment {
 
-    private ImageButton profileImageButton;
     private FragmentBusHomeBinding binding;
     private DatabaseReference driverLocationRef;
     private String driverId;
     private boolean isTrackingEnabled;
     private static final int LOCATION_PERMISSION_REQUEST_CODE = 100;
+
+    private EditText bus_number, route, nextStop,timeEvent, eventType, delay;
+    private String uid;
+    private Button report;
+
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
@@ -65,15 +71,6 @@ public class BusHomeFragment extends Fragment {
         final TextView textView = binding.textBusHome;
         busHomeViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
 
-        profileImageButton = root.findViewById(R.id.profileImageButton2);
-        profileImageButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Open the user profile activity
-                Intent intent = new Intent(getActivity(), UserProfileDriverActivity.class);
-                startActivity(intent);
-            }
-        });
         // Generate a unique driver ID (can use UUID or any other method)
         driverId = generateDriverId();
 
@@ -92,6 +89,42 @@ public class BusHomeFragment extends Fragment {
                 // Stop updating the driver's location when tracking is disabled
                 stopUpdatingLocation();
             }
+
+            //Report submit function:
+            // get views into instances -->
+            bus_number = root.findViewById(R.id.editText);
+            route = root.findViewById(R.id.editTextTextPersonName5);
+            nextStop = root.findViewById(R.id.editTextTextPersonName7);
+            eventType = root.findViewById(R.id.eventType);
+            timeEvent = root.findViewById(R.id.editTextTime);
+            delay = root.findViewById(R.id.eventType2);
+            report = root.findViewById(R.id.button4);
+
+            report.setOnClickListener(rView -> {
+                //get the current user ID from the firebase database
+                FirebaseUser current = FirebaseAuth.getInstance().getCurrentUser();
+                if(current!=null){ uid = current.getUid();}
+
+                //get current input:
+                String sBus_number = bus_number.getText().toString();
+                String sRoute = route.getText().toString();
+                String sNextStop = nextStop.getText().toString();
+                String sTimeEvent = timeEvent.getText().toString();
+                String sEventType = eventType.getText().toString();
+                String sDelay = delay.getText().toString();
+
+                if(sBus_number.isEmpty()&& sRoute.isEmpty()&& sNextStop.isEmpty() &&sEventType.isEmpty()
+                        && sTimeEvent.isEmpty()&& sDelay.isEmpty())
+                {
+                    Toast.makeText(getContext(),"Please ensure all fields are filled and selected", Toast.LENGTH_SHORT).show();
+
+                }else{
+                    Database db = new Database();
+                    db.setPath("report");
+                    db.sendReport(uid, sBus_number, sRoute, sNextStop,
+                            sEventType, sTimeEvent, sDelay);
+                }
+            });
         });
 
         return root;

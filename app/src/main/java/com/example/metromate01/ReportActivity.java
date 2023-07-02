@@ -23,7 +23,7 @@ public class ReportActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_report);
 
-        firstName = findViewById(R.id.editTextText);
+      /*  firstName = findViewById(R.id.editTextText);
         lastName = findViewById(R.id.editTextText2);
         email = findViewById(R.id.editTextTextEmailAddress);
         schedule = findViewById(R.id.editTextText3);
@@ -55,6 +55,6 @@ public class ReportActivity extends AppCompatActivity {
             }else{
                 Toast.makeText(this,"Please ensure all fields are filled", Toast.LENGTH_SHORT).show();
             }
-        });
+        });*/
     }
 }
