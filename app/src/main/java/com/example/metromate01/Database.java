@@ -42,4 +42,22 @@ public class Database {
         //send data to path to add new user:
         newUser.setValue(userData);
     }
+
+    public void sendReport(String uid, String bus_number, String route,
+                           String nextStop, String eventType,
+                           String timeEvent, String delay) {
+        // set new report unique id
+        DatabaseReference newReport = refPath.push();
+        // send data to the db:
+        HashMap<String, Object> reportData = new HashMap<>();
+        reportData.put("uid", uid);
+        reportData.put("busNumber", bus_number);
+        reportData.put("route", route);
+        reportData.put("nextStop", nextStop);
+        reportData.put("eventType", eventType);
+        reportData.put("timeEvent", timeEvent);
+        reportData.put("delay", delay);
+
+        newReport.setValue(reportData);
+    }
 }
