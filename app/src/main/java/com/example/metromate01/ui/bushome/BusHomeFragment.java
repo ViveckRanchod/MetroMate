@@ -55,10 +55,9 @@ public class BusHomeFragment extends Fragment {
     private boolean isTrackingEnabled;
     private static final int LOCATION_PERMISSION_REQUEST_CODE = 100;
 
-    EditText bus_number, route, nextStop,timeEvent;
-    Spinner eventType, delay;
-    String uid;
-    Button report;
+    private EditText bus_number, route, nextStop,timeEvent, eventType, delay;
+    private String uid;
+    private Button report;
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
@@ -111,8 +110,8 @@ public class BusHomeFragment extends Fragment {
                 String sRoute = route.getText().toString();
                 String sNextStop = nextStop.getText().toString();
                 String sTimeEvent = timeEvent.getText().toString();
-                String sEventType = eventType.getSelectedItem().toString();
-                String sDelay = delay.getSelectedItem().toString();
+                String sEventType = eventType.getText().toString();
+                String sDelay = delay.getText().toString();
 
                 if(sBus_number.isEmpty()&& sRoute.isEmpty()&& sNextStop.isEmpty() &&sEventType.isEmpty()
                         && sTimeEvent.isEmpty()&& sDelay.isEmpty())
