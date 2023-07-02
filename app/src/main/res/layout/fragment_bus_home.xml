@@ -126,11 +126,12 @@
         app:layout_constraintHorizontal_bias="0.098"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <Spinner
+    <EditText
         android:id="@+id/eventType"
         android:layout_width="333dp"
         android:layout_height="48dp"
-        android:backgroundTint="#000000"
+        android:background="@drawable/txtfield_background"
+        android:backgroundTint="#1B000000"
         android:contentDescription="@string/eventType"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -153,11 +154,12 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.645" />
 
-    <Spinner
+    <EditText
         android:id="@+id/eventType2"
         android:layout_width="160dp"
         android:layout_height="48dp"
-        android:backgroundTint="#000000"
+        android:background="@drawable/txtfield_background"
+        android:backgroundTint="#25000000"
         android:contentDescription="@string/estimatedDelay"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
