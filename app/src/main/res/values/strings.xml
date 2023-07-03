@@ -104,6 +104,7 @@
     <string name="title_dashboard">Schedules</string>
     <string name="title_maps">Maps and Routes</string>
     <string name="title_mytag">myTag</string>
+    <string name="_08_00">08:00</string>
 
 
 </resources>
