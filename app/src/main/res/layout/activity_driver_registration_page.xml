@@ -139,7 +139,7 @@
         android:autofillHints="@string/_1999_05_11"
         android:background="@drawable/txtfield_background"
         android:ems="10"
-        android:hint="@string/date_of_brith"
+        android:hint="@string/date_of_birth"
         android:importantForAutofill="yes"
         android:inputType="date"
         app:layout_constraintBottom_toTopOf="@+id/btnSignUp"
@@ -155,7 +155,7 @@
         android:layout_height="wrap_content"
 
         android:layout_marginBottom="116dp"
-        android:text="@string/date_of_brith"
+        android:text="@string/date_of_birth"
         app:layout_constraintBottom_toTopOf="@+id/btnSignUp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.077"
