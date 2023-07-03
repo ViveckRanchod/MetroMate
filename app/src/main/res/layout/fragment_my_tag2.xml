@@ -101,13 +101,13 @@
         app:layout_constraintHorizontal_bias="0.62"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_mytag"
-        app:layout_constraintVertical_bias="0.96" />
+        app:layout_constraintVertical_bias="0.897" />
 
     <TextView
         android:id="@+id/textView18"
         android:layout_width="78dp"
         android:layout_height="26dp"
-        android:layout_marginTop="116dp"
+        android:layout_marginTop="108dp"
         android:hint="@string/tag_zone"
 
         android:lineSpacingExtra="16sp"
@@ -119,8 +119,8 @@
 
     <TextView
         android:id="@+id/textView19"
-        android:layout_width="98dp"
-        android:layout_height="27dp"
+        android:layout_width="102dp"
+        android:layout_height="24dp"
         android:hint="@string/tag_number"
         android:textSize="16sp"
         android:textStyle="bold"
@@ -140,10 +140,10 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/editTextTextMultiLine2"
         app:layout_constraintEnd_toEndOf="@+id/editTextTextMultiLine2"
-        app:layout_constraintHorizontal_bias="0.157"
+        app:layout_constraintHorizontal_bias="0.064"
         app:layout_constraintStart_toStartOf="@+id/editTextTextMultiLine2"
         app:layout_constraintTop_toTopOf="@+id/editTextTextMultiLine2"
-        app:layout_constraintVertical_bias="0.781" />
+        app:layout_constraintVertical_bias="0.578" />
 
     <TextView
         android:id="@+id/textView16"
@@ -154,9 +154,9 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.263"
+        app:layout_constraintHorizontal_bias="0.223"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_mytag"
-        app:layout_constraintVertical_bias="0.492" />
+        app:layout_constraintVertical_bias="0.503" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
