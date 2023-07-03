@@ -1,5 +1,6 @@
 package com.example.metromate01.ui.home;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -8,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -24,7 +26,6 @@ import com.example.metromate01.UserProfileCommuterActivity;
 import com.example.metromate01.databinding.FragmentHomeBinding;
 import com.example.metromate01.trips;
 import com.example.metromate01.tripsAdapter;
-//import com.example.metromate01.ui.UserProfileCommuterActivity;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -39,17 +40,17 @@ import java.util.ArrayList;
 public class HomeFragment extends Fragment {
 
     private FragmentHomeBinding binding;
-
-    RecyclerView recyclerView;
-    DatabaseReference database;
-    tripsAdapter tripAdapter;
-    ArrayList<trips> list;
-    Spinner spinner1, spinner2;
-    EditText time;
-    Button search;
-    Button profileImageButton; // Added from your class
+    private ImageButton profileImageButton;
+    private RecyclerView recyclerView;
+    private DatabaseReference database;
+    private tripsAdapter tripAdapter;
+    private ArrayList<trips> list;
+    private Spinner spinner1, spinner2;
+    private EditText time;
+    private Button search;
 
     @RequiresApi(api = Build.VERSION_CODES.O)
+    @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         HomeViewModel homeViewModel = new ViewModelProvider(this).get(HomeViewModel.class);
 
@@ -59,14 +60,20 @@ public class HomeFragment extends Fragment {
         final TextView textView = binding.textHome;
         homeViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
 
+        profileImageButton = root.findViewById(R.id.profileImageButton);
+        profileImageButton.setOnClickListener(v -> {
+            // Open the user profile activity
+            Intent intent = new Intent(getActivity(), UserProfileCommuterActivity.class);
+            startActivity(intent);
+        });
+
         recyclerView = root.findViewById(R.id.tripsList);
         database = FirebaseDatabase.getInstance().getReference("trips");
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
 
         list = new ArrayList<>();
-        ArrayList<trips> filteredList;
-        filteredList = new ArrayList<>();
+        ArrayList<trips> filteredList = new ArrayList<>();
         tripAdapter = new tripsAdapter(requireContext(), list);
         recyclerView.setAdapter(tripAdapter);
 
@@ -74,10 +81,9 @@ public class HomeFragment extends Fragment {
         spinner1 = root.findViewById(R.id.spinner);
         spinner2 = root.findViewById(R.id.spinner2);
         search = root.findViewById(R.id.button);
-        profileImageButton = root.findViewById(R.id.imageButton6); // Added from your class
 
         database.addValueEventListener(new ValueEventListener() {
-            @RequiresApi(api = Build.VERSION_CODES.O)
+            @SuppressLint("NotifyDataSetChanged")
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 list.clear();
@@ -91,15 +97,6 @@ public class HomeFragment extends Fragment {
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
                 // Handle database cancellation error if needed
-            }
-        });
-
-        profileImageButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Open the user profile activity
-                Intent intent = new Intent(getActivity(), UserProfileCommuterActivity.class);
-                startActivity(intent);
             }
         });
 

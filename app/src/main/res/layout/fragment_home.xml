@@ -42,7 +42,7 @@
         tools:ignore="HardcodedText" />
 
     <ImageButton
-        android:id="@+id/imageButton6"
+        android:id="@+id/profileImageButton"
         android:layout_width="78dp"
         android:layout_height="72dp"
         android:layout_marginEnd="5dp"

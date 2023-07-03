@@ -1,9 +1,12 @@
-
 package com.example.metromate01;
 
 // trip information model for the card
 public class trips {
     String arrivalTime, departureTime, cashPrice, tagPrice, busNo, departureStop, arrivalStop;
+
+    public trips() {
+        // Default no-argument constructor required for Firebase serialization/deserialization.
+    }
 
     public trips(String arrivalTime, String departureTime, String cashPrice, String tagPrice, String busNo, String departureStop, String arrivalStop) {
         this.arrivalTime = arrivalTime;
@@ -47,4 +50,3 @@ public class trips {
         this.departureTime = formattedDepartureTime;
     }
 }
-
