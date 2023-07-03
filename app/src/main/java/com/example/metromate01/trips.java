@@ -1,5 +1,5 @@
-package com.example.metromate01;
 
+package com.example.metromate01;
 
 // trip information model for the card
 public class trips {
