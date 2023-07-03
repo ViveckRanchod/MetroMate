@@ -103,7 +103,8 @@ public class BusHomeFragment extends Fragment {
             report.setOnClickListener(rView -> {
                 //get the current user ID from the firebase database
                 FirebaseUser current = FirebaseAuth.getInstance().getCurrentUser();
-                if(current!=null){ uid = current.getUid();}
+                if(current!=null){
+                    String uid = current.getUid();
 
                 //get current input:
                 String sBus_number = bus_number.getText().toString();
@@ -123,6 +124,7 @@ public class BusHomeFragment extends Fragment {
                     db.setPath("report");
                     db.sendReport(uid, sBus_number, sRoute, sNextStop,
                             sEventType, sTimeEvent, sDelay);
+                }
                 }
             });
         });
