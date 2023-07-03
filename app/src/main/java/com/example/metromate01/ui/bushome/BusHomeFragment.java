@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import android.Manifest;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -16,12 +17,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.TextView;
 
 import com.example.metromate01.Database;
 import com.example.metromate01.R;
+import com.example.metromate01.UserProfileCommuterActivity;
+import com.example.metromate01.UserProfileDriverActivity;
 import com.example.metromate01.databinding.FragmentBusHomeBinding;
 import com.example.metromate01.ui.bushome.BusHomeViewModel;
 import com.google.firebase.auth.FirebaseAuth;
@@ -48,6 +52,8 @@ import android.location.LocationManager;
 import android.os.Bundle;
 import android.widget.Toast;
 public class BusHomeFragment extends Fragment {
+
+    private ImageButton profileImageButton;
 
     private FragmentBusHomeBinding binding;
     private DatabaseReference driverLocationRef;
@@ -103,7 +109,8 @@ public class BusHomeFragment extends Fragment {
             report.setOnClickListener(rView -> {
                 //get the current user ID from the firebase database
                 FirebaseUser current = FirebaseAuth.getInstance().getCurrentUser();
-                if(current!=null){ uid = current.getUid();}
+                if(current!=null){
+                    String uid = current.getUid();
 
                 //get current input:
                 String sBus_number = bus_number.getText().toString();
@@ -124,9 +131,19 @@ public class BusHomeFragment extends Fragment {
                     db.sendReport(uid, sBus_number, sRoute, sNextStop,
                             sEventType, sTimeEvent, sDelay);
                 }
+                }
             });
         });
 
+        profileImageButton = root.findViewById(R.id.profileImageButton2);
+        profileImageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Open the user profile activity
+                Intent intent = new Intent(getActivity(), UserProfileDriverActivity.class);
+                startActivity(intent);
+            }
+        });
         return root;
     }
 

@@ -67,5 +67,12 @@
             android:exported="true">
             <!-- Remove the LAUNCHER category -->
         </activity>
+
+        <activity
+            android:name=".UserProfileDriverActivity"
+            android:exported="true">
+            <!-- Remove the LAUNCHER category -->
+        </activity>
+
     </application>
 </manifest>
