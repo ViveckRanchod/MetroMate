@@ -70,11 +70,11 @@ public class HomeFragment extends Fragment {
         tripAdapter = new tripsAdapter(requireContext(), list);
         recyclerView.setAdapter(tripAdapter);
 
-        time = root.findViewById(R.id.editTextTime2);
+        time = root.findViewById(R.id.editTextDepartureTime);
         spinner1 = root.findViewById(R.id.spinner);
         spinner2 = root.findViewById(R.id.spinner2);
         search = root.findViewById(R.id.button);
-        profileImageButton = root.findViewById(R.id.profileImageButton); // Added from your class
+        profileImageButton = root.findViewById(R.id.imageButton6); // Added from your class
 
         database.addValueEventListener(new ValueEventListener() {
             @RequiresApi(api = Build.VERSION_CODES.O)

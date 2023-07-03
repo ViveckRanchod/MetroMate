@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#242433"
-
     android:visibility="visible"
     tools:context=".ui.home.HomeFragment">
 
@@ -35,7 +34,7 @@
         android:scaleType="centerInside"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/imageView"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
@@ -43,19 +42,18 @@
         tools:ignore="HardcodedText" />
 
     <ImageButton
-        android:id="@+id/profileImageButton"
+        android:id="@+id/imageButton6"
         android:layout_width="78dp"
         android:layout_height="72dp"
         android:layout_marginEnd="5dp"
         android:backgroundTint="#242433"
         android:contentDescription="view user profile"
-        android:contextClickable="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/imageView"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.001"
+        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/user_icon"
         tools:ignore="HardcodedText" />
 
@@ -185,7 +183,6 @@
         android:text="View Stops"
         android:textAlignment="viewStart"
         android:textAllCaps="false"
-        android:textColor="#FFFFFF"
         android:textSize="12sp"
         android:textStyle="normal"
         app:icon="@drawable/information__1_"
@@ -226,11 +223,11 @@
         app:layout_constraintVertical_bias="0.479" />
 
     <EditText
-        android:id="@+id/editTextTime2"
+        android:id="@+id/editTextDepartureTime"
         android:layout_width="114dp"
         android:layout_height="51dp"
         android:ems="10"
-        android:hint="@string/_08_00am_a"
+        android:hint="@string/_08_00"
         android:inputType="time"
         app:layout_constraintBottom_toBottomOf="@+id/imageView11"
         app:layout_constraintEnd_toEndOf="@+id/imageView11"
@@ -244,9 +241,7 @@
         android:layout_width="105dp"
         android:layout_height="52dp"
         android:layout_marginTop="8dp"
-        android:backgroundTint="#1C1C25"
         android:text="Search"
-        android:textColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="@+id/imageView11"
         app:layout_constraintHorizontal_bias="0.941"
         app:layout_constraintStart_toStartOf="@+id/imageView11"
@@ -286,5 +281,17 @@
         app:layout_constraintTop_toBottomOf="@+id/spinner"
         app:layout_constraintVertical_bias="1.0"
         tools:visibility="visible" />
+
+    <include
+        layout="@layout/trip_list"
+        android:layout_width="404dp"
+        android:layout_height="322dp"
+        android:layout_marginTop="36dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView11"
+        tools:context=".tripsList" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
