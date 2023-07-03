@@ -2,7 +2,7 @@
 <resources>
     <string-array name="areas_array">
         <item>Gandhi</item>
-        <item>Bedfordview</item>
+        <item>Eduvos Bedfordview</item>
         <item>Oakdene</item>
     </string-array>
 </resources>
