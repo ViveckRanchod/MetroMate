@@ -10,23 +10,6 @@
     tools:context=".ui.schedules.SchedulesFragment"
     tools:visibility="visible">
 
-    <TextView
-        android:id="@+id/text_dashboard"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:text="@string/title_dashboard"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="249dp"
@@ -56,6 +39,18 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView2"
         app:layout_constraintVertical_bias="0.0"
         tools:ignore="HardcodedText" />
+
+    <ImageView
+        andriod:id="@+id/schedule_img"
+        andriod:layout_width="wrap_content"
+        android:layout_width="352dp"
+        andriod:layout_height="wrap_content"
+        android:layout_height="361dp"
+        andriod:src="@drawable/bus"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <!--    <include layout="@layout/layout_bottom_navigation" />-->
 
