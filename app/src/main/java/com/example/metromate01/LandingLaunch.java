@@ -3,9 +3,7 @@ package com.example.metromate01;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,10 +19,10 @@ public class LandingLaunch extends AppCompatActivity {
 
         SharedPreferences sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
         boolean isLoggedIn = sharedPreferences.getBoolean("isLoggedIn", false);
+        boolean isDriver = sharedPreferences.getBoolean("isDriver", false);
 
         if (isLoggedIn) {
             // User is already logged in
-            boolean isDriver = sharedPreferences.getBoolean("isDriver", false);
             if (isDriver) {
                 // Start the BusDriverActivity
                 Intent intent = new Intent(LandingLaunch.this, BusDriverActivity.class);
@@ -40,7 +38,7 @@ public class LandingLaunch extends AppCompatActivity {
             setContentView(R.layout.landing_page);
 
             // Find the commuter button and set its OnClickListener
-            Button commuterButton = findViewById(R.id.commuter_button);
+            commuterButton = findViewById(R.id.commuter_button);
             commuterButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -51,7 +49,7 @@ public class LandingLaunch extends AppCompatActivity {
             });
 
             // Find the driver button and set its OnClickListener
-            Button driverButton = findViewById(R.id.driver_button);
+            driverButton = findViewById(R.id.driver_button);
             driverButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -63,8 +61,3 @@ public class LandingLaunch extends AppCompatActivity {
         }
     }
 }
-
-
-
-
-
