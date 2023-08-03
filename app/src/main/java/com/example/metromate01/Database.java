@@ -4,7 +4,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import java.util.HashMap;
 
-public class Database {
+public class  Database {
     //reference database:
     FirebaseDatabase metromDB; // our db
     DatabaseReference refPath; // our path/branch
