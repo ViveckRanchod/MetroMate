@@ -26,8 +26,8 @@ public class SchedulesFragment extends Fragment implements AdapterView.OnItemSel
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        SchedulesViewModel schedulesViewModel =
-                new ViewModelProvider(this).get(SchedulesViewModel.class);
+        /*SchedulesViewModel schedulesViewModel =
+                new ViewModelProvider(this).get(SchedulesViewModel.class);*/
 
         binding = FragmentActivitySchedulePageBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
