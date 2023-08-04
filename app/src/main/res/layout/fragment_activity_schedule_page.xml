@@ -1,39 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:andriod="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#F6F6F6"
-    android:visibility="visible"
-    tools:context=".ui.schedules.SchedulesFragment"
-    tools:visibility="visible">
-
-    <TextView
-        android:id="@+id/text_dashboard"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:text="@string/title_dashboard"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    android:layout_height="match_parent">
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="249dp"
-        android:layout_height="49dp"
-        android:layout_marginTop="16dp"
-        andriod:contentDescription="@string/metromate_logo"
-        android:visibility="visible"
+        android:layout_width="345dp"
+        android:layout_height="78dp"
+        android:layout_marginTop="36dp"
+        android:contentDescription="@string/metromate_logo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -41,22 +18,29 @@
 
     <Spinner
         android:id="@+id/schedule_droplist"
-        android:layout_width="385dp"
-        android:layout_height="67dp"
-        android:layout_marginTop="16dp"
-        andriod:background="@drawable/spinner_border"
+        android:layout_width="393dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="28dp"
+        android:background="@drawable/custom_edit_text_border"
         android:backgroundTint="#C0C0C0"
-        android:entries="@array/areas_array"
-        android:prompt="@string/spinner_prompt"
-        andriod:spinnerMode="dropdown"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:prompt="@string/scheduleSelect"
+        android:spinnerMode="dropdown"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2"
-        app:layout_constraintVertical_bias="0.0"
         tools:ignore="HardcodedText" />
 
-    <!--    <include layout="@layout/layout_bottom_navigation" />-->
+    <ImageView
+        android:id="@+id/schedule_img"
+        android:layout_width="318dp"
+        android:layout_height="315dp"
+        android:layout_marginTop="56dp"
+        android:background="@drawable/custom_edit_text_border"
+        android:contentDescription="@string/bus_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/schedule_droplist"
+        app:srcCompat="@drawable/bus_background" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
