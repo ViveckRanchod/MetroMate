@@ -106,6 +106,7 @@ public class HomeFragment extends Fragment {
                 String spinner2Selection = spinner2.getSelectedItem().toString();
                 String depTime = time.getText().toString();
 
+                //if all selections are made and inputs entered:
                 if (!spinner1Selection.isEmpty() && !spinner2Selection.isEmpty() && !depTime.isEmpty() && !spinner1Selection.equals(spinner2Selection)) {
                     filteredList.clear();
                     for (trips trip : list) {
@@ -113,9 +114,9 @@ public class HomeFragment extends Fragment {
                             filteredList.add(trip);
                         }
                     }
-
+                    //check array state:
                     if (filteredList.isEmpty()) {
-                        Toast.makeText(getContext(), "No available buses for those routes.", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getContext(), "No available buses for this time.", Toast.LENGTH_SHORT).show();
                     } else {
                         ArrayList<trips> tripTimes = new ArrayList<>();
                         boolean isInputTimeFound = false;
@@ -151,7 +152,7 @@ public class HomeFragment extends Fragment {
                                     closestTrips.add(trip);
                                 }
                             }
-
+                            //id the closest times are found execute the following:
                             if (!closestTrips.isEmpty()) {
                                 ArrayList<trips> tripTimesFormatted = new ArrayList<>();
                                 for (trips getStr : closestTrips) {
@@ -161,15 +162,15 @@ public class HomeFragment extends Fragment {
                                 }
                                 tripAdapter.update(tripTimesFormatted);
                             } else {
-                                Toast.makeText(getContext(), "No available buses for those routes.", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getContext(), "No available buses for this time.", Toast.LENGTH_SHORT).show();
                             }
                         }
                     }
                 } else {
-                    Toast.makeText(getContext(), "Please ensure the departure and arrival stop are selected, and a departure time is filled.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), "Please ensure the departure and arrival stops are selected, and a departure time is entered.", Toast.LENGTH_SHORT).show();
                 }
             } catch (Exception e) {
-                Toast.makeText(getContext(), "An error occurred: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "ERROR: " + e.getMessage(), Toast.LENGTH_SHORT).show();
                 e.printStackTrace();
             }
         });
