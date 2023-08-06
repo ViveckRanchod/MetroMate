@@ -19,8 +19,8 @@ import com.example.metromate01.databinding.FragmentBusSchedulesBinding;
 public class BusSchedulesFragment extends Fragment implements AdapterView.OnItemSelectedListener {
 
     private FragmentBusSchedulesBinding binding;
-    Spinner schedule_droplist;
-    ImageView schedule_img;
+    Spinner scheduleDroplist;
+    ImageView scheduleImg;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -29,30 +29,30 @@ public class BusSchedulesFragment extends Fragment implements AdapterView.OnItem
         binding = FragmentBusSchedulesBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        schedule_droplist = root.findViewById(R.id.schedule_droplist);
+        scheduleDroplist = root.findViewById(R.id.scheduleDroplist);
         ArrayAdapter<CharSequence> adaptArr = ArrayAdapter.createFromResource(requireContext(), R.array.areas_array, android.R.layout.simple_spinner_item);
         adaptArr.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        schedule_droplist.setAdapter(adaptArr);
-        schedule_droplist.setSelection(0); //set default display
-        schedule_droplist.setOnItemSelectedListener(this);
+        scheduleDroplist.setAdapter(adaptArr);
+        scheduleDroplist.setSelection(0); //set default display
+        scheduleDroplist.setOnItemSelectedListener(this);
 
-        schedule_img = root.findViewById(R.id.schedule_img);
+        scheduleImg = root.findViewById(R.id.schedule_img);
 
         return root;
     }
 
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-        int schedule_selected_id = schedule_droplist.getSelectedItemPosition();
+        int schedule_selected_id = scheduleDroplist.getSelectedItemPosition();
         switch (schedule_selected_id) {
             case 0:
-                schedule_img.setImageResource(R.drawable.bus_background);
+                scheduleImg.setImageResource(R.drawable.bus_background);
                 break;
             case 1:
-                schedule_img.setImageResource(R.drawable.oakdene_schedule);
+                scheduleImg.setImageResource(R.drawable.oakdene_schedule);
                 break;
             case 2:
-                schedule_img.setImageResource(R.drawable.bedford_schedule);
+                scheduleImg.setImageResource(R.drawable.bedford_schedule);
                 break;
             default:
                 Toast.makeText(requireContext(), "ERROR: unable to display schedule", Toast.LENGTH_SHORT).show();
@@ -61,7 +61,7 @@ public class BusSchedulesFragment extends Fragment implements AdapterView.OnItem
 
     @Override
     public void onNothingSelected(AdapterView<?> adapterView) {
-        schedule_img.setImageResource(R.drawable.bus_background);
+        scheduleImg.setImageResource(R.drawable.bus_background);
     }
 
     @Override
