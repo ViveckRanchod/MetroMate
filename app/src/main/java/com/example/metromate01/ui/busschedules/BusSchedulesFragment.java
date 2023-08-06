@@ -29,6 +29,8 @@ public class BusSchedulesFragment extends Fragment implements AdapterView.OnItem
         binding = FragmentBusSchedulesBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
+
+
         scheduleDroplist = root.findViewById(R.id.scheduleDroplist);
         ArrayAdapter<CharSequence> adaptArr = ArrayAdapter.createFromResource(requireContext(), R.array.areas_array, android.R.layout.simple_spinner_item);
         adaptArr.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -36,7 +38,7 @@ public class BusSchedulesFragment extends Fragment implements AdapterView.OnItem
         scheduleDroplist.setSelection(0); //set default display
         scheduleDroplist.setOnItemSelectedListener(this);
 
-        scheduleImg = root.findViewById(R.id.schedule_img);
+        scheduleImg = root.findViewById(R.id.scheduleImg);
 
         return root;
     }
