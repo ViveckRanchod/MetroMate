@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/imageLogo"
+        android:layout_width="345dp"
+        android:layout_height="78dp"
+        android:layout_marginTop="36dp"
+        android:contentDescription="@string/metromate_logo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo_light_cropped" />
+
+    <Spinner
+        android:id="@+id/scheduleDroplist"
+        android:layout_width="393dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="28dp"
+        android:background="@drawable/custom_edit_text_border"
+        android:backgroundTint="#C0C0C0"
+        android:prompt="@string/scheduleSelect"
+        android:spinnerMode="dropdown"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageLogo"
+        tools:ignore="HardcodedText" />
+
+    <ImageView
+        android:id="@+id/scheduleImg"
+        android:layout_width="318dp"
+        android:layout_height="315dp"
+        android:layout_marginTop="56dp"
+        android:background="@drawable/custom_edit_text_border"
+        android:contentDescription="@string/bus_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scheduleDroplist"
+        app:srcCompat="@drawable/bus_background" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
