@@ -62,6 +62,14 @@
             <!-- Remove the LAUNCHER category -->
         </activity>
 
+        <!-- this is missing should I add it or remove it ?
+        <activity
+            android:name=".UserProfileDriverActivity"
+            android:exported="true">
+
+            Remove the LAUNCHER category
+        </activity> -->
+
         <activity
             android:name=".UserProfileCommuterActivity"
             android:exported="true">
