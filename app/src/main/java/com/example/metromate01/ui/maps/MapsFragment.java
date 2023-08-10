@@ -20,6 +20,7 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptor;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
@@ -138,10 +139,9 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback {
                     double trackinglongitude = stopSnapshot.child("longitude").getValue(Double.class);
 
                     busTrackings.add(new busTracking(title, new LatLng(trackinglatitude, trackinglongitude)));
-
                     MarkerOptions markerOptions = new MarkerOptions()
                             .position(new LatLng(trackinglatitude, trackinglongitude))
-                            .icon(BitmapDescriptorFactory.fromResource(R.drawable.bus_tracker_icon_foreground));
+                            .icon(BitmapDescriptorFactory.fromResource(R.drawable.tracker_icon_foreground));
                     myMap.addMarker(markerOptions);
                 }
 
@@ -208,7 +208,7 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback {
                 for (busTracking Bustracking : busTrackings) {
                     MarkerOptions markerOptions = new MarkerOptions()
                             .position(Bustracking.getBusLocation())
-                            .icon(BitmapDescriptorFactory.fromResource(R.drawable.bus_tracker_icon_foreground));
+                            .icon(BitmapDescriptorFactory.fromResource(R.drawable.tracker_icon_foreground));
                     myMap.addMarker(markerOptions);
                 }
 
