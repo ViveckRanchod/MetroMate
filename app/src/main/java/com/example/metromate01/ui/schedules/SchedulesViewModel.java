@@ -8,6 +8,8 @@ public class SchedulesViewModel extends ViewModel {
 
     private final MutableLiveData<String> mText;
 
+
+
     public SchedulesViewModel() {
         mText = new MutableLiveData<>();
         mText.setValue("This is dashboard fragment");

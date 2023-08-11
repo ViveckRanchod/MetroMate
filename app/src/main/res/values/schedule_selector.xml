@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="areas_array">
-        <item>Gandhi</item>
+        <item>Select a schedule</item>
         <item>Eduvos Bedfordview</item>
         <item>Oakdene</item>
     </string-array>
