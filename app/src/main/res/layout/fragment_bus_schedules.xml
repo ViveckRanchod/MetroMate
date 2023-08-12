@@ -19,7 +19,7 @@
 
     <Spinner
         android:id="@+id/scheduleDroplist"
-        android:layout_width="350dp"
+        android:layout_width="332dp"
         android:layout_height="52dp"
         android:layout_marginTop="28dp"
         android:background="@drawable/custom_edit_text_border"
