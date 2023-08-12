@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:backgroundTint="#F5F5F5">
 
     <ImageView
         android:id="@+id/imageLogo"
@@ -18,8 +19,8 @@
 
     <Spinner
         android:id="@+id/scheduleDroplist"
-        android:layout_width="393dp"
-        android:layout_height="49dp"
+        android:layout_width="350dp"
+        android:layout_height="52dp"
         android:layout_marginTop="28dp"
         android:background="@drawable/custom_edit_text_border"
         android:backgroundTint="#C0C0C0"
